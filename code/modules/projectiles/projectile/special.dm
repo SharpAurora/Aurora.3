@@ -325,7 +325,7 @@
 		for(var/i = 0 to 4)
 			T = get_step(T, reverse_dir[victim.dir])
 		sound_to(victim, 'sound/voice/psiscreech.ogg')
-		victim.visible_message("<span class='danger'><font size=4>A ball of pure energy explodes with an ear-deafening scream!</span></span>")
+		victim.visible_message("<span class='danger'><font size=4>A ball of pure energy explodes with an ear-deafening scream!</font></span>")
 		victim.seizure()
 		for(var/mob/living/carbon/human/H in oview(8, victim))
 			sound_to(H, 'sound/voice/psiscreech.ogg')
