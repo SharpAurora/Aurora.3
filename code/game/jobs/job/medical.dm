@@ -1,5 +1,5 @@
 /datum/job/cmo
-	title = "Chief Medical Officer"
+	title = "Clinic Doctor"
 	flag = CMO
 	head_position = 1
 	department = "Medical"
@@ -7,7 +7,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the captain"
+	supervisors = "the oath"
 	selection_color = "#FF56B4"
 	economic_modifier = 10
 
@@ -26,10 +26,10 @@
 	ideal_character_age = 50
 	outfit = /datum/outfit/job/cmo
 
-	blacklisted_species = list("M'sai Tajara", "Zhan-Khazan Tajara", "Aut'akh Unathi", "Vaurca Worker", "Vaurca Warrior")
+	blacklisted_species = list("Aut'akh Unathi", "Vaurca Worker", "Vaurca Warrior")
 
 /datum/outfit/job/cmo
-	name = "Chief Medical Officer"
+	name = "Clinic Doctor"
 	jobtype = /datum/job/cmo
 
 	uniform = /obj/item/clothing/under/rank/chief_medical_officer
@@ -47,12 +47,12 @@
 	messengerbag = /obj/item/storage/backpack/messenger/med
 
 /datum/job/doctor
-	title = "Medical Doctor"
+	title = "Medical Staff"
 	flag = DOCTOR
 	department = "Medical"
 	department_flag = MEDSCI
 	faction = "Station"
-	total_positions = 5
+	total_positions = 2
 	spawn_positions = 3
 	supervisors = "the chief medical officer"
 	selection_color = "#FF97D1"
@@ -62,18 +62,11 @@
 
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_eva)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_genetics, access_eva)
-	alt_titles = list("Surgeon","Trauma Physician","Nurse")
-	alt_ages = list("Nurse" = 25)
 	outfit = /datum/outfit/job/doctor
-	alt_outfits = list(
-		"Trauma Physician"=/datum/outfit/job/doctor/trauma_physician,
-		"Surgeon"=/datum/outfit/job/doctor/surgeon,
-		"Nurse"=/datum/outfit/job/doctor/nurse
-		)
 
 /datum/outfit/job/doctor
-	name = "Medical Doctor"
-	base_name = "Medical Doctor"
+	name = "Medical Staff"
+	base_name = "Medical Staff"
 	jobtype = /datum/job/doctor
 
 	uniform = /obj/item/clothing/under/rank/medical
@@ -123,7 +116,7 @@
 	department = "Medical"
 	department_flag = MEDSCI
 	faction = "Station"
-	total_positions = 2
+	total_positions = 0
 	spawn_positions = 2
 	supervisors = "the chief medical officer"
 	selection_color = "#FF97D1"
@@ -213,7 +206,7 @@
 	department = "Medical"
 	department_flag = MEDSCI
 	faction = "Station"
-	total_positions = 2
+	total_positions = 0
 	spawn_positions = 2
 	supervisors = "the chief medical officer"
 	selection_color = "#FF97D1"
@@ -262,7 +255,7 @@
 	flag = INTERN_MED
 	department_flag = MEDSCI
 	faction = "Station"
-	total_positions = 2
+	total_positions = 0
 	spawn_positions = 2
 	supervisors = "the Chief Medical Officer"
 	selection_color = "#FF97D1"
