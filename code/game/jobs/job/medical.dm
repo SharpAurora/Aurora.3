@@ -1,5 +1,5 @@
 /datum/job/cmo
-	title = "Clinic Doctor"
+	title = "Head Doctor"
 	flag = CMO
 	head_position = 1
 	department = "Medical"
@@ -7,7 +7,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the oath"
+	supervisors = "no one, you own the clinic"
 	selection_color = "#FF56B4"
 	economic_modifier = 10
 
@@ -29,7 +29,7 @@
 	blacklisted_species = list("Aut'akh Unathi", "Vaurca Worker", "Vaurca Warrior")
 
 /datum/outfit/job/cmo
-	name = "Clinic Doctor"
+	name = "Head Doctor"
 	jobtype = /datum/job/cmo
 
 	uniform = /obj/item/clothing/under/rank/chief_medical_officer
@@ -46,14 +46,14 @@
 	messengerbag = /obj/item/storage/backpack/messenger/med
 
 /datum/job/doctor
-	title = "Medical Staff"
+	title = "Medical Doctor"
 	flag = DOCTOR
 	department = "Medical"
 	department_flag = MEDSCI
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 3
-	supervisors = "the chief medical officer"
+	supervisors = "the clinic doctor"
 	selection_color = "#FF97D1"
 	economic_modifier = 7
 
@@ -64,8 +64,8 @@
 	outfit = /datum/outfit/job/doctor
 
 /datum/outfit/job/doctor
-	name = "Medical Staff"
-	base_name = "Medical Staff"
+	name = "Medical Doctor"
+	base_name = "Medical Doctor"
 	jobtype = /datum/job/doctor
 
 	uniform = /obj/item/clothing/under/rank/medical
@@ -110,12 +110,12 @@
 
 
 /datum/job/pharmacist
-	title = "Pharmacist"
+	title = "Chemist"
 	flag = CHEMIST
 	department = "Medical"
 	department_flag = MEDSCI
 	faction = "Station"
-	total_positions = 0
+	total_positions = 1
 	spawn_positions = 2
 	supervisors = "the chief medical officer"
 	selection_color = "#FF97D1"
@@ -132,13 +132,12 @@
 		)
 
 /datum/outfit/job/pharmacist
-	name = "Pharmacist"
+	name = "Chemist"
 	jobtype = /datum/job/pharmacist
 
 	uniform = /obj/item/clothing/under/rank/pharmacist
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/pharmacist
 	shoes = /obj/item/clothing/shoes/chemist
-	l_ear = /obj/item/device/radio/headset/headset_med
 	pda =  /obj/item/device/pda/chemist
 	id = /obj/item/card/id/white
 
