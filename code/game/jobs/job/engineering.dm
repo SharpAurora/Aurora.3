@@ -1,5 +1,5 @@
 /datum/job/chief_engineer
-	title = "Chief Engineer"
+	title = "Engineering Foreman"
 	flag = CHIEF
 	head_position = 1
 	department = "Engineering"
@@ -7,7 +7,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the captain"
+	supervisors = "your pockets"
 	selection_color = "#FFD737"
 	economic_modifier = 10
 
@@ -27,10 +27,10 @@
 	minimal_player_age = 7
 	outfit = /datum/outfit/job/chief_engineer
 
-	blacklisted_species = list("Off-Worlder Human", "M'sai Tajara", "Zhan-Khazan Tajara", "Aut'akh Unathi", "Vaurca Worker", "Vaurca Warrior")
+	blacklisted_species = list("Aut'akh Unathi", "Vaurca Worker", "Vaurca Warrior")
 
 /datum/outfit/job/chief_engineer
-	name = "Chief Engineer"
+	name = "Engineering Foreman"
 	jobtype = /datum/job/chief_engineer
 
 	uniform = /obj/item/clothing/under/rank/chief_engineer
@@ -39,7 +39,6 @@
 	pda = /obj/item/device/pda/heads/ce
 	id = /obj/item/card/id/navy
 	shoes = /obj/item/clothing/shoes/workboots
-	l_ear = /obj/item/device/radio/headset/heads/ce
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel_eng
@@ -66,12 +65,12 @@
 		H.equip_to_slot_or_del(new /obj/item/clothing/gloves/black(H), slot_gloves)
 
 /datum/job/engineer
-	title = "Station Engineer"
+	title = "Engineer"
 	flag = ENGINEER
 	department = "Engineering"
 	department_flag = ENGSEC
 	faction = "Station"
-	total_positions = 5
+	total_positions = 3
 	spawn_positions = 5
 	supervisors = "the chief engineer"
 	selection_color = "#FFEA95"
@@ -94,7 +93,6 @@
 	pda = /obj/item/device/pda/engineering
 	id = /obj/item/card/id/silver
 	shoes = /obj/item/clothing/shoes/workboots
-	l_ear = /obj/item/device/radio/headset/headset_eng
 	r_pocket = /obj/item/device/t_scanner
 
 	backpack = /obj/item/storage/backpack/industrial
@@ -118,7 +116,7 @@
 	department = "Engineering"
 	department_flag = ENGSEC
 	faction = "Station"
-	total_positions = 3
+	total_positions = 0
 	spawn_positions = 2
 	supervisors = "the chief engineer"
 	selection_color = "#FFEA95"
@@ -161,7 +159,7 @@
 	flag = INTERN_ENG
 	department_flag = ENGSEC
 	faction = "Station"
-	total_positions = 2
+	total_positions = 0
 	spawn_positions = 2
 	supervisors = "the Chief Engineer"
 	selection_color = "#FFEA95"

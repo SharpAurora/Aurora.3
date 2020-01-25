@@ -1,30 +1,28 @@
 //Food
 /datum/job/bartender
-	title = "Bartender"
+	title = "Server"
 	flag = BARTENDER
 	department = "Civilian"
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "the head of personnel"
+	supervisors = "the restaurant manager"
 	selection_color = "#C0C0C0"
 
 	minimum_character_age = 18
 
 	access = list(access_hydroponics, access_bar, access_kitchen)
 	minimal_access = list(access_bar)
-	alt_titles = list("Barista")
 	outfit = /datum/outfit/job/bartender
 
 /datum/outfit/job/bartender
-	name = "Bartender"
+	name = "Server"
 	jobtype = /datum/job/bartender
 
 	uniform = /obj/item/clothing/under/rank/bartender
 	pda = /obj/item/device/pda/bar
 	shoes = /obj/item/clothing/shoes/black
-	l_ear = /obj/item/device/radio/headset/headset_service
 
 
 /datum/job/chef
@@ -35,7 +33,7 @@
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 2
-	supervisors = "the head of personnel"
+	supervisors = "the restaurant manager"
 	selection_color = "#C0C0C0"
 
 	minimum_character_age = 18
@@ -54,21 +52,20 @@
 	head = /obj/item/clothing/head/chefhat
 	pda = /obj/item/device/pda/chef
 	shoes = /obj/item/clothing/shoes/black
-	l_ear = /obj/item/device/radio/headset/headset_service
 
 	backpack_contents = list(
 		/obj/item/storage/box/produce = 1
 	)
 
 /datum/job/hydro
-	title = "Gardener"
+	title = "Farmer"
 	flag = BOTANIST
 	department = "Civilian"
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 1
-	supervisors = "the head of personnel"
+	supervisors = "the farm"
 	selection_color = "#C0C0C0"
 
 	minimum_character_age = 18
@@ -86,7 +83,6 @@
 	suit = /obj/item/clothing/suit/apron
 	pda = /obj/item/device/pda/botanist
 	shoes = /obj/item/clothing/shoes/black
-	l_ear = /obj/item/device/radio/headset/headset_service
 	suit_store = /obj/item/device/analyzer/plant_analyzer
 
 	backpack = /obj/item/storage/backpack/hydroponics
@@ -105,7 +101,7 @@
 
 //Cargo
 /datum/job/qm
-	title = "Quartermaster"
+	title = "Supply Chief"
 	flag = QUARTERMASTER
 	head_position = 1
 	department = "Cargo"
@@ -113,7 +109,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the head of personnel"
+	supervisors = "the operations manager"
 	selection_color = "#C0C0C0"
 	economic_modifier = 5
 
@@ -127,26 +123,25 @@
 	outfit = /datum/outfit/job/qm
 
 /datum/outfit/job/qm
-	name = "Quartermaster"
+	name = "Supply Chief"
 	jobtype = /datum/job/qm
 
 	uniform = /obj/item/clothing/under/rank/cargo
 	pda = /obj/item/device/pda/quartermaster
 	shoes = /obj/item/clothing/shoes/brown
-	l_ear = /obj/item/device/radio/headset/qm
 	l_hand = /obj/item/clipboard
 	glasses = /obj/item/clothing/glasses/sunglasses
 
 
 /datum/job/cargo_tech
-	title = "Cargo Technician"
+	title = "Supply Worker"
 	flag = CARGOTECH
 	department = "Cargo"
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 4
 	spawn_positions = 4
-	supervisors = "the quartermaster and the head of personnel"
+	supervisors = "the operations manager and the supply manager"
 	selection_color = "#C0C0C0"
 
 	minimum_character_age = 18
@@ -156,14 +151,13 @@
 	outfit = /datum/outfit/job/cargo_tech
 
 /datum/outfit/job/cargo_tech
-	name = "Cargo Technician"
+	name = "Supply Worker"
 	jobtype = /datum/job/cargo_tech
 
 	uniform = /obj/item/clothing/under/rank/cargotech
 	pda = /obj/item/device/pda/cargo
 	id = /obj/item/card/id/silver
 	shoes = /obj/item/clothing/shoes/brown
-	l_ear = /obj/item/device/radio/headset/headset_cargo
 
 
 /datum/job/mining
@@ -173,7 +167,7 @@
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 4
-	spawn_positions = 4
+	spawn_positions = 0
 	supervisors = "the quartermaster and the head of personnel"
 	selection_color = "#C0C0C0"
 	economic_modifier = 5
@@ -192,7 +186,6 @@
 	pda = /obj/item/device/pda/shaftminer
 	id = /obj/item/card/id/silver
 	shoes = /obj/item/clothing/shoes/black
-	l_ear = /obj/item/device/radio/headset/headset_mining
 
 	backpack_contents = list(
 		/obj/item/crowbar = 1,
@@ -226,25 +219,22 @@
 	uniform = /obj/item/clothing/under/rank/janitor
 	pda = /obj/item/device/pda/janitor
 	shoes = /obj/item/clothing/shoes/black
-	l_ear = /obj/item/device/radio/headset/headset_service
 
 /datum/job/journalist
-	title = "Corporate Reporter"
+	title = "Reporter"
 	flag = JOURNALIST
 	department = "Civilian"
 	department_flag = CIVILIAN
 	faction = "Station"
-	total_positions = 1
+	total_positions = 0
 	spawn_positions = 1
-	supervisors = "the head of personnel"
+	supervisors = "the news outlet"
 	selection_color = "#C0C0C0"
 
 	minimum_character_age = 20
 
 	access = list(access_journalist, access_maint_tunnels)
 	minimal_access = list(access_journalist, access_maint_tunnels)
-	alt_titles = list("Freelance Journalist")
-	alt_outfits = list("Freelance Journalist" = /datum/outfit/job/journalistf)
 	title_accesses = list("Corporate Reporter" = list(access_medical, access_sec_doors, access_research, access_engine))
 	outfit = /datum/outfit/job/journalist
 
@@ -255,7 +245,6 @@
 	uniform = /obj/item/clothing/under/suit_jacket/red
 	pda = /obj/item/device/pda/librarian
 	shoes = /obj/item/clothing/shoes/black
-	l_ear = /obj/item/device/radio/headset/headset_service
 
 	backpack_contents = list(
 		/obj/item/clothing/accessory/badge/press = 1
@@ -280,7 +269,7 @@
 	department = "Civilian"
 	department_flag = CIVILIAN
 	faction = "Station"
-	total_positions = 1
+	total_positions = 0
 	spawn_positions = 1
 	supervisors = "the head of personnel"
 	selection_color = "#C0C0C0"
@@ -295,6 +284,5 @@
 	uniform = /obj/item/clothing/under/suit_jacket/red
 	pda = /obj/item/device/pda/librarian
 	shoes = /obj/item/clothing/shoes/black
-	l_ear = /obj/item/device/radio/headset/headset_service
 	r_pocket = /obj/item/barcodescanner
 	l_hand = /obj/item/storage/bag/books

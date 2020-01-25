@@ -1,5 +1,5 @@
 /datum/job/cmo
-	title = "Chief Medical Officer"
+	title = "Head Doctor"
 	flag = CMO
 	head_position = 1
 	department = "Medical"
@@ -7,7 +7,7 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "the captain"
+	supervisors = "no one, you own the clinic"
 	selection_color = "#FF56B4"
 	economic_modifier = 10
 
@@ -26,17 +26,16 @@
 	ideal_character_age = 50
 	outfit = /datum/outfit/job/cmo
 
-	blacklisted_species = list("M'sai Tajara", "Zhan-Khazan Tajara", "Aut'akh Unathi", "Vaurca Worker", "Vaurca Warrior")
+	blacklisted_species = list("Aut'akh Unathi", "Vaurca Worker", "Vaurca Warrior")
 
 /datum/outfit/job/cmo
-	name = "Chief Medical Officer"
+	name = "Head Doctor"
 	jobtype = /datum/job/cmo
 
 	uniform = /obj/item/clothing/under/rank/chief_medical_officer
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/cmo
 	suit_store = /obj/item/device/flashlight/pen
 	shoes = /obj/item/clothing/shoes/brown
-	l_ear = /obj/item/device/radio/headset/heads/cmo
 	pda = /obj/item/device/pda/heads/cmo
 	id = /obj/item/card/id/navy
 	l_hand = /obj/item/storage/firstaid/adv
@@ -52,9 +51,9 @@
 	department = "Medical"
 	department_flag = MEDSCI
 	faction = "Station"
-	total_positions = 5
+	total_positions = 2
 	spawn_positions = 3
-	supervisors = "the chief medical officer"
+	supervisors = "the clinic doctor"
 	selection_color = "#FF97D1"
 	economic_modifier = 7
 
@@ -62,14 +61,7 @@
 
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_eva)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_genetics, access_eva)
-	alt_titles = list("Surgeon","Trauma Physician","Nurse")
-	alt_ages = list("Nurse" = 25)
 	outfit = /datum/outfit/job/doctor
-	alt_outfits = list(
-		"Trauma Physician"=/datum/outfit/job/doctor/trauma_physician,
-		"Surgeon"=/datum/outfit/job/doctor/surgeon,
-		"Nurse"=/datum/outfit/job/doctor/nurse
-		)
 
 /datum/outfit/job/doctor
 	name = "Medical Doctor"
@@ -118,12 +110,12 @@
 
 
 /datum/job/pharmacist
-	title = "Pharmacist"
+	title = "Chemist"
 	flag = CHEMIST
 	department = "Medical"
 	department_flag = MEDSCI
 	faction = "Station"
-	total_positions = 2
+	total_positions = 1
 	spawn_positions = 2
 	supervisors = "the chief medical officer"
 	selection_color = "#FF97D1"
@@ -140,13 +132,12 @@
 		)
 
 /datum/outfit/job/pharmacist
-	name = "Pharmacist"
+	name = "Chemist"
 	jobtype = /datum/job/pharmacist
 
 	uniform = /obj/item/clothing/under/rank/pharmacist
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/pharmacist
 	shoes = /obj/item/clothing/shoes/chemist
-	l_ear = /obj/item/device/radio/headset/headset_med
 	pda =  /obj/item/device/pda/chemist
 	id = /obj/item/card/id/white
 
@@ -174,7 +165,7 @@
 	department = "Medical"
 	department_flag = MEDSCI
 	faction = "Station"
-	total_positions = 1
+	total_positions = 0
 	spawn_positions = 1
 	economic_modifier = 5
 
@@ -213,7 +204,7 @@
 	department = "Medical"
 	department_flag = MEDSCI
 	faction = "Station"
-	total_positions = 2
+	total_positions = 0
 	spawn_positions = 2
 	supervisors = "the chief medical officer"
 	selection_color = "#FF97D1"
@@ -262,7 +253,7 @@
 	flag = INTERN_MED
 	department_flag = MEDSCI
 	faction = "Station"
-	total_positions = 2
+	total_positions = 0
 	spawn_positions = 2
 	supervisors = "the Chief Medical Officer"
 	selection_color = "#FF97D1"
