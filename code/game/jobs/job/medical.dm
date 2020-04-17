@@ -1,5 +1,7 @@
 /datum/job/cmo
-	title = "Head Doctor"
+
+	title = "Head Physician"
+
 	flag = CMO
 	head_position = 1
 	department = "Medical"
@@ -29,7 +31,9 @@
 	blacklisted_species = list("Aut'akh Unathi", "Vaurca Worker", "Vaurca Warrior")
 
 /datum/outfit/job/cmo
-	name = "Head Doctor"
+
+	name = "Head Physician"
+
 	jobtype = /datum/job/cmo
 
 	uniform = /obj/item/clothing/under/rank/chief_medical_officer
@@ -46,14 +50,16 @@
 	messengerbag = /obj/item/storage/backpack/messenger/med
 
 /datum/job/doctor
-	title = "Medical Doctor"
+	title = "Physician"
 	flag = DOCTOR
 	department = "Medical"
 	department_flag = MEDSCI
 	faction = "Station"
 	total_positions = 2
 	spawn_positions = 3
-	supervisors = "the clinic doctor"
+
+	supervisors = "yourself"
+
 	selection_color = "#FF97D1"
 	economic_modifier = 7
 
@@ -63,9 +69,29 @@
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_genetics, access_eva)
 	outfit = /datum/outfit/job/doctor
 
+/datum/job/surgeon
+	title = "Surgeon"
+	flag = SURGEON
+	department = "Medical"
+	department_flag = MEDSCI
+	faction = "Station"
+	supervisors = "the chief medical officer"
+	selection_color = "#FF97D1"
+	economic_modifier = 7
+
+	spawn_positions = 2
+	total_positions = 2
+
+	minimum_character_age = 30
+
+	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_eva)
+	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_genetics, access_eva)
+	outfit = /datum/outfit/job/doctor/surgeon
+
+
 /datum/outfit/job/doctor
-	name = "Medical Doctor"
-	base_name = "Medical Doctor"
+	name = "Physician"
+	base_name = "Physician"
 	jobtype = /datum/job/doctor
 
 	uniform = /obj/item/clothing/under/rank/medical

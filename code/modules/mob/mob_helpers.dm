@@ -19,6 +19,11 @@
 /mob/living/carbon/human/proc/isFBP()
 	return species && (species.appearance_flags & HAS_FBP)
 
+/proc/isMMI(A)
+	if(isbrain(A))
+		var/mob/living/carbon/brain/B = A
+		return istype(B.container, /obj/item/device/mmi)
+
 /mob/living/bot/isSynthetic()
 	return 1
 
@@ -162,9 +167,6 @@ proc/isdeaf(A)
 		return (M.sdisabilities & DEAF) || M.ear_deaf
 	return 0
 
-proc/hasorgans(A) // Fucking really??
-	return ishuman(A)
-
 proc/iscuffed(A)
 	if(istype(A, /mob/living/carbon))
 		var/mob/living/carbon/C = A
@@ -186,10 +188,8 @@ proc/getsensorlevel(A)
 		return U.sensor_mode
 	return SUIT_SENSOR_OFF
 
-
 /proc/is_admin(var/mob/user)
 	return check_rights(R_ADMIN, 0, user) != 0
-
 
 /proc/hsl2rgb(h, s, l)
 	return //TODO: Implement
@@ -400,47 +400,25 @@ It's fairly easy to fix if dealing with single letters but not so much with comp
 	return sanitize(t)
 
 
-/proc/shake_camera(mob/M, duration, strength=1, var/taper = 0)
+#define TICKS_PER_RECOIL_ANIM 2
+#define PIXELS_PER_STRENGTH_VAL 16
+
+/proc/shake_camera(mob/M, duration, strength = 1)
+	set waitfor = 0
 	if(!M || !M.client || M.shakecamera || M.stat || isEye(M) || isAI(M))
 		return
 
-	M.shakecamera = 1
-	spawn(2)
-		if(!M.client)
-			return
-		var/atom/oldeye=M.client.eye
-		var/aiEyeFlag = 0
-		if(istype(oldeye, /mob/abstract/eye/aiEye))
-			aiEyeFlag = 1
-
-		var/x
-		for(x=0; x<duration, x++)
-			if(!M.client)
-				return
-			if(aiEyeFlag)
-				M.client.eye = locate(dd_range(1,oldeye.loc.x+rand(-strength,strength),world.maxx),dd_range(1,oldeye.loc.y+rand(-strength,strength),world.maxy),oldeye.loc.z)
-			else
-				M.client.eye = locate(dd_range(1,M.loc.x+rand(-strength,strength),world.maxx),dd_range(1,M.loc.y+rand(-strength,strength),world.maxy),M.loc.z)
-			sleep(1)
-
-		//Taper code added by nanako.
-		//Will make the strength falloff after the duration.
-		//This helps to reduce jarring effects of major screenshaking suddenly returning to stability
-		//Recommended taper values are 0.05-0.1
-		if(!M.client)
-			return
-		if (taper > 0)
-			while (strength > 0)
-				strength -= taper
-				if(aiEyeFlag)
-					M.client.eye = locate(dd_range(1,oldeye.loc.x+rand(-strength,strength),world.maxx),dd_range(1,oldeye.loc.y+rand(-strength,strength),world.maxy),oldeye.loc.z)
-				else
-					M.client.eye = locate(dd_range(1,M.loc.x+rand(-strength,strength),world.maxx),dd_range(1,M.loc.y+rand(-strength,strength),world.maxy),M.loc.z)
-				sleep(1)
-
-		M.client.eye=oldeye
-		M.shakecamera = 0
-
+	M.shakecamera = TRUE
+	strength = abs(strength)*PIXELS_PER_STRENGTH_VAL
+	var/steps = min(1, Floor(duration/TICKS_PER_RECOIL_ANIM))-1
+	animate(M.client, pixel_x = rand(-(strength), strength), pixel_y = rand(-(strength), strength), time = TICKS_PER_RECOIL_ANIM)
+	sleep(TICKS_PER_RECOIL_ANIM)
+	if(steps)
+		for(var/i = 1 to steps)
+			animate(M.client, pixel_x = rand(-(strength), strength), pixel_y = rand(-(strength), strength), time = TICKS_PER_RECOIL_ANIM)
+			sleep(TICKS_PER_RECOIL_ANIM)
+	M?.shakecamera = FALSE
+	animate(M.client, pixel_x = 0, pixel_y = 0, time = TICKS_PER_RECOIL_ANIM)
 
 /proc/findname(msg)
 	for(var/mob/M in mob_list)
@@ -1151,7 +1129,7 @@ proc/is_blind(A)
 	return ..(get_active_hand())
 
 /mob/living/silicon/ai/get_multitool()
-	return ..(aiMulti)
+	return ..(ai_multi)
 
 /mob/proc/get_hydration_mul(var/minscale = 0, var/maxscale = 1)
 

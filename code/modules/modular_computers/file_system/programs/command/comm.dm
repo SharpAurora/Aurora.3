@@ -336,7 +336,6 @@ Command action procs
 
 
 	var/datum/signal/status_signal = new
-	status_signal.source = src
 	status_signal.transmission_method = 1
 	status_signal.data["command"] = command
 
@@ -344,11 +343,11 @@ Command action procs
 		if("message")
 			status_signal.data["msg1"] = data1
 			status_signal.data["msg2"] = data2
-			log_admin("STATUS: [key_name(usr)] set status screen message with [src]: [data1] [data2]")
+			log_admin("STATUS: [key_name(usr)] set status screen message with: [data1] [data2]")
 		if("alert")
 			status_signal.data["picture_state"] = data1
 
-	frequency.post_signal(src, status_signal)
+	frequency.post_signal(signal = status_signal)
 
 //Returns 1 if recalled 0 if not
 /proc/cancel_call_proc(var/mob/user)
@@ -384,8 +383,8 @@ Command action procs
 		to_chat(user, "The emergency shuttle may not be sent at this time. Please try again later.")
 		return 0
 
-	if(world.time < 6000) // Ten minute grace period to let the game get going without lolmetagaming. -- TLE
-		to_chat(user, "The emergency shuttle is refueling. Please wait another [round((6000-world.time)/600)] minute\s before trying again.")
+	if(world.time < config.time_to_call_emergency_shuttle)
+		to_chat(user, "The emergency shuttle is refueling. Please wait another [round((config.time_to_call_emergency_shuttle-world.time)/600)] minute\s before trying again.")
 		return 0
 
 	if(emergency_shuttle.going_to_centcom())

@@ -41,6 +41,11 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 		/obj/item/device/radio
 	)
 
+	implants = list(
+		/obj/item/implant/mindshield
+
+	)
+
 	backpack = /obj/item/storage/backpack/captain
 	satchel = /obj/item/storage/backpack/satchel_cap
 	dufflebag = /obj/item/storage/backpack/duffel/cap
