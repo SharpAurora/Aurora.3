@@ -236,3 +236,16 @@
 	desc = "A uniform worn by Eridani PMC paramedics."
 	icon_state = "eridani_medic"
 	worn_state = "eridani_medic"
+
+// side project placeholders of what needs to be done, using other codebase sprites or present ones
+
+//ranger stuff
+/obj/item/clothing/under/rank/ranger
+	name = "Ranger uniform"
+	desc = "A uniform utilized by rank and file rangers."
+	icon_state = "necro_research_alt"
+	worn_state = "necro_research_alt"
+
+/obj/item/clothing/under/rank/ranger/lead
+	name = "Ranger Lieutenant uniform"
+	desc = "A uniform utilized by ranking ranger officers."
