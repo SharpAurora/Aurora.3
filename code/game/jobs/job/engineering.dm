@@ -39,7 +39,9 @@
 	pda = /obj/item/device/pda/heads/ce
 	id = /obj/item/card/id/navy
 	shoes = /obj/item/clothing/shoes/workboots
+
 	r_pocket = /obj/item/device/t_scanner
+
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel_eng
@@ -69,8 +71,10 @@
 	department = "Engineering"
 	department_flag = ENGSEC
 	faction = "Station"
+
 	total_positions = 2
 	spawn_positions = 2
+
 	supervisors = "the chief engineer"
 	selection_color = "#FFEA95"
 	economic_modifier = 5

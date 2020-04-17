@@ -42,9 +42,11 @@
 		/obj/item/storage/box/ids = 1
 	)
 
+
 	implants = list(
 		/obj/item/implant/mindshield
 	)
+
 
 	backpack = /obj/item/storage/backpack/security
 	satchel = /obj/item/storage/backpack/satchel_sec
@@ -69,6 +71,7 @@
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 3
+
 	supervisors = "the ranger lieutenant"
 	selection_color = "#FFA4A4"
 	economic_modifier = 5
@@ -217,7 +220,9 @@
 	faction = "Station"
 	total_positions = 3
 	spawn_positions = 4
+
 	supervisors = "the operations manager"
+
 	selection_color = "#FFA4A4"
 	economic_modifier = 4
 

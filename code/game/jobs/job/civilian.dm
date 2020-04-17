@@ -31,8 +31,10 @@
 	department = "Civilian"
 	department_flag = CIVILIAN
 	faction = "Station"
+
 	total_positions = 1
 	spawn_positions = 1
+
 	supervisors = "the restaurant manager"
 	selection_color = "#C0C0C0"
 
@@ -101,7 +103,9 @@
 
 //Cargo
 /datum/job/qm
+
 	title = "Restaurant Manager"
+
 	flag = QUARTERMASTER
 	head_position = 1
 	department = "Civilian"
@@ -109,7 +113,10 @@
 	faction = "Station"
 	total_positions = 1
 	spawn_positions = 1
+
 	supervisors = "the owner"
+
+
 	selection_color = "#C0C0C0"
 	economic_modifier = 5
 
@@ -123,7 +130,9 @@
 	outfit = /datum/outfit/job/qm
 
 /datum/outfit/job/qm
+
 	name = "Restaurant Manager"
+
 	jobtype = /datum/job/qm
 
 	uniform = /obj/item/clothing/under/rank/cargo
@@ -190,6 +199,7 @@
 	shoes = /obj/item/clothing/shoes/black
 
 	l_hand = /obj/item/storage/toolbox/ka
+
 
 	backpack_contents = list(
 		/obj/item/storage/bag/ore = 1

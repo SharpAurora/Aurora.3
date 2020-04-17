@@ -73,7 +73,7 @@ var/list/engineering_positions = list(
 
 var/list/medical_positions = list(
 	"Physician",
-	"Clinic Doctor",
+	"Head Physician",
 	"Psychiatrist",
 	"Pharmacist",
 	"Paramedic",
