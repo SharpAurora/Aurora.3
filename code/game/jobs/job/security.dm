@@ -99,7 +99,6 @@
 	messengerbag = /obj/item/storage/backpack/messenger/sec
 
 	backpack_contents = list(
-		/obj/item/storage/box/ids = 1
 	)
 
 /datum/outfit/job/warden/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)

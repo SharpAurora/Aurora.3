@@ -27,7 +27,7 @@
 	var/list/decals
 
 	var/is_hole		// If true, turf will be treated as space or a hole
-	var/tmp/turf/baseturf
+	var/tmp/turf/baseturf = /turf/simulated/floor/snow
 
 	var/roof_type = null // The turf type we spawn as a roof.
 	var/tmp/roof_flags = 0
@@ -79,7 +79,7 @@
 
 	if(!baseturf)
 		// Hard-coding this for performance reasons.
-		baseturf = A.base_turf || current_map.base_turf_by_z["[z]"] || /turf/space
+		baseturf = A.base_turf || current_map.base_turf_by_z["[z]"] 
 
 	if (A.flags & SPAWN_ROOF)
 		spawn_roof()
