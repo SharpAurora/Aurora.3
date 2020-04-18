@@ -2785,4 +2785,8 @@
 #include "maps\runtime\code\runtime_unittest.dm"
 #include "maps\templates\distress\distress_equipment.dm"
 #include "maps\templates\orbital\orbital_templates.dm"
+#include "maps\waystation\waystation-1_centcomm.dmm"
+#include "maps\waystation\waystation-2.dmm"
+#include "maps\waystation\code\waystation.dm"
+#include "maps\waystation\code\waystation_shuttles.dm"
 // END_INCLUDE

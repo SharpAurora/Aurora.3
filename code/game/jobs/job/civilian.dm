@@ -66,7 +66,7 @@
 	department_flag = CIVILIAN
 	faction = "Station"
 	total_positions = 2
-	spawn_positions = 1
+	spawn_positions = 2
 	supervisors = "the farm"
 	selection_color = "#C0C0C0"
 
@@ -148,8 +148,8 @@
 	department = "Cargo"
 	department_flag = CIVILIAN
 	faction = "Station"
-	total_positions = 4
-	spawn_positions = 4
+	total_positions = 2
+	spawn_positions = 2
 	supervisors = "the operations manager and the supply manager"
 	selection_color = "#C0C0C0"
 
@@ -170,13 +170,13 @@
 
 
 /datum/job/mining
-	title = "Shaft Miner"
+	title = "Miner"
 	flag = MINER
 	department = "Cargo"
 	department_flag = CIVILIAN
 	faction = "Station"
-	total_positions = 4
-	spawn_positions = 0
+	total_positions = 2
+	spawn_positions = 2
 	supervisors = "the quartermaster and the head of personnel"
 	selection_color = "#C0C0C0"
 	economic_modifier = 5
@@ -190,7 +190,7 @@
 	outfit = /datum/outfit/job/mining
 
 /datum/outfit/job/mining
-	name = "Shaft Miner"
+	name = "Miner"
 	jobtype = /datum/job/mining
 
 	uniform = /obj/item/clothing/under/rank/miner

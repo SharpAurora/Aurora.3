@@ -234,7 +234,7 @@
 	outfit = /datum/outfit/job/officer
 
 /datum/outfit/job/officer
-	name = "Security Officer"
+	name = "Security Contractor"
 	jobtype = /datum/job/officer
 
 	uniform = /obj/item/clothing/under/rank/security

@@ -78,7 +78,8 @@
 	back = /obj/item/storage/backpack/satchel
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
-		/obj/item/storage/wallet/random = 1
+		/obj/item/storage/wallet/random = 1,
+		/obj/item/spacecash/c1000 = 12
 		)
 
 /datum/outfit/merchant_assistant/get_id_rank(mob/living/carbon/human/H)
