@@ -96,13 +96,13 @@
 	display_name = "surgical apron"
 	path = /obj/item/clothing/suit/apron/surgery
 	cost = 1
-	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Geneticist", "Paramedic", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
+	allowed_roles = list("Scientist", "Head Physician", "Physician", "Surgeon", "Chemist", "Geneticist", "Paramedic", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
 
 /datum/gear/suit/iacvest
 	display_name = "IAC vest"
 	description = "It's a lightweight vest. Made of a dark, navy mesh with highly-reflective white material, designed to be worn by the Interstellar Aid Corps."
 	path = /obj/item/clothing/suit/storage/iacvest
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Resident")
+	allowed_roles = list("Head Physician", "Physician", "Surgeon", "Chemist", "Paramedic", "Medical Resident")
 
 /datum/gear/suit/poncho
 	display_name = "poncho selection"
@@ -126,12 +126,12 @@
 /datum/gear/suit/roles/poncho/cloak/cmo
 	display_name = "cloak, chief medical officer"
 	path = /obj/item/clothing/accessory/poncho/roles/cloak/cmo
-	allowed_roles = list("Chief Medical Officer")
+	allowed_roles = list("Head Physician")
 
 /datum/gear/suit/roles/poncho/cloak/ce
 	display_name = "cloak, chief engineer"
 	path = /obj/item/clothing/accessory/poncho/roles/cloak/ce
-	allowed_roles = list("Chief Engineer")
+	allowed_roles = list("Engineering Foreman")
 
 /datum/gear/suit/roles/poncho/cloak/rd
 	display_name = "cloak, research director"
@@ -139,14 +139,14 @@
 	allowed_roles = list("Research Director")
 
 /datum/gear/suit/roles/poncho/cloak/qm
-	display_name = "cloak, quartermaster"
+	display_name = "cloak, restaurant manager"
 	path = /obj/item/clothing/accessory/poncho/roles/cloak/qm
-	allowed_roles = list("Quartermaster")
+	allowed_roles = list("Restaurant Manager")
 
 /datum/gear/suit/roles/poncho/cloak/captain
-	display_name = "cloak, captain"
+	display_name = "cloak, overseer"
 	path = /obj/item/clothing/accessory/poncho/roles/cloak/captain
-	allowed_roles = list("Captain")
+	allowed_roles = list("Overseer")
 
 /datum/gear/suit/roles/poncho/cloak/hop
 	display_name = "cloak, head of personnel"
@@ -154,34 +154,34 @@
 	allowed_roles = list("Head of Personnel")
 
 /datum/gear/suit/roles/poncho/cloak/hos
-	display_name = "cloak, head of security"
+	display_name = "cloak, security lead"
 	path = /obj/item/clothing/accessory/poncho/roles/cloak/hos
-	allowed_roles = list("Head of Security")
+	allowed_roles = list("Security Lead")
 
 /datum/gear/suit/roles/poncho/cloak/cargo
 	display_name = "cloak, cargo"
 	path = /obj/item/clothing/accessory/poncho/roles/cloak/cargo
-	allowed_roles = list("Cargo Technician","Quartermaster")
+	allowed_roles = list("Supply Worker")
 
 /datum/gear/suit/roles/poncho/cloak/mining
 	display_name = "cloak, mining"
 	path = /obj/item/clothing/accessory/poncho/roles/cloak/mining
-	allowed_roles = list("Quartermaster","Shaft Miner")
+	allowed_roles = list("Miner")
 
 /datum/gear/suit/roles/poncho/cloak/service
 	display_name = "cloak, service"
 	path = /obj/item/clothing/accessory/poncho/roles/cloak/service
-	allowed_roles = list("Head of Personnel","Bartender","Gardener","Janitor","Chef","Librarian")
+	allowed_roles = list("Head of Personnel","Server","Farmer","Janitor","Chef","Librarian", "Restaurant Owner")
 
 /datum/gear/suit/roles/poncho/cloak/engineer
 	display_name = "cloak, engineer"
 	path = /obj/item/clothing/accessory/poncho/roles/cloak/engineer
-	allowed_roles = list("Station Engineer", "Chief Engineer", "Engineering Apprentice")
+	allowed_roles = list("Engineer", "Engineering Foreman", "Engineering Apprentice")
 
 /datum/gear/suit/roles/poncho/cloak/atmos
 	display_name = "cloak, atmos"
 	path = /obj/item/clothing/accessory/poncho/roles/cloak/atmos
-	allowed_roles = list("Chief Engineer","Atmospheric Technician")
+	allowed_roles = list("Engineering Foreman","Atmospheric Technician")
 
 /datum/gear/suit/roles/poncho/cloak/research
 	display_name = "cloak, science"
@@ -191,12 +191,12 @@
 /datum/gear/suit/roles/poncho/cloak/medical
 	display_name = "cloak, medical"
 	path = /obj/item/clothing/accessory/poncho/roles/cloak/medical
-	allowed_roles = list("Chief Medical Officer", "Medical Doctor", "Paramedic", "Medical Resident", "Psychiatrist", "Chemist")
+	allowed_roles = list("Head Physician", "Medical Doctor", "Paramedic", "Medical Resident", "Psychiatrist", "Chemist")
 
 /datum/gear/suit/roles/poncho/cloak/security
 	display_name = "cloak, security"
 	path = /obj/item/clothing/accessory/poncho/roles/cloak/security
-	allowed_roles = list("Security Officer", "Warden", "Head of Security","Detective", "Forensic Technician", "Security Cadet")
+	allowed_roles = list("Security Contractor", "Security Lead", "Forensic Technician", "Security Cadet")
 
 /datum/gear/suit/suitjacket
 	display_name = "suit jacket"
@@ -224,10 +224,10 @@
 
 
 /datum/gear/suit/det_trenchcoat
-	display_name = "detective trenchcoat selection"
-	description = "A selection of detective trenchcoats."
+	display_name = "security lead trenchcoat selection"
+	description = "A selection of security lead trenchcoats."
 	path = /obj/item/clothing/suit/storage/toggle/det_trench
-	allowed_roles = list("Detective")
+	allowed_roles = list("Security Lead")
 
 /datum/gear/suit/det_trenchcoat/New()
 	..()
@@ -252,14 +252,14 @@
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/red
 
 /datum/gear/suit/winter/captain
-	display_name = "winter coat, captain"
+	display_name = "winter coat, overseer"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/captain
-	allowed_roles = list("Captain")
+	allowed_roles = list("Overseer")
 
 /datum/gear/suit/winter/security
 	display_name = "winter coat, security"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/security
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
+	allowed_roles = list("Security Contractor", "Security Cadet", "Security Lead", "Forensic Technician")
 
 /datum/gear/suit/winter/science
 	display_name = "winter coat, science"
@@ -269,47 +269,42 @@
 /datum/gear/suit/winter/medical
 	display_name = "winter coat, medical"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/medical
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Paramedic", "Medical Resident", "Psychiatrist", "Pharmacist")
+	allowed_roles = list("Head Physician", "Physician", "Surgeon", "Paramedic", "Medical Resident", "Psychiatrist", "Chemist")
 
 /datum/gear/suit/winter/engineering
 	display_name = "winter coat, engineering"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/engineering
-	allowed_roles = list("Station Engineer", "Chief Engineer", "Engineering Apprentice")
+	allowed_roles = list("Engineer", "Engineering Foreman", "Engineering Apprentice")
 
 /datum/gear/suit/winter/atmos
 	display_name = "winter coat, atmospherics"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/engineering/atmos
-	allowed_roles = list("Atmospheric Technician", "Chief Engineer")
+	allowed_roles = list("Atmospheric Technician", "Engineering Foreman")
 
 /datum/gear/suit/winter/hydro
 	display_name = "winter coat, hydroponics"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/hydro
-	allowed_roles = list("Head of Personnel", "Gardener")
+	allowed_roles = list("Head of Personnel", "Farmer")
 
 /datum/gear/suit/winter/cargo
 	display_name = "winter coat, cargo"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/cargo
-	allowed_roles = list("Cargo Technician", "Quartermaster", "Head of Personnel")
+	allowed_roles = list("Supply Worker", "Head of Personnel")
 
 /datum/gear/suit/winter/mining
 	display_name = "winter coat, mining"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/miner
-	allowed_roles = list("Quartermaster", "Head of Personnel", "Shaft Miner")
+	allowed_roles = list("Head of Personnel", "Miner")
 
 /datum/gear/suit/secjacket
-	display_name = "navy security jacket (Security Officer)"
+	display_name = "navy security jacket"
 	path = /obj/item/clothing/suit/security/navyofficer
-	allowed_roles = list("Security Officer", "Head of Security", "Warden")
-
-/datum/gear/suit/secjacketwarden
-	display_name = "navy security jacket (Warden)"
-	path = /obj/item/clothing/suit/security/navywarden
-	allowed_roles = list("Head of Security", "Warden")
+	allowed_roles = list("Security Contractor", "Security Lead")
 
 /datum/gear/suit/secjackethos
-	display_name = "navy security jacket (Head of Security)"
+	display_name = "navy security jacket (security lead)"
 	path = /obj/item/clothing/suit/security/navyhos
-	allowed_roles = list("Head of Security")
+	allowed_roles = list("Security Lead")
 
 /datum/gear/suit/dominia_cape
 	display_name = "dominia cape"
