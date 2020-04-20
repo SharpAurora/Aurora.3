@@ -149,9 +149,9 @@
 	allowed_roles = list("Overseer")
 
 /datum/gear/suit/roles/poncho/cloak/hop
-	display_name = "cloak, head of personnel"
+	display_name = "cloak, operations manager"
 	path = /obj/item/clothing/accessory/poncho/roles/cloak/hop
-	allowed_roles = list("Head of Personnel")
+	allowed_roles = list("Operations Manager")
 
 /datum/gear/suit/roles/poncho/cloak/hos
 	display_name = "cloak, security lead"
@@ -171,7 +171,7 @@
 /datum/gear/suit/roles/poncho/cloak/service
 	display_name = "cloak, service"
 	path = /obj/item/clothing/accessory/poncho/roles/cloak/service
-	allowed_roles = list("Head of Personnel","Server","Farmer","Janitor","Chef","Librarian", "Restaurant Owner")
+	allowed_roles = list("Operations Manager","Server","Farmer","Janitor","Chef","Librarian", "Restaurant Owner")
 
 /datum/gear/suit/roles/poncho/cloak/engineer
 	display_name = "cloak, engineer"
@@ -246,6 +246,7 @@
 /datum/gear/suit/winter
 	display_name = "winter coat"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat
+	cost = 1
 
 /datum/gear/suit/winter/red
 	display_name = "winter coat, red"
@@ -279,22 +280,22 @@
 /datum/gear/suit/winter/atmos
 	display_name = "winter coat, atmospherics"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/engineering/atmos
-	allowed_roles = list("Atmospheric Technician", "Engineering Foreman")
+	allowed_roles = list("Engineer", "Engineering Foreman")
 
 /datum/gear/suit/winter/hydro
 	display_name = "winter coat, hydroponics"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/hydro
-	allowed_roles = list("Head of Personnel", "Farmer")
+	allowed_roles = list("Operations Manager", "Farmer")
 
 /datum/gear/suit/winter/cargo
 	display_name = "winter coat, cargo"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/cargo
-	allowed_roles = list("Supply Worker", "Head of Personnel")
+	allowed_roles = list("Supply Worker", "Operations Manager")
 
 /datum/gear/suit/winter/mining
 	display_name = "winter coat, mining"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/miner
-	allowed_roles = list("Head of Personnel", "Miner")
+	allowed_roles = list("Operations Manager", "Miner")
 
 /datum/gear/suit/secjacket
 	display_name = "navy security jacket"

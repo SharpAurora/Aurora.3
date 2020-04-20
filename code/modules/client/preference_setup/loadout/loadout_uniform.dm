@@ -159,14 +159,14 @@
 	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/uniform/uniform_hop
-	display_name = "uniform, HoP dress"
+	display_name = "uniform, operations manager dress"
 	path = /obj/item/clothing/under/dress/dress_hop
-	allowed_roles = list("Head of Personnel")
+	allowed_roles = list("Operations Manager")
 
 /datum/gear/uniform/uniform_hr
 	display_name = "uniform, HR director"
 	path = /obj/item/clothing/under/dress/dress_hr
-	allowed_roles = list("Head of Personnel")
+	allowed_roles = list("Operations Manager")
 
 /datum/gear/uniform/pants
 	display_name = "pants selection"
@@ -259,7 +259,7 @@
 	path = /obj/item/clothing/under/gov
 
 /datum/gear/uniform/officer
-	display_name = "uniforms, (Security Officer)"
+	display_name = "uniforms, (Security)"
 	description = "A selection of officer uniforms."
 	path = /obj/item/clothing/under/rank/security
 	allowed_roles = list("Security Contractor", "Security Lead")
@@ -273,8 +273,8 @@
 	gear_tweaks += new/datum/gear_tweak/path(uniform)
 
 /datum/gear/uniform/detective
-	display_name = "uniforms, (Investigations)"
-	description = "A selection of Investigations staff uniforms."
+	display_name = "uniforms, (Security Lead)"
+	description = "A selection of lead staff uniforms."
 	path = /obj/item/clothing/under/det
 	allowed_roles = list("Security Lead", "Forensic Technician")
 

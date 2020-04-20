@@ -105,7 +105,7 @@
 //.Holobadges.
 /obj/item/clothing/accessory/badge/holo
 	name = "holobadge"
-	desc = "This glowing blue badge marks the holder as a member of corporate security."
+	desc = "This glowing blue badge marks the holder as a security contractor."
 	icon_state = "holobadge"
 	item_state = "holobadge"
 	overlay_state = "holobadge"
@@ -153,16 +153,16 @@
 	..()
 
 /obj/item/clothing/accessory/badge/warden
-	name = "warden's badge"
-	desc = "A silver corporate security badge. Stamped with the words 'Brig Officer.'"
+	name = "rangers's badge"
+	desc = "A silver ranger badge."
 	icon_state = "silverbadge"
 	overlay_state = "silverbadge"
 	slot_flags = SLOT_TIE
 
 
 /obj/item/clothing/accessory/badge/hos
-	name = "commander's badge"
-	desc = "An immaculately polished gold security badge. Labeled 'Commander.'"
+	name = "lieutenant's badge"
+	desc = "An immaculately polished gold badge. Labeled 'Lieutenant.'"
 	icon_state = "goldbadge"
 	overlay_state = "goldbadge"
 	slot_flags = SLOT_TIE
@@ -201,8 +201,8 @@
 	badge_string = "Federal Marshal"
 
 /obj/item/clothing/accessory/badge/dia
-	name = "\improper DIA badge"
-	desc = "This badge marks the holder of an investigative agent."
+	name = "security lead badge"
+	desc = "This badge marks the holder of the head of security operations."
 	icon_state = "diabadge"
 	overlay_state = "diabadge"
 	badge_string = "Corporate Investigator"

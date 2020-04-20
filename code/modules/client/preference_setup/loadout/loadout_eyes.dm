@@ -73,7 +73,7 @@
 /datum/gear/eyes/shades
 	display_name = "sunglasses, fat (Security/Command)"
 	path = /obj/item/clothing/glasses/sunglasses/big
-	allowed_roles = list("Security Contractor", "Ranger Lieutenant", "Ranger", "Overseer", "Head of Personnel", "Restaurant Manager", "Internal Affairs Agent", "Security Lead", "Forensic Technician")
+	allowed_roles = list("Security Contractor", "Ranger Lieutenant", "Ranger", "Overseer", "Operations Manager", "Restaurant Manager", "Internal Affairs Agent", "Security Lead", "Forensic Technician")
 
 /datum/gear/eyes/shades/prescriptionsun
 	display_name = "sunglasses, presciption (Security/Command)"

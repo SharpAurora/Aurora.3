@@ -247,12 +247,12 @@
 	allowed_roles = list("Ranger")
 
 /datum/gear/accessory/hosbadge
-	display_name = "badge, HoS"
+	display_name = "badge, Ranger Lt."
 	path = /obj/item/clothing/accessory/badge/hos
 	allowed_roles = list("Ranger Lieutenant")
 
 /datum/gear/accessory/detbadge
-	display_name = "badge, detective"
+	display_name = "badge, security lead"
 	path = /obj/item/clothing/accessory/badge/dia
 	allowed_roles = list("Security Lead")
 
