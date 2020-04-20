@@ -24,7 +24,7 @@
 /datum/gear/uniform/iacjumpsuit
 	display_name = "IAC Jumpsuit"
 	path = /obj/item/clothing/under/rank/iacjumpsuit
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Resident")
+	allowed_roles = list("Head Physician", "Physician", "Surgeon", "Chemist", "Paramedic", "Medical Resident")
 
 /datum/gear/uniform/jumpsuit
 	display_name = "generic jumpsuits"
@@ -103,7 +103,7 @@
 /datum/gear/uniform/scrubs
 	display_name = "scrubs selection"
 	path = /obj/item/clothing/under/rank/medical/black
-	allowed_roles = list("Scientist","Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Geneticist", "Paramedic", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
+	allowed_roles = list("Scientist","Head Physician", "Physician", "Surgeon", "Chemist", "Geneticist", "Paramedic", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
 
 /datum/gear/uniform/scrubs/New()
 	..()
@@ -146,9 +146,9 @@
 	gear_tweaks += new/datum/gear_tweak/path(dress)
 
 /datum/gear/uniform/uniform_captain
-	display_name = "uniform, captain dress"
+	display_name = "uniform, overseer dress"
 	path = /obj/item/clothing/under/dress/dress_cap
-	allowed_roles = list("Captain")
+	allowed_roles = list("Overseer")
 
 /datum/gear/uniform/customdress
 	display_name = "evening gown"
@@ -159,14 +159,14 @@
 	gear_tweaks += gear_tweak_free_color_choice
 
 /datum/gear/uniform/uniform_hop
-	display_name = "uniform, HoP dress"
+	display_name = "uniform, operations manager dress"
 	path = /obj/item/clothing/under/dress/dress_hop
-	allowed_roles = list("Head of Personnel")
+	allowed_roles = list("Operations Manager")
 
 /datum/gear/uniform/uniform_hr
-	display_name = "uniform, HR director (HoP)"
+	display_name = "uniform, HR director"
 	path = /obj/item/clothing/under/dress/dress_hr
-	allowed_roles = list("Head of Personnel")
+	allowed_roles = list("Operations Manager")
 
 /datum/gear/uniform/pants
 	display_name = "pants selection"
@@ -259,10 +259,10 @@
 	path = /obj/item/clothing/under/gov
 
 /datum/gear/uniform/officer
-	display_name = "uniforms, (Security Officer)"
+	display_name = "uniforms, (Security)"
 	description = "A selection of officer uniforms."
 	path = /obj/item/clothing/under/rank/security
-	allowed_roles = list("Security Officer")
+	allowed_roles = list("Security Contractor", "Security Lead")
 
 /datum/gear/uniform/officer/New()
 	..()
@@ -273,10 +273,10 @@
 	gear_tweaks += new/datum/gear_tweak/path(uniform)
 
 /datum/gear/uniform/detective
-	display_name = "uniforms, (Investigations)"
-	description = "A selection of Investigations staff uniforms."
+	display_name = "uniforms, (Security Lead)"
+	description = "A selection of lead staff uniforms."
 	path = /obj/item/clothing/under/det
-	allowed_roles = list("Detective", "Forensic Technician")
+	allowed_roles = list("Security Lead", "Forensic Technician")
 
 /datum/gear/uniform/detective/New()
 	..()
@@ -286,12 +286,6 @@
 	uniform["investigator uniform, black"] = /obj/item/clothing/under/det/black
 	uniform["investigator uniform, brown"] = /obj/item/clothing/under/det/classic
 	gear_tweaks += new/datum/gear_tweak/path(uniform)
-
-/datum/gear/uniform/warden
-	display_name = "uniforms, (Warden)"
-	description = "A selection of Warden uniforms."
-	path = /obj/item/clothing/under/rank/warden
-	allowed_roles = list("Warden")
 
 /datum/gear/uniform/warden/New()
 	..()
@@ -303,9 +297,9 @@
 
 
 /datum/gear/uniform/hos
-	display_name = "uniform, corporate (Head of Security)"
+	display_name = "uniform, corporate (Security Lead)"
 	path = /obj/item/clothing/under/rank/head_of_security/corp
-	allowed_roles = list("Head of Security")
+	allowed_roles = list("Security Lead")
 
 /datum/gear/uniform/circuitry
 	display_name = "jumpsuit, circuitry (empty)"
@@ -320,4 +314,4 @@
 	display_name = "cargo technician, shorts"
 	description = "For those that value leg-room."
 	path = /obj/item/clothing/under/rank/cargotech/alt
-	allowed_roles = list("Cargo Technician")
+	allowed_roles = list("Supply Worker")

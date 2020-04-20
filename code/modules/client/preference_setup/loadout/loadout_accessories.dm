@@ -89,17 +89,17 @@
 /datum/gear/accessory/brown_vest
 	display_name = "webbing, engineering"
 	path = /obj/item/clothing/accessory/storage/brown_vest
-	allowed_roles = list("Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
+	allowed_roles = list("Engineer", "Atmospheric Technician", "Engineering Foreman", "Engineering Apprentice")
 
 /datum/gear/accessory/black_vest
 	display_name = "webbing, security"
 	path = /obj/item/clothing/accessory/storage/black_vest
-	allowed_roles = list("Security Officer","Head of Security","Warden", "Security Cadet", "Detective", "Forensic Technician")
+	allowed_roles = list("Security Contractor","Ranger Lieutenant","Ranger", "Security Cadet", "Security Lead", "Forensic Technician")
 
 /datum/gear/accessory/white_vest
 	display_name = "webbing, medical"
 	path = /obj/item/clothing/accessory/storage/white_vest
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "Paramedic", "Medical Resident")
+	allowed_roles = list("Head Physician", "Physician", "Surgeon", "Chemist", "Psychiatrist", "Paramedic", "Medical Resident")
 
 /datum/gear/accessory/webbing
 	display_name = "webbing, simple"
@@ -109,17 +109,17 @@
 /datum/gear/accessory/brown_pouches
 	display_name = "drop pouches, engineering"
 	path = /obj/item/clothing/accessory/storage/pouches/brown
-	allowed_roles = list("Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
+	allowed_roles = list("Engineer", "Atmospheric Technician", "Engineering Foreman", "Engineering Apprentice")
 
 /datum/gear/accessory/black_pouches
 	display_name = "drop pouches, security"
 	path = /obj/item/clothing/accessory/storage/pouches/black
-	allowed_roles = list("Security Officer","Head of Security", "Warden", "Security Cadet", "Detective", "Forensic Technician")
+	allowed_roles = list("Security Contractor","Ranger Lieutenant", "Ranger", "Security Cadet", "Security Lead", "Forensic Technician")
 
 /datum/gear/accessory/white_pouches
 	display_name = "drop pouches, medical"
 	path = /obj/item/clothing/accessory/storage/pouches/white
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Psychiatrist", "Paramedic", "Medical Resident")
+	allowed_roles = list("Head Physician", "Physician", "Surgeon", "Chemist", "Psychiatrist", "Paramedic", "Medical Resident")
 
 /datum/gear/accessory/pouches
 	display_name = "drop pouches, simple"
@@ -133,13 +133,13 @@
 /datum/gear/accessory/overalls_mining
 	display_name = "overalls, mining"
 	path = /obj/item/clothing/accessory/storage/overalls/mining
-	allowed_roles = list("Shaft Miner")
+	allowed_roles = list("Miner")
 	cost = 2
 
 /datum/gear/accessory/overalls_engineer
 	display_name = "overalls, engineering"
 	path = /obj/item/clothing/accessory/storage/overalls/engineer
-	allowed_roles = list("Station Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
+	allowed_roles = list("Engineer", "Atmospheric Technician", "Engineering Foreman", "Engineering Apprentice")
 	cost = 2
 
 /datum/gear/accessory/sweater
@@ -232,7 +232,7 @@
 /datum/gear/accessory/holobadge
 	display_name = "badge, holo"
 	path = /obj/item/clothing/accessory/badge/holo
-	allowed_roles = list("Security Officer","Head of Security", "Warden", "Security Cadet")
+	allowed_roles = list("Security Contractor","Ranger Lieutenant", "Ranger", "Security Cadet")
 
 /datum/gear/accessory/holobadge/New()
 	..()
@@ -242,19 +242,19 @@
 	gear_tweaks += new/datum/gear_tweak/path(holobadges)
 
 /datum/gear/accessory/wardenbadge
-	display_name = "badge, warden"
+	display_name = "badge, ranger"
 	path = /obj/item/clothing/accessory/badge/warden
-	allowed_roles = list("Warden")
+	allowed_roles = list("Ranger")
 
 /datum/gear/accessory/hosbadge
-	display_name = "badge, HoS"
+	display_name = "badge, Ranger Lt."
 	path = /obj/item/clothing/accessory/badge/hos
-	allowed_roles = list("Head of Security")
+	allowed_roles = list("Ranger Lieutenant")
 
 /datum/gear/accessory/detbadge
-	display_name = "badge, detective"
+	display_name = "badge, security lead"
 	path = /obj/item/clothing/accessory/badge/dia
-	allowed_roles = list("Detective")
+	allowed_roles = list("Security Lead")
 
 /datum/gear/accessory/idbadge
 	display_name = "badge, identification"

@@ -38,15 +38,9 @@
 	id = /obj/item/card/id/navy
 	glasses = /obj/item/clothing/glasses/sunglasses/big
 
-	backpack_contents = list(
-		/obj/item/storage/box/ids = 1
-	)
-
-
 	implants = list(
 		/obj/item/implant/mindshield
 	)
-
 
 	backpack = /obj/item/storage/backpack/security
 	satchel = /obj/item/storage/backpack/satchel_sec
