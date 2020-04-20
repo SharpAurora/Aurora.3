@@ -144,7 +144,7 @@
 "cN" = (/obj/effect/floor_decal/corner/yellow/diagonal,/obj/machinery/button/remote/blast_door{name = "exosuit hangar doors"; pixel_x = 23; id = "hangar"},/obj/structure/table/reinforced,/obj/machinery/cell_charger,/turf/simulated/floor/tiled,/area/hallway/primary/fore)
 "cO" = (/obj/structure/simple_door/wood,/turf/simulated/floor/carpet,/area/hallway/primary/fore)
 "cP" = (/turf/simulated/floor/snow{temperature = 240},/obj/machinery/light/small,/turf/simulated/floor/plating/snow,/area/hallway/primary/fore)
-"cQ" = (/turf/simulated/floor/snow{temperature = 240},/obj/machinery/light/small,/obj/item/device/radio/intercom{step_x = 0; step_y = 2; pixel_y = -32},/turf/simulated/floor/plating/snow,/area/hallway/primary/fore)
+"cQ" = (/turf/simulated/floor/snow{temperature = 240},/obj/machinery/light/small,/obj/item/device/radio/intercom{pixel_y = -32; step_x = 0; step_y = 0},/turf/simulated/floor/plating/snow,/area/hallway/primary/fore)
 "cR" = (/obj/machinery/light/small,/turf/simulated/floor/plating,/area/hallway/primary/port)
 "cS" = (/obj/machinery/light/small,/obj/structure/table/rack,/obj/item/tank/oxygen,/turf/simulated/floor/plating,/area/hallway/primary/port)
 "cT" = (/obj/structure/lattice/catwalk/indoor/grate,/obj/structure/reagent_dispensers/extinguisher,/turf/simulated/floor/plating,/area/hallway/primary/fore)
