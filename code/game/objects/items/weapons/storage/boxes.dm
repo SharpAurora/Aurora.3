@@ -118,8 +118,8 @@
 	desc = "A faithful box that will remain with you, no matter where you go, and probably save you."
 	icon_state = "e_box"
 	autodrobe_no_remove = 1
-	starts_with = list(/obj/item/clothing/mask/breath = 1,
-					   /obj/item/tank/emergency_oxygen = 1,
+	starts_with = list(/obj/item/reagent_containers/food/drinks/cans/waterbottle = 1,
+					   /obj/item/reagent_containers/food/snacks/liquidfood = 1,
 					   /obj/item/device/flashlight/flare = 1
 						)
 
