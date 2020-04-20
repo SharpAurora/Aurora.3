@@ -34,6 +34,12 @@
 	shoes["dark toeless workboots"] = /obj/item/clothing/shoes/workboots/toeless/dark
 	gear_tweaks += new/datum/gear_tweak/path(shoes)
 
+/datum/gear/shoes/winterboots_toeless
+	display_name = "toeless winter boots selection"
+	path = /obj/item/clothing/shoes/winter/toeless
+	sort_category = "Xenowear"
+	whitelisted = list("Vaurca Worker", "Vaurca Warrior", "Unathi", "Aut'akh Unathi", "Tajara", "Zhan-Khazan Tajara", "M'sai Tajara")
+
 /datum/gear/shoes/caligae
 	display_name = "caligae selection"
 	path = /obj/item/clothing/shoes/caligae

@@ -190,7 +190,7 @@
 	worn_state = "gentlesuit"
 
 /obj/item/clothing/under/gimmick/rank/captain/suit
-	name = "captain's suit"
+	name = "overseer's suit"
 	desc = "A green suit and yellow necktie. Exemplifies authority."
 	icon_state = "green_suit"
 	item_state = "dg_suit"
@@ -337,24 +337,24 @@
 	item_state = "red_evening_gown"
 
 /obj/item/clothing/under/dress/dress_cap
-	name = "captain's dress uniform"
-	desc = "Feminine fashion for the style concious captain."
+	name = "overseer's dress uniform"
+	desc = "Feminine fashion for the style concious overseer."
 	icon_state = "dress_cap"
 	item_state = "b_suit"
 	worn_state = "dress_cap"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
 /obj/item/clothing/under/dress/dress_hop
-	name = "head of personnel dress uniform"
-	desc = "Feminine fashion for the style concious HoP."
+	name = "operations manager dress uniform"
+	desc = "Feminine fashion for the style concious manager."
 	icon_state = "dress_hop"
 	item_state = "b_suit"
 	worn_state = "dress_hop"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
 /obj/item/clothing/under/dress/dress_hr
-	name = "human resources director uniform"
-	desc = "Superior class for the nosy H.R. Director."
+	name = "operations director uniform"
+	desc = "Superior class for the nosy Director."
 	icon_state = "huresource"
 	item_state = "y_suit"
 	worn_state = "huresource"
@@ -462,8 +462,8 @@
 	worn_state = "crdress"
 
 /obj/item/clothing/under/captainformal
-	name = "captain's formal uniform"
-	desc = "A captain's formal-wear, for special occasions."
+	name = "overseer's formal uniform"
+	desc = "A overseer's formal-wear, for special occasions."
 	icon_state = "captain_formal"
 	item_state = "b_suit"
 	worn_state = "captain_formal"
