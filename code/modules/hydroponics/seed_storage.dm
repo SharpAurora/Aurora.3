@@ -153,7 +153,10 @@
 	. = ..()
 	for(var/typepath in starting_seeds)
 		var/amount = starting_seeds[typepath]
-		if(isnull(amount)) amount = 1
+		if(isnull(amount))
+			amount = 1
+		else
+			amount = rand(1, 3)
 
 		for (var/i = 1 to amount)
 			var/O = new typepath
