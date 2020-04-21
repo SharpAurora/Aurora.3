@@ -1,7 +1,6 @@
 /datum/gear/uniform/offworlder
 	display_name = "CR suit"
 	path = /obj/item/clothing/under/offworlder
-	whitelisted = list("Off-Worlder Human")
 	sort_category = "Xenowear - Human"
 
 /datum/gear/uniform/offworlder/New()
@@ -19,7 +18,6 @@
 /datum/gear/eyes/glasses/offworlder
 	display_name = "starshades"
 	path = /obj/item/clothing/glasses/spiffygogs/offworlder
-	whitelisted = list("Off-Worlder Human")
 	sort_category = "Xenowear - Human"
 
 /datum/gear/eyes/glasses/offworlder/New()
@@ -29,7 +27,6 @@
 /datum/gear/accessory/offworlder
 	display_name = "legbrace"
 	path = /obj/item/clothing/accessory/offworlder/bracer
-	whitelisted = list("Off-Worlder Human")
 	sort_category = "Xenowear - Human"
 
 /datum/gear/accessory/offworlder/New()
@@ -47,7 +44,6 @@
 /datum/gear/accessory/offworlder_armband
 	display_name = "exo-stellar ribbon selection"
 	path = /obj/item/clothing/accessory/armband/offworlder
-	whitelisted = list("Off-Worlder Human")
 	sort_category = "Xenowear - Human"
 
 /datum/gear/accessory/offworlder_armband/New()
@@ -61,7 +57,6 @@
 /datum/gear/mask/offworlder
 	display_name = "jagmask"
 	path = /obj/item/clothing/mask/breath/offworlder/jagmask
-	whitelisted = list("Off-Worlder Human")
 	sort_category = "Xenowear - Human"
 
 /datum/gear/mask/offworlder/overmask
@@ -84,7 +79,6 @@
 /datum/gear/gloves/offworlder
 	display_name = "starmitts"
 	path = /obj/item/clothing/gloves/offworlder
-	whitelisted = list("Off-Worlder Human")
 	sort_category = "Xenowear - Human"
 
 /datum/gear/gloves/offworlder/New()
@@ -94,5 +88,4 @@
 /datum/gear/offworlder_rig
 	display_name = "exo-stellar skeleton"
 	path = /obj/item/rig/light/offworlder
-	whitelisted = list("Off-Worlder Human")
 	sort_category = "Xenowear - Human"

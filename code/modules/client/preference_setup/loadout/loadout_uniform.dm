@@ -24,7 +24,6 @@
 /datum/gear/uniform/iacjumpsuit
 	display_name = "IAC Jumpsuit"
 	path = /obj/item/clothing/under/rank/iacjumpsuit
-	allowed_roles = list("Head Physician", "Physician", "Surgeon", "Chemist", "Paramedic", "Medical Resident")
 
 /datum/gear/uniform/jumpsuit
 	display_name = "generic jumpsuits"
@@ -103,7 +102,6 @@
 /datum/gear/uniform/scrubs
 	display_name = "scrubs selection"
 	path = /obj/item/clothing/under/rank/medical/black
-	allowed_roles = list("Scientist","Head Physician", "Physician", "Surgeon", "Chemist", "Geneticist", "Paramedic", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
 
 /datum/gear/uniform/scrubs/New()
 	..()
@@ -161,12 +159,10 @@
 /datum/gear/uniform/uniform_hop
 	display_name = "uniform, operations manager dress"
 	path = /obj/item/clothing/under/dress/dress_hop
-	allowed_roles = list("Operations Manager")
 
 /datum/gear/uniform/uniform_hr
 	display_name = "uniform, HR director"
 	path = /obj/item/clothing/under/dress/dress_hr
-	allowed_roles = list("Operations Manager")
 
 /datum/gear/uniform/pants
 	display_name = "pants selection"
@@ -262,7 +258,6 @@
 	display_name = "uniforms, (Security)"
 	description = "A selection of officer uniforms."
 	path = /obj/item/clothing/under/rank/security
-	allowed_roles = list("Security Contractor", "Security Lead")
 
 /datum/gear/uniform/officer/New()
 	..()
@@ -276,7 +271,6 @@
 	display_name = "uniforms, (Security Lead)"
 	description = "A selection of lead staff uniforms."
 	path = /obj/item/clothing/under/det
-	allowed_roles = list("Security Lead", "Forensic Technician")
 
 /datum/gear/uniform/detective/New()
 	..()
@@ -299,7 +293,7 @@
 /datum/gear/uniform/hos
 	display_name = "uniform, corporate (Security Lead)"
 	path = /obj/item/clothing/under/rank/head_of_security/corp
-	allowed_roles = list("Security Lead")
+
 
 /datum/gear/uniform/circuitry
 	display_name = "jumpsuit, circuitry (empty)"
@@ -308,10 +302,10 @@
 /datum/gear/uniform/science_alt
 	display_name = "scientist, alt"
 	path = /obj/item/clothing/under/rank/scientist/science_alt
-	allowed_roles = list("Scientist", "Xenobiologist")
+
 
 /datum/gear/uniform/cargo_alt
 	display_name = "cargo technician, shorts"
 	description = "For those that value leg-room."
 	path = /obj/item/clothing/under/rank/cargotech/alt
-	allowed_roles = list("Supply Worker")
+

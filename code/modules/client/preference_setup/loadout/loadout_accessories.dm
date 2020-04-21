@@ -89,17 +89,14 @@
 /datum/gear/accessory/brown_vest
 	display_name = "webbing, engineering"
 	path = /obj/item/clothing/accessory/storage/brown_vest
-	allowed_roles = list("Engineer", "Atmospheric Technician", "Engineering Foreman", "Engineering Apprentice")
 
 /datum/gear/accessory/black_vest
 	display_name = "webbing, security"
 	path = /obj/item/clothing/accessory/storage/black_vest
-	allowed_roles = list("Security Contractor","Ranger Lieutenant","Ranger", "Security Cadet", "Security Lead", "Forensic Technician")
 
 /datum/gear/accessory/white_vest
 	display_name = "webbing, medical"
 	path = /obj/item/clothing/accessory/storage/white_vest
-	allowed_roles = list("Head Physician", "Physician", "Surgeon", "Chemist", "Psychiatrist", "Paramedic", "Medical Resident")
 
 /datum/gear/accessory/webbing
 	display_name = "webbing, simple"
@@ -109,17 +106,14 @@
 /datum/gear/accessory/brown_pouches
 	display_name = "drop pouches, engineering"
 	path = /obj/item/clothing/accessory/storage/pouches/brown
-	allowed_roles = list("Engineer", "Atmospheric Technician", "Engineering Foreman", "Engineering Apprentice")
 
 /datum/gear/accessory/black_pouches
 	display_name = "drop pouches, security"
 	path = /obj/item/clothing/accessory/storage/pouches/black
-	allowed_roles = list("Security Contractor","Ranger Lieutenant", "Ranger", "Security Cadet", "Security Lead", "Forensic Technician")
 
 /datum/gear/accessory/white_pouches
 	display_name = "drop pouches, medical"
 	path = /obj/item/clothing/accessory/storage/pouches/white
-	allowed_roles = list("Head Physician", "Physician", "Surgeon", "Chemist", "Psychiatrist", "Paramedic", "Medical Resident")
 
 /datum/gear/accessory/pouches
 	display_name = "drop pouches, simple"
@@ -139,7 +133,6 @@
 /datum/gear/accessory/overalls_engineer
 	display_name = "overalls, engineering"
 	path = /obj/item/clothing/accessory/storage/overalls/engineer
-	allowed_roles = list("Engineer", "Atmospheric Technician", "Engineering Foreman", "Engineering Apprentice")
 	cost = 2
 
 /datum/gear/accessory/sweater

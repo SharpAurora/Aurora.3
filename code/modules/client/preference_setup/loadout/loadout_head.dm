@@ -48,7 +48,6 @@
 /datum/gear/head/beret/eng
 	display_name = "beret, engie-orange"
 	path = /obj/item/clothing/head/beret/engineering
-	allowed_roles = list("Engineer","Atmospheric Technician","Engineering Foreman","Engineering Apprentice")
 
 /datum/gear/head/beret/purp
 	display_name = "beret, purple"
@@ -65,32 +64,26 @@
 /datum/gear/head/beret/sec
 	display_name = "beret, security"
 	path = /obj/item/clothing/head/beret/sec
-	allowed_roles = list("Security Contractor", "Security Cadet", "Security Lead", "Forensic Technician")
 
 /datum/gear/head/beret/hos
 	display_name = "beret, security lead"
 	path = /obj/item/clothing/head/beret/sec/hos
-	allowed_roles = list("Security Lead")
 
 /datum/gear/head/beret/medical
 	display_name = "beret, medical"
 	path = /obj/item/clothing/head/beret/medical
-	allowed_roles = list("Physician", "Surgeon", "Medical Resident", "Chemist", "Paramedic", "Chief Medial Officer", "Psychiatrist")
 
 /datum/gear/head/corp
 	display_name = "cap, corporate (security)"
 	path = /obj/item/clothing/head/soft/sec/corp
-	allowed_roles = list("Security Contractor","Security Cadet", "Security Lead", "Forensic Technician",)
 
 /datum/gear/head/sec
 	display_name = "cap, security"
 	path = /obj/item/clothing/head/soft/sec
-	allowed_roles = list("Security Contractor", "Security Cadet", "Security Lead", "Forensic Technician",)
 
 /datum/gear/head/hardhat
 	display_name = "hardhat selection"
 	path = /obj/item/clothing/head/hardhat
-	allowed_roles = list("Engineer", "Atmospheric Technician", "Engineering Foreman", "Engineering Apprentice")
 
 /datum/gear/head/hardhat/New()
 	..()
@@ -196,7 +189,6 @@
 /datum/gear/head/surgical
 	display_name = "surgical cap selection"
 	path = /obj/item/clothing/head/surgery/blue
-	allowed_roles = list("Scientist", "Head Physician", "Physician", "Surgeon", "Chemist", "Paramedic", "Medical Resident", "Xenobiologist", "Roboticist", "Research Director", "Forensic Technician")
 
 /datum/gear/head/surgical/New()
 	..()
@@ -238,7 +230,6 @@
 /datum/gear/head/iacberet
 	display_name = "IAC Beret"
 	path = /obj/item/clothing/head/soft/iacberet
-	allowed_roles = list("Head Physician", "Physician", "Surgeon", "Chemist", "Paramedic", "Medical Resident")
 
 /datum/gear/head/circuitry
 	display_name = "headwear, circuitry (empty)"
