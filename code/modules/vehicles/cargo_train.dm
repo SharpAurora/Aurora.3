@@ -1,6 +1,6 @@
 /obj/vehicle/train/cargo/engine
-	name = "cargo train tug"
-	desc = "A ridable electric car designed for pulling cargo trolleys."
+	name = "snowmobile"
+	desc = "A ridable electric car designed for traversing the snow."
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "cargo_engine"
 	on = 0
@@ -23,7 +23,7 @@
 	w_class = 1
 
 /obj/vehicle/train/cargo/trolley
-	name = "cargo train trolley"
+	name = "snowmobile trailer"
 	icon = 'icons/obj/vehicles.dmi'
 	icon_state = "cargo_trailer"
 	anchored = 0
