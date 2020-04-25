@@ -78,8 +78,6 @@
 	new /obj/item/clothing/head/helmet(src)
 	//Tools
 	new /obj/item/cartridge/hop(src)
-	new /obj/item/device/radio/headset/heads/hop(src)
-	new /obj/item/device/radio/headset/heads/hop/alt(src)
 	new /obj/item/gun/energy/pistol(src)
 	new /obj/item/gun/projectile/sec/flash(src)
 	new /obj/item/device/flash(src)
@@ -257,8 +255,6 @@
 	new /obj/item/clothing/suit/storage/hazardvest/cadet(src)
 	new /obj/item/clothing/under/rank/cadet(src)
 	//Tools
-	new /obj/item/device/radio/headset/headset_sec(src)
-	new /obj/item/device/radio/headset/headset_sec/alt(src)
 	new /obj/item/device/flash(src)
 	new /obj/item/reagent_containers/spray/pepper(src)
 	new /obj/item/taperoll/police(src)
@@ -294,8 +290,6 @@
 	new /obj/item/clothing/head/helmet(src)
 	new /obj/item/clothing/mask/gas/alt(src)
 	//Tools
-	new /obj/item/device/radio/headset/headset_sec(src)
-	new /obj/item/device/radio/headset/headset_sec/alt(src)
 	new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
 	new /obj/item/clothing/glasses/sunglasses/sechud(src)
 	new /obj/item/ammo_magazine/c45m/rubber(src)

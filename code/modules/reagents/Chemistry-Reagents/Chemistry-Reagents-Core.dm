@@ -222,6 +222,9 @@
 		var/obj/item/reagent_containers/food/snacks/monkeycube/cube = O
 		if(!cube.wrapped)
 			cube.Expand()
+	if(istype(O, /obj/structure/bonfire))
+		var/obj/structure/bonfire/B = O
+		B.fuel = max(0, B.fuel - (5 * volume))
 
 /datum/reagent/water/touch_mob(var/mob/M, var/amount)
 	. = ..()
@@ -273,6 +276,11 @@
 	new /obj/effect/decal/cleanable/liquid_fuel(T, volume)
 	remove_self(volume)
 	return
+
+/datum/reagent/fuel/touch_obj(var/obj/O)
+	if(istype(O, /obj/structure/bonfire))
+		var/obj/structure/bonfire/B = O
+		B.fuel = max(0, B.fuel + (15 * volume))
 
 /datum/reagent/fuel/affect_blood(var/mob/living/carbon/M, var/alien, var/removed)
 	M.adjustToxLoss(2 * removed)

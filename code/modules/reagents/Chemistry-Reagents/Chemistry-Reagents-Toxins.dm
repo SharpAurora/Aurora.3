@@ -346,6 +346,11 @@
 	remove_self(amount_to_remove)
 	return
 
+/datum/reagent/toxin/fertilizer/monoammoniumphosphate/touch_obj(var/obj/O)
+	if(istype(O, /obj/structure/bonfire))
+		var/obj/structure/bonfire/B = O
+		B.fuel = max(0, B.fuel - (150 * volume))
+
 /datum/reagent/toxin/fertilizer/monoammoniumphosphate/touch_mob(var/mob/living/L, var/amount)
 	. = ..()
 	if(istype(L))

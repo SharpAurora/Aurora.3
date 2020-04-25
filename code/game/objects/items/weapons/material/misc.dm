@@ -44,6 +44,9 @@
 	applies_material_colour = 0
 	drop_sound = 'sound/items/drop/axe.ogg'
 
+/obj/item/material/hatchet/can_woodcut()
+	return TRUE
+
 /obj/item/material/hatchet/butch
 	name = "butcher's cleaver"
 	icon = 'icons/obj/kitchen.dmi'
@@ -53,12 +56,26 @@
 	slot_flags = SLOT_BELT
 	attack_verb = list("cleaved", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 
+/obj/item/material/hatchet/butch/can_woodcut()
+	return FALSE
+
 /obj/item/material/hatchet/unathiknife
 	name = "duelling knife"
 	desc = "A length of leather-bound wood studded with razor-sharp teeth. How crude."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "unathiknife"
 	attack_verb = list("ripped", "torn", "cut")
+
+/obj/item/material/hatchet/unathiknife/can_woodcut()
+	return FALSE
+
+/obj/item/material/hatchet/lumber
+	name = "woodcutting hatchet"
+	desc = "Made from the very things you cut down."
+	icon = 'icons/waystation/weapons.dmi'
+	icon_state = "axe"
+	item_state = "axe"
+	contained_sprite = TRUE
 
 /obj/item/material/hook
 	name = "meat hook"
