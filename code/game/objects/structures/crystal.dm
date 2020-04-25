@@ -31,10 +31,8 @@
 		if(removed)
 			var/heat_transfer = removed.get_thermal_energy_change(T0C - 28)
 			if(heat_transfer < 0)
-				heat_transfer = abs(heat_transfer)
-
-				heat_transfer = cooling_power
-				heat_transfer = removed.add_thermal_energy(-heat_transfer)
+				heat_transfer = min(abs(heat_transfer), cooling_power)
+				removed.add_thermal_energy(-heat_transfer)
 
 			env.merge(removed)
 
