@@ -15,7 +15,7 @@
 
 	action_button_name = "Toggle Flashlight"
 	var/on = 0
-	var/brightness_on = 3 //luminosity when on
+	var/brightness_on = 5 //luminosity when on
 	var/activation_sound = 'sound/items/flashlight.ogg'
 
 /obj/item/device/flashlight/Initialize()
