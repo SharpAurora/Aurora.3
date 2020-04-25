@@ -60,7 +60,12 @@
 				visible_message(span("warning", "\The [user] lights \the [src] with \the [W]."))
 			else
 				to_chat(user, span("warning", "You manage to singe \the [src], but fail to light it."))
-
+	if(!on_fire && istype(W, /obj/item/stack/wax))
+		var/obj/item/stack/wax/S = W
+		S.use(1)
+		to_chat(user, SPAN_NOTICE("You soak \the [src] with some of \the [S]."))
+		new /obj/item/torch_head(get_turf(user))
+		qdel(src)
 	. = ..()
 	update_name()
 	update_icon()

@@ -212,6 +212,9 @@
 		cleave(user, target)
 	..()
 
+/obj/item/material/twohanded/fireaxe/can_woodcut()
+	return TRUE
+	
 //spears, bay edition
 /obj/item/material/twohanded/spear
 	icon_state = "spearglass0"
@@ -361,6 +364,12 @@
 	parry_chance = 100 //Gotta punish those validhunters
 	default_material = "plasteel"
 
+/obj/item/material/twohanded/chainsaw/can_woodcut()
+	if(powered)
+		return TRUE
+	else
+		return ..()
+
 /obj/item/material/twohanded/chainsaw/op/Initialize()
 	. = ..()
 	reagents.add_reagent(fuel_type, max_fuel)
@@ -419,13 +428,13 @@
 	var/FuelToRemove = 0.1 //0.1 Every 0.1 seconds
 	if(cutting)
 		FuelToRemove = 1
-		playsound(loc, 'sound/weapons/saw/chainsawloop2.ogg', 25, 0, 30)
+		playsound(loc, 'sound/weapons/saw/chainsawloop2.ogg', 10, 0, 30)
 		if(prob(75))
 			spark(src, 3, alldirs)
 			if(prob(25))
 				eyecheck(2,loc)
 	else
-		playsound(loc, 'sound/weapons/saw/chainsawloop1.ogg', 25, 0, 30)
+		playsound(loc, 'sound/weapons/saw/chainsawloop1.ogg', 10, 0, 30)
 
 	RemoveFuel(FuelToRemove)
 
@@ -547,6 +556,12 @@
 	force_divisor = 0.6
 	sharp = 1
 	attack_verb = list("attacked", "poked", "jabbed","gored", "chopped", "cleaved", "torn", "cut", "stabbed")
+
+/obj/item/material/twohanded/pike/halberd/can_woodcut() //I mean, it's got an axehead
+	if(wielded)
+		return TRUE
+	else
+		return ..()
 
 /obj/item/material/twohanded/pike/pitchfork
 	icon_state = "pitchfork0"

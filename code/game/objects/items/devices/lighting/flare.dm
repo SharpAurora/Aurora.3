@@ -16,9 +16,9 @@
 	activation_sound = 'sound/items/flare.ogg'
 	drop_sound = 'sound/items/drop/gloves.ogg'
 
-/obj/item/device/flashlight/flare/New()
+/obj/item/device/flashlight/flare/Initialize()
+	. = ..()
 	fuel = rand(400, 500) // Sorry for changing this so much but I keep under-estimating how long X number of ticks last in seconds.
-	..()
 
 /obj/item/device/flashlight/flare/process()
 	var/turf/pos = get_turf(src)
@@ -56,3 +56,72 @@
 		src.force = on_damage
 		src.damtype = "fire"
 		START_PROCESSING(SSprocessing, src)
+
+/obj/item/device/flashlight/flare/torch
+	name = "torch"
+	desc = "An old school torch."
+	brightness_on = 2
+	light_power = 2
+	light_color = LIGHT_COLOR_FIRE //"#E58775"
+	icon = 'icons/waystation/weapons.dmi'
+	icon_state = "torch"
+	item_state = "torch"
+	contained_sprite = TRUE
+	uv_intensity = 50
+	produce_heat = 1200
+
+
+/obj/item/device/flashlight/flare/torch/Initialize()
+	. = ..()
+	fuel = rand(300, 450) 
+
+/obj/item/device/flashlight/flare/torch/attack_self(mob/user)
+	return
+
+/obj/item/device/flashlight/flare/torch/update_icon()
+	..()
+	if(ismob(src.loc))	//for reasons, this makes torches work.
+		item_state = icon_state
+		var/mob/M = src.loc
+		M.update_inv_r_hand()
+		M.update_inv_l_hand()
+
+/obj/item/device/flashlight/flare/torch/proc/light(mob/user)
+	user.visible_message(SPAN_NOTICE("\The [user] lights \the [src]."),
+						SPAN_NOTICE("You light \the [src]."))
+	force = on_damage
+	damtype = "fire"
+	START_PROCESSING(SSprocessing, src)
+	on = TRUE
+	update_icon()
+
+/obj/item/device/flashlight/flare/torch/attackby(var/obj/item/I, mob/user)
+	if(!on && isflamesource(I))
+		light(user)
+	else
+		..()
+
+/obj/item/torch_handle
+	name = "torch handle"
+	desc = "An old-school torch handle. Not exactly useful without a head."
+	w_class = ITEMSIZE_SMALL
+	icon = 'icons/waystation/weapons.dmi'
+	icon_state = "torch-empty"
+	item_state = "torch-empty"
+	contained_sprite = TRUE
+
+/obj/item/torch_handle/attackby(obj/item/I, mob/user)
+	if(istype(I, /obj/item/torch_head))
+		to_chat(user, SPAN_NOTICE("You attach \the [I] to \the [src]."))
+		var/obj/item/device/flashlight/flare/torch/torch = new()
+		qdel(I)
+		qdel(src)
+		user.put_in_hands(torch)
+
+/obj/item/torch_head
+	name = "torch head"
+	desc = "A bit of cloth treated with wax."
+	icon = 'icons/waystation/weapons.dmi'
+	icon_state = "torch_head"
+	w_class = ITEMSIZE_SMALL
+	

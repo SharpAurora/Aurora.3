@@ -8,7 +8,7 @@
 
 
 /datum/recipe/dionaroast
-	appliance = OVEN
+	appliance = OVEN | POT
 	fruit = list("apple" = 1)
 	reagents = list("pacid" = 5) //It dissolves the carapace. Still poisonous, though.
 	items = list(/obj/item/reagent_containers/food/snacks/meat/dionanymph)
@@ -17,7 +17,7 @@
 
 
 /datum/recipe/ribplate //Putting this here for not seeing a roast section.
-	appliance = OVEN
+	appliance = OVEN | POT
 	reagents = list("honey" = 5, "spacespice" = 2, "blackpepper" = 1)
 	items = list(/obj/item/reagent_containers/food/snacks/meat)
 	reagent_mix = RECIPE_REAGENT_REPLACE
@@ -224,14 +224,14 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE //No raw egg in finished product, protein after cooking causes magic meatballs otherwise
 
 /datum/recipe/quiche
-	appliance = OVEN
+	appliance = OVEN | POT
 	reagents = list("milk" = 5, "egg" = 9, "flour" = 10)
 	items = list(/obj/item/reagent_containers/food/snacks/cheesewedge)
 	result = /obj/item/reagent_containers/food/snacks/sliceable/quiche
 	reagent_mix = RECIPE_REAGENT_REPLACE //No raw egg in finished product, protein after cooking causes magic meatballs otherwise
 
 /datum/recipe/tajaran_bread
-	appliance = OVEN
+	appliance = OVEN | POT
 	fruit = list("nifberries" = 1)
 	reagents = list("spacespice" = 1)
 	items = list(
@@ -241,7 +241,7 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE
 
 /datum/recipe/hardbread
-	appliance = OVEN
+	appliance = OVEN | POT
 	reagents = list("spacespice" = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/tajaran_bread,
@@ -551,7 +551,7 @@
 	result_quantity = 6
 
 /datum/recipe/meat_pocket
-	appliance = OVEN
+	appliance = OVEN | POT
 	items = list(
 		/obj/item/reagent_containers/food/snacks/sliceable/flatdough,
 		/obj/item/reagent_containers/food/snacks/meatball,

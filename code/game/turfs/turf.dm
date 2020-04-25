@@ -373,10 +373,12 @@ var/const/enterloopsanity = 100
 /turf/process()
 	STOP_PROCESSING(SSprocessing, src)
 
-/turf/proc/contains_dense_objects()
+/turf/proc/contains_dense_objects(var/exclude_mobs)
 	if(density)
 		return 1
 	for(var/atom/A in src)
+		if(ismob(A) && exclude_mobs)
+			continue
 		if(A.density && !(A.flags & ON_BORDER))
 			return 1
 	return 0

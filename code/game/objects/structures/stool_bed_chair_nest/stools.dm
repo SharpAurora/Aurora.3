@@ -182,3 +182,25 @@
 		remove_padding()
 	else
 		..()
+
+//log seats
+/obj/structure/flora/log_bench
+	name = "log bench"
+	desc = "Apply butt."
+	icon = 'icons/obj/woodrelated.dmi'
+	icon_state = "tree_log" 
+	anchored = FALSE
+	density = FALSE
+
+/obj/structure/flora/log_bench/fire_act()
+	for(var/obj/structure/bonfire/B in get_turf(src))
+		if(B.on_fire)
+			B.fuel = min(B.max_fuel, B.fuel + 300)
+			new /obj/effect/decal/cleanable/ash(get_turf(src))
+			qdel(src)
+
+/obj/structure/flora/log_bench/attackby(obj/item/I, mob/user)
+	if(I.sharp && user.a_intent != I_HURT)
+		do_engrave(I, user)
+		return
+	..()
