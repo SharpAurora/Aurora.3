@@ -10,7 +10,8 @@
 	var/list/grave_types = list(MATERIAL_WOOD)
 
 /obj/structure/pit/Destroy()
-	occupant = null
+	for(var/A in src)
+		qdel(A)
 	. = ..()
 
 /obj/structure/pit/attackby(obj/item/W, mob/user)
