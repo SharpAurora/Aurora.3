@@ -13,6 +13,9 @@
 
 	var/unwet_timer	// Used to keep track of the unwet timer & delete it on turf change so we don't runtime if the new turf is not simulated.
 
+	var/diggable = FALSE	//For pit digging only
+	var/mudpit = FALSE //Related to pit digging
+
 	roof_type = /turf/simulated/floor/airless/ceiling
 
 /turf/simulated/proc/wet_floor(var/apply_type = WET_TYPE_WATER, var/amount = 1)

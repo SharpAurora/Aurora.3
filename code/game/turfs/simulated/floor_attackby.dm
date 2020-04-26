@@ -39,7 +39,13 @@
 			to_chat(user, "<span class='warning'>You must remove the [flooring.descriptor] first.</span>")
 			return
 	else
-
+		if(diggable)
+			visible_message(SPAN_NOTICE("\The [user] begins digging a pit..."))
+			if(do_after(user, 50))
+				if(!(locate(/obj/structure/pit) in src) && (Adjacent(user) || get_turf(user) == src))
+					visible_message(SPAN_NOTICE("\The [user] digs a pit."))
+					new /obj/structure/pit(src)
+			return
 		if(C.iscoil())
 			if(broken || burnt)
 				to_chat(user, "<span class='warning'>This section is too damaged to support anything. Use a welder to fix the damage.</span>")

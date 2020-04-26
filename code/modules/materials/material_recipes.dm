@@ -150,6 +150,7 @@
 	recipes += new/datum/stack_recipe("torch handle", /obj/item/torch_handle, 2, time = 15, one_per_turf = 0, on_floor = 0)
 	recipes += new/datum/stack_recipe("skewer", /obj/item/reagent_containers/cooking_container/fire/skewer, 1)
 	recipes += new/datum/stack_recipe("drink barrel", /obj/structure/reagent_dispensers/keg/wood, 5, time = 50, one_per_turf = 1, on_floor = 1)
+	recipes += new/datum/stack_recipe("grave marker", /obj/structure/gravemarker, 2, time = 30, one_per_turf = 1, on_floor = 1)
 
 /material/wood/log/generate_recipes()
 	recipes = list()
