@@ -7,7 +7,7 @@
 	icon_living = "carp"
 	icon_dead = "carp_dead"
 	icon_gib = "carp_gib"
-	icon_rest = "carp_rest"
+	icon_rest = "babycarp_rest"
 	can_nap = TRUE
 	speak = list("Glub!")
 	speak_emote = list("glubs", "glibs")

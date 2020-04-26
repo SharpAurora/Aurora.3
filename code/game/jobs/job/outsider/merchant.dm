@@ -31,7 +31,6 @@
 
 	uniform =/obj/item/clothing/under/suit_jacket/charcoal
 	shoes = /obj/item/clothing/shoes/laceup
-	head = /obj/item/clothing/head/that
 	id = /obj/item/card/id/merchant
 	pda = /obj/item/device/pda/merchant
 	r_pocket = /obj/item/device/price_scanner

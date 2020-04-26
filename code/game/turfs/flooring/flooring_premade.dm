@@ -267,6 +267,7 @@
 	does_footprint = TRUE
 	footprint_color = COLOR_SNOW
 	track_distance = 4
+	diggable = TRUE
 
 /turf/simulated/floor/snow/Initialize()
 	. = ..()
