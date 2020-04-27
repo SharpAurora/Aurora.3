@@ -803,3 +803,6 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	if(user)
 		attack_self(user)
 	return TRUE
+
+/obj/item/proc/can_woodcut()
+	return FALSE

@@ -53,6 +53,41 @@
 	cooked_icon = "chickenbreast_cooked"
 	filling_color = "#BBBBAA"
 
+/obj/item/reagent_containers/food/snacks/meat/samak
+	name = "samak meat"
+	desc = "A slab of lean samak meat."
+	icon_state = "bearmeat"
+	cooked_icon = "chickenbreast_cooked"
+
+/obj/item/reagent_containers/food/snacks/meat/samak/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 2) //adds this to parent's initialization
+
+/obj/item/reagent_containers/food/snacks/meat/shantak
+	name = "shantak meat"
+	desc = "A slab of shantak meat."
+	icon_state = "adhomaimeat"
+
+/obj/item/reagent_containers/food/snacks/meat/shantak/Initialize()
+	. = ..()
+	reagents.add_reagent("protein", 2)
+
+/obj/item/reagent_containers/food/snacks/meat/diyaab
+	name = "diyaab meat"
+	desc = "A small slab of diyaab meat. You get used to the taste..."
+	icon_state = "lizardmeat"
+	filling_color = "#75b91b"
+	cooked_icon = "grilled_carp_slice"
+	slice_path = /obj/item/reagent_containers/food/snacks/rawcutlet
+	slices_num = 2
+
+/obj/item/reagent_containers/food/snacks/meat/diyaab/Initialize()
+	. = ..()
+	reagents.clear_reagents()
+	reagents.add_reagent("protein", 2)
+	reagents.add_reagent("virusfood", 2)
+	src.bitesize = 1
+
 /obj/item/reagent_containers/food/snacks/meat/biogenerated
 	name = "bio meat"
 	desc = "Did this come from the Biogenerator, or is it a biohazard? Perhaps it is both."

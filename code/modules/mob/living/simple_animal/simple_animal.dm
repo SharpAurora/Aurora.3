@@ -111,6 +111,7 @@
 	var/milk_type = "milk"
 
 	var/list/butchering_products	//if anything else is created when butchering this creature, like bones and leather
+	var/harvesting //If we're currently butchering it
 
 
 /mob/living/simple_animal/proc/update_nutrition_stats()
@@ -439,8 +440,8 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 		poke()
 
 	else if(meat_type && (stat == DEAD))	//if the animal has a meat, and if it is dead.
-		if(istype(O, /obj/item/material/knife) || istype(O, /obj/item/material/kitchen/utensil/knife)|| istype(O, /obj/item/material/hatchet))
-			harvest(user)
+		if(O.sharp && O.edge)
+			harvest(user, O)
 	else
 		attacked_with_item(O, user)
 
@@ -604,9 +605,19 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	return 1
 
 // Harvest an animal's delicious byproducts
-/mob/living/simple_animal/proc/harvest(var/mob/user)
-	var/actual_meat_amount = max(1,(meat_amount*0.75))
-	if(meat_type && actual_meat_amount>0 && (stat == DEAD))
+/mob/living/simple_animal/proc/harvest(var/mob/user, var/obj/item/I)
+	if(harvesting || stat != DEAD)
+		return
+	var/actual_meat_amount = max(1, meat_amount - rand(0, 2))
+	if(meat_type && actual_meat_amount>0)
+		harvesting = TRUE
+		user.visible_message(SPAN_NOTICE("\The [user] starts butchering \the [src] with \the [I]"), SPAN_NOTICE("You start butchering \the [src] with \the [I]"))
+		if(!do_after(user, 100))
+			harvesting = FALSE
+			return
+		if(!Adjacent(user))
+			harvesting = FALSE
+			return
 		for(var/i=0;i<actual_meat_amount;i++)
 			new meat_type(get_turf(src))
 
@@ -616,12 +627,12 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 				for(var/i in 1 to number)
 					new path(get_turf(src))
 
-		if(issmall(src))
-			user.visible_message("<span class='danger'>[user] chops up \the [src]!</span>")
+		if((locate(/obj/structure/table) in get_turf(src)) && I.w_class < 3) //Big choppers aren't exactly precise
+			user.visible_message(SPAN_WARNING("\The [user] carves up \the [src] with \the [I]!"))
 			new/obj/effect/decal/cleanable/blood/splatter(get_turf(src))
 			qdel(src)
 		else
-			user.visible_message("<span class='danger'>[user] butchers \the [src] messily!</span>")
+			user.visible_message(SPAN_DANGER("\The [user] butchers \the [src] messily with \the [I]!"))
 			gib()
 
 //For picking up small animals

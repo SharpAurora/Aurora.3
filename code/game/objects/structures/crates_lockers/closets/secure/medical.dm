@@ -140,7 +140,6 @@
 	new /obj/item/clothing/suit/storage/toggle/labcoat/cmo(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat/cmoalt(src)
 	new /obj/item/clothing/shoes/brown	(src)
-	new /obj/item/device/radio/headset/heads/cmo(src)
 
 
 /obj/structure/closet/secure_closet/animal

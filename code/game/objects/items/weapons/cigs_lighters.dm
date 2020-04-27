@@ -21,14 +21,20 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	if(I.iswelder())
 		var/obj/item/weldingtool/WT = A
 		return (WT.isOn())
-	else if(istype(I, /obj/item/flame))
+	if(istype(I, /obj/item/flame))
 		var/obj/item/flame/F = I
 		return (F.lit)
-	else if(istype(I, /obj/item/device/assembly/igniter))
+	if(istype(I, /obj/item/device/assembly/igniter))
 		return 1
-	else if(istype(I, /obj/item/clothing/gloves/fluff/lunea_gloves))
+	if(istype(I, /obj/item/clothing/gloves/fluff/lunea_gloves))
 		var/obj/item/clothing/gloves/fluff/lunea_gloves/F = I
 		return (F.lit)
+	if(istype(A, /obj/structure/bonfire))
+		var/obj/structure/bonfire/B = A
+		return (B.on_fire)
+	if(istype(I, /obj/item/device/flashlight/flare))
+		var/obj/item/device/flashlight/flare/FL = I
+		return (FL.on)
 	return 0
 
 ///////////

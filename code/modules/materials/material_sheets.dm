@@ -189,16 +189,34 @@
 	default_type = MATERIAL_WOOD
 	drop_sound = 'sound/items/drop/wooden.ogg'
 
-/obj/item/stack/material/woodlog
+/obj/item/stack/material/wood/log
 	name = "log"
-	icon_state = "sheet-wood"
+	icon_state = "sheet-log"
 	default_type = MATERIAL_WOOD_LOG
+	max_amount = 25
+	var/chopping
 
-/obj/item/stack/material/woodbranch
+/obj/item/stack/material/wood/log/attackby(obj/item/I, mob/user)
+	if(I.can_woodcut() && isturf(loc) && !chopping)
+		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+		chopping = TRUE
+		visible_message(SPAN_NOTICE("\The [user] begins chopping \the [src] into planks."),
+				SPAN_NOTICE("You begin chopping \the [src] into planks."))
+		playsound(get_turf(src), 'sound/effects/woodcutting.ogg', 50, 1)
+		if(do_after(user, 70))
+			if(amount && Adjacent(user))
+				use(1)	
+				var/obj/item/stack/material/wood/W = new(get_turf(user))
+				W.amount = rand(2,3)
+		chopping = FALSE
+		return
+	else
+		..()
+
+/obj/item/stack/material/wood/branch
 	name = "branch"
-	icon_state = "sheet-wood"
+	icon_state = "sheet-branch"
 	default_type = MATERIAL_WOOD_BRANCH
-
 
 /obj/item/stack/material/cloth
 	name = "cloth"

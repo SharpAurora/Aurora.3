@@ -117,6 +117,8 @@
 	emote_see = list("paws the ground","shakes its mane","stomps")
 	emote_hear = list("snuffles")
 	mob_size = 10
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/samak
+	butchering_products = list(/obj/item/stack/material/animalhide = 3)
 
 /mob/living/simple_animal/hostile/diyaab
 	name = "diyaab"
@@ -141,6 +143,8 @@
 	pass_flags = PASSTABLE
 	density = 0
 	mob_size = 3
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/diyaab
+	meat_amount = 1
 
 /mob/living/simple_animal/hostile/shantak
 	name = "shantak"
@@ -162,6 +166,8 @@
 	speak = list("Shuhn","Shrunnph?","Shunpf")
 	emote_see = list("scratches the ground","shakes out it's mane","tinkles gently")
 	mob_size = 5
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/shantak
+	butchering_products = list(/obj/item/stack/material/animalhide = 2)
 
 /mob/living/simple_animal/yithian
 	name = "yithian"

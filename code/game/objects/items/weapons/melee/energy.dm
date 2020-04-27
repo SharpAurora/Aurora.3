@@ -200,6 +200,8 @@
 	icon_state = initial(icon_state)
 	to_chat(user, "<span class='notice'>\The [src] is de-energised. It's just a regular axe now.</span>")
 
+/obj/item/melee/energy/axe/can_woodcut()
+	return TRUE
 /*
  * Energy Sword
  */

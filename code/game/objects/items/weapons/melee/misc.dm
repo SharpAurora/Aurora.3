@@ -34,6 +34,9 @@
 	var/active = 0
 	can_embed = 0//A chainsword can slice through flesh and bone, and the direction can be reversed if it ever did get stuck
 
+/obj/item/melee/chainsword/can_woodcut()
+	return active
+
 /obj/item/melee/chainsword/attack_self(mob/user)
 	active= !active
 	if(active)

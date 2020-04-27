@@ -34,6 +34,12 @@
 	if(name == "sandstone")
 		recipes += new/datum/stack_recipe("planting bed", /obj/machinery/portable_atmospherics/hydroponics/soil, 3, time = 10, one_per_turf = 1, on_floor = 1)
 
+/material/iron/generate_recipes()
+	..()
+	recipes += new/datum/stack_recipe("potbelly stove", /obj/structure/bonfire/fireplace/stove, 15, time = 120, one_per_turf = 1, on_floor = 1)
+	recipes += new/datum/stack_recipe("pot", /obj/item/reagent_containers/cooking_container/fire/pot, 3, time = 30, one_per_turf = 0, on_floor = 1)
+	recipes += new/datum/stack_recipe("fireplace pot", /obj/item/reagent_containers/cooking_container/fire/oven, 15, time = 60, one_per_turf = 1, on_floor = 1)
+
 /material/steel/generate_recipes()
 	..()
 	recipes += new/datum/stack_recipe_list("office chairs",list( \
@@ -52,6 +58,9 @@
 		new/datum/stack_recipe("green comfy chair", /obj/structure/bed/chair/comfy/green, 2, one_per_turf = 1, on_floor = 1), \
 		))
 
+	recipes += new/datum/stack_recipe("pot", /obj/item/reagent_containers/cooking_container/fire/pot, 3, time = 30, one_per_turf = 0, on_floor = 1)
+	recipes += new/datum/stack_recipe("fireplace pot", /obj/item/reagent_containers/cooking_container/fire/oven, 15, time = 60, one_per_turf = 1, on_floor = 1)
+	recipes += new/datum/stack_recipe("potbelly stove", /obj/structure/bonfire/fireplace/stove, 15, time = 120, one_per_turf = 1, on_floor = 1)
 	recipes += new/datum/stack_recipe("key", /obj/item/key, 1, time = 10, one_per_turf = 0, on_floor = 1)
 	recipes += new/datum/stack_recipe("table frame", /obj/structure/table, 1, time = 10, one_per_turf = 1, on_floor = 1)
 	recipes += new/datum/stack_recipe("custodial cart", /obj/structure/janitorialcart, 15, time = 120, one_per_turf = 1, on_floor = 1)
@@ -137,6 +146,27 @@
 	recipes += new/datum/stack_recipe("wooden bucket", /obj/item/reagent_containers/glass/bucket/wood, 2, time = 4, one_per_turf = 0, on_floor = 0)
 	recipes += new/datum/stack_recipe("shaft", /obj/item/material/shaft, 10, time = 25, one_per_turf = 0, on_floor = 0)
 	recipes += new/datum/stack_recipe("buckler donut", /obj/item/material/woodenshield, 20, time = 25, one_per_turf = 0, on_floor = 0)
+	recipes += new/datum/stack_recipe("bonfire", /obj/structure/bonfire, 5, time = 50, one_per_turf = 1, on_floor = 1)
+	recipes += new/datum/stack_recipe("torch handle", /obj/item/torch_handle, 2, time = 15, one_per_turf = 0, on_floor = 0)
+	recipes += new/datum/stack_recipe("skewer", /obj/item/reagent_containers/cooking_container/fire/skewer, 1)
+	recipes += new/datum/stack_recipe("drink barrel", /obj/structure/reagent_dispensers/keg/wood, 5, time = 50, one_per_turf = 1, on_floor = 1)
+	recipes += new/datum/stack_recipe("grave marker", /obj/structure/gravemarker, 2, time = 30, one_per_turf = 1, on_floor = 1)
+
+/material/wood/log/generate_recipes()
+	recipes = list()
+	recipes += new/datum/stack_recipe("bonfire", /obj/structure/bonfire, 3, time = 50, one_per_turf = 1, on_floor = 1)
+	recipes += new/datum/stack_recipe("log bench", /obj/structure/flora/log_bench, 2, time = 20, one_per_turf = 1, on_floor = 1)
+	//recipes += new/datum/stack_recipe("log wall", /obj/item/clothing/shoes/sandal, 2) //soon, my son
+
+/material/wood/branch/generate_recipes()
+	recipes = list()
+	recipes += new/datum/stack_recipe("bonfire", /obj/structure/bonfire, 10, time = 50, one_per_turf = 1, on_floor = 1)
+	recipes += new/datum/stack_recipe("torch handle", /obj/item/torch_handle, 1, time = 15, one_per_turf = 0, on_floor = 0)
+	recipes += new/datum/stack_recipe("skewer", /obj/item/reagent_containers/cooking_container/fire/skewer, 1)
+
+/material/stone/generate_recipes()
+	..()
+	recipes += new/datum/stack_recipe("[display_name] fireplace", /obj/structure/bonfire/fireplace, 15, time = 150, one_per_turf = 1, on_floor = 1, supplied_material = "[name]")
 
 /material/cardboard/generate_recipes()
 	..()

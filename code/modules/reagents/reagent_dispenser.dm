@@ -314,6 +314,7 @@
 	amount_per_transfer_from_this = 10
 	var/reagentid = "beer"
 	var/filled = FALSE
+	var/distillery = TRUE //Can we make a still out of this?
 
 /obj/structure/reagent_dispensers/keg/Initialize()
 	. = ..()
@@ -323,6 +324,8 @@
 /obj/structure/reagent_dispensers/keg/attackby(obj/item/W as obj, mob/user as mob)
 	if (istype(W, /obj/item/stack/rods))
 		var/obj/item/stack/rods/R = W
+		if(!distillery)
+			return
 		if(!R.can_use(3)) // like a tripod
 			to_chat(user, span("notice", "You need three rods to make a still!"))
 			return
@@ -358,6 +361,14 @@
 	icon_state = "woodkeg"
 	reagentid = "messa_mead"
 	filled = TRUE
+	distillery = FALSE
+
+/obj/structure/reagent_dispensers/keg/wood
+	name = "barrel"
+	desc = "A wooden barrel, with a spigot for dispensing, and a hatch for easily adding liquids."
+	icon_state = "woodkeg"
+	filled = FALSE
+	distillery = FALSE
 
 //Cooking oil tank
 /obj/structure/reagent_dispensers/cookingoil
