@@ -218,3 +218,104 @@
 		broken = 1
 		to_chat(user, "<span class='warning'>The bulb has burnt out!</span>")
 		icon_state = "flashburnt"
+
+/obj/item/device/flash/memorizer
+	name = "strange device"
+	desc = "A strange looking device, the back has a label stating 'Aim away from face'"
+	icon_state = "memorizer"
+	origin_tech = list(TECH_MAGNET = 2, TECH_COMBAT = 1)
+
+//attack_as_weapon
+/obj/item/device/flash/memorizer/attack(mob/living/M, mob/living/user, var/target_zone)
+	if(!user || !M)	return	//sanity
+
+	M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been flashed (attempt) with [src.name]  by [user.name] ([user.ckey])</font>")
+	user.attack_log += text("\[[time_stamp()]\] <font color='red'>Used the [src.name] to flash [M.name] ([M.ckey])</font>")
+	msg_admin_attack("[user.name] ([user.ckey]) Used the [src.name] to flash [M.name] ([M.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M))
+
+	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
+	user.do_attack_animation(M)
+
+	if(!clown_check(user))	return
+	if(broken)
+		to_chat(user, "<span class='warning'>\The [src] is broken.</span>")
+		return
+
+	flash_recharge()
+
+	//spamming the flash before it's fully charged (60seconds) increases the chance of it  breaking
+	//It will never break on the first use.
+	switch(times_used)
+		if(0 to 5)
+			last_used = world.time
+			if(prob(times_used))	//if you use it 5 times in a minute it has a 10% chance to break!
+				broken = 1
+				to_chat(user, "<span class='warning'>The bulb has burnt out!</span>")
+				icon_state = "memorizerburnt"
+				return
+			times_used++
+		else	//can only use it  5 times a minute
+			to_chat(user, "<span class='warning'>*click* *click*</span>")
+			return
+	playsound(src.loc, 'sound/weapons/flash.ogg', 100, 1)
+	var/flashfail = 0
+
+	if(iscarbon(M))
+		if (M.is_diona())
+			var/mob/living/carbon/C = M
+			var/datum/dionastats/DS = C.get_dionastats()
+			DS.stored_energy += 10
+			flick("e_flash", M.flash)
+			M.Weaken(5)
+			M.eye_blind = 5
+			return
+
+		var/safety = M:eyecheck(TRUE)
+		if(safety <= 0)
+			flick("e_flash", M.flash)
+			M.confused = 10
+			var/mob/living/carbon/human/H = M
+			var/obj/item/organ/internal/eyes/E = H.get_eyes()
+			if(!E)
+				return
+
+			E.flash_act()
+
+		else
+			flashfail = 1
+
+	else if(issilicon(M))
+		if(isrobot(M))
+			var/mob/living/silicon/robot/R = M
+			if(R.overclocked)
+				return
+
+		M.Weaken(rand(3,7)) //should be that borg is disabled for around 3-7 seconds
+
+	else
+		flashfail = 1
+
+	if(isrobot(user))
+		spawn(0)
+			var/atom/movable/overlay/animation = new(user.loc)
+			animation.layer = user.layer + 1
+			animation.icon_state = "blank"
+			animation.icon = 'icons/mob/mob.dmi'
+			animation.master = user
+			flick("blspell", animation)
+			sleep(5)
+			qdel(animation)
+
+	if(!flashfail)
+		flick("memorizer2", src)
+		if(!issilicon(M))
+
+			user.visible_message("<span class='disarm'> [user] shines the device into [M]'s eyes!</span>")
+		else
+
+			user.visible_message("<span class='notice'>[user] shines the device into [M]'s sensors!</span>")
+	else
+
+		user.visible_message("<span class='notice'>[user] fails to shine the device into [M]'s eyes!</span>")
+
+	return
