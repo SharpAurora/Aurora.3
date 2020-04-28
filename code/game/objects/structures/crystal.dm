@@ -11,7 +11,7 @@
 /obj/structure/ice_crystal/Initialize()
 	. = ..()
 	icon_state = pick("crystal_1", "crystal_2", "crystal_3")
-	set_light(1.8, 1, LIGHT_COLOR_CYAN)
+	set_light(rand(1, 3), 1, LIGHT_COLOR_CYAN)
 	if(do_process)
 		START_PROCESSING(SSprocessing, src)
 
@@ -29,7 +29,7 @@
 		var/datum/gas_mixture/removed = env.remove(transfer_moles)
 
 		if(removed)
-			var/heat_transfer = removed.get_thermal_energy_change(T0C - 28)
+			var/heat_transfer = removed.get_thermal_energy_change(T0C - 32)
 			if(heat_transfer < 0)
 				heat_transfer = min(abs(heat_transfer), cooling_power)
 				removed.add_thermal_energy(-heat_transfer)

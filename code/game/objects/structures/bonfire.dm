@@ -74,7 +74,7 @@ var/global/list/total_active_bonfires = list()
 	if(isflamesource(W) && !on_fire) // needs to go last or else nothing else will work
 		light(user)
 		return
-	if(on_fire && (istype(W, /obj/item/flame) || istype(W, /obj/item/device/flashlight/flare/torch))) //light unlit stuff
+	if(on_fire && (istype(W, /obj/item/flame) || istype(W, /obj/item/device/flashlight/flare/torch) || istype(W, /obj/item/clothing/mask/smokable))) //light unlit stuff
 		W.attackby(src, user)
 		return
 	if(fuel < max_fuel)
@@ -166,26 +166,19 @@ var/global/list/total_active_bonfires = list()
 /obj/structure/bonfire/proc/handle_reagents()
 	if(reagents.total_volume > 0 && on_fire)
 		for(var/datum/reagent/R in reagents.reagent_list)
-			world << "[R] in reagents"
 			switch(R.id)
 				if("fuel" || "woodpulp")
 					fuel = min(max_fuel, fuel + R.volume * 5)
 				if("water")
-					world << "water. Old fuel = [fuel]"
 					fuel = max(0, fuel - R.volume * 10)
-					world << "fuel is now [fuel]"
 				if("monoammoniumphosphate")
-					world << "extinguisher. Old fuel = [fuel]"
 					fuel = max(0, fuel - R.volume * 20)
-					world << "fuel is now [fuel]"
 				if("phoron") //Why. Copied from scrubber event
 					fuel = min(max_fuel, fuel + (R.volume * 25))
 
 			if(istype(R, /datum/reagent/alcohol))
 				var/datum/reagent/alcohol/A = R
-				world << "Alcohol. Old fuel is [fuel]"
 				fuel = min(max_fuel, fuel + (R.volume * (A.strength/20)))
-				world << "New fuel is [fuel]"
 			R.remove_self(R.volume)
 
 
@@ -248,15 +241,24 @@ var/global/list/total_active_bonfires = list()
 	for(var/obj/O in get_turf(src))
 		if(O == src)
 			continue
-		if(istype(O, /obj/item/reagent_containers))
-			var/obj/item/reagent_containers/RC = O
-			var/current_temperature = RC.reagents.get_temperature()
-			if(current_temperature > 310)
-				continue
+		heat_object(O)
+
+/obj/structure/bonfire/proc/heat_object(obj/O)
+	if(istype(O, /obj/item/reagent_containers))
+		var/obj/item/reagent_containers/RC = O
+		var/current_temperature = RC.reagents.get_temperature()
+		if(current_temperature <= 310)
 			var/thermal_energy_limit = RC.reagents.get_thermal_energy_change(current_temperature, 310) 
 			RC.reagents.add_thermal_energy(min(1750, thermal_energy_limit))
 			RC.reagents.handle_reactions()
-		O.fire_act()
+
+	if(istype(O, /obj/item/stack/material))
+		var/obj/item/stack/material/I = O
+		if(I.default_type in burnable_materials)
+			if(max_fuel - fuel < burnable_materials[I.default_type])
+				I.use(1)
+				fuel += burnable_materials[I.default_type]
+	O.fire_act()
 
 /obj/structure/bonfire/proc/warm_person()
 	if(!on_fire)
@@ -279,11 +281,11 @@ var/global/list/total_active_bonfires = list()
 		var/distance = get_dist(src, H)
 		var/heating_div = distance > 2 ? distance - 1 : 1 //Heat drops off if you're 3 or more tiles away
 		var/heat_eff = fuel / max_fuel	//Less fuel, less heat provided
-		H.bodytemperature += abs((temp_adj * heat_eff)) / heating_div
+		H.bodytemperature = min(H.bodytemperature + (abs((temp_adj * heat_eff)) / heating_div), 311)
 
 /obj/structure/bonfire/Crossed(AM as mob|obj)
 	if(on_fire)
-		if(isliving(AM))
+		if(isliving(AM) && prob((fuel / max_fuel) * 100))
 			burn(AM, TRUE)
 	..()
 
@@ -337,19 +339,18 @@ var/global/list/total_active_bonfires = list()
 		return
 	name = "[material.display_name] fireplace"
 	color = material.icon_colour
-	set_dir(NORTH)
 
 /obj/structure/bonfire/fireplace/update_icon()
 	cut_overlays()
 	if(on_fire)
 		switch(fuel)
-			if(0 to 500)
+			if(0 to 250)
 				add_overlay("fireplace_fire0")
-			if(500 to 1000)
+			if(251 to 750)
 				add_overlay("fireplace_fire1")
-			if(1000 to 1500)
+			if(751 to 1200)
 				add_overlay("fireplace_fire2")
-			if(1500 to 1700)
+			if(1201 to 1700)
 				add_overlay("fireplace_fire3")
 			if(1700 to 2000)
 				add_overlay("fireplace_fire4")
@@ -358,12 +359,12 @@ var/global/list/total_active_bonfires = list()
 /obj/structure/bonfire/fireplace/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(!istype(mover) || mover.checkpass(PASSTABLE))
 		return TRUE
-	if(get_dir(loc, target) == dir)
+	if(get_dir(loc, target) == NORTH)
 		return !density
 	return TRUE
 
 /obj/structure/bonfire/fireplace/CheckExit(atom/movable/O, turf/target)
-	if(get_dir(loc, target) == dir)
+	if(get_dir(loc, target) == NORTH)
 		return !density
 	return TRUE
 
