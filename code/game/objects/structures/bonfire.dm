@@ -255,9 +255,9 @@ var/global/list/total_active_bonfires = list()
 	if(istype(O, /obj/item/stack/material))
 		var/obj/item/stack/material/I = O
 		if(I.default_type in burnable_materials)
-			if(max_fuel - fuel < burnable_materials[I.default_type])
+			if(max_fuel - fuel >= burnable_materials[I.default_type])
 				I.use(1)
-				fuel += burnable_materials[I.default_type]
+				fuel += burnable_materials[I.default_type] * 0.75
 	O.fire_act()
 
 /obj/structure/bonfire/proc/warm_person()
@@ -285,14 +285,13 @@ var/global/list/total_active_bonfires = list()
 
 /obj/structure/bonfire/Crossed(AM as mob|obj)
 	if(on_fire)
-		if(isliving(AM) && prob((fuel / max_fuel) * 100))
-			burn(AM, TRUE)
+		burn(AM, TRUE)
 	..()
 
 /obj/structure/bonfire/proc/burn(var/mob/living/M, var/entered = FALSE)
 	if(safe)
 		return
-	if(M)
+	if(M && prob((fuel / max_fuel) * 100))
 		if(entered)
 			to_chat(M, "<span class='warning'>You are covered by fire and heat from entering \the [src]!</span>")
 		if(isanimal(M))
