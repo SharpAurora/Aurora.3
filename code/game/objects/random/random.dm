@@ -1589,14 +1589,13 @@
 	icon = 'icons/obj/woodrelated.dmi'
 	icon_state = "tree_log"
 	spawnlist = list(
-		/obj/structure/flora/stump = 1.2,
-		/obj/structure/flora/stump/log = 0.75,
-		/obj/item/stack/material/wood/branch = 1.2,
+		/obj/structure/flora/stump = 1,
+		/obj/structure/flora/stump/log = 0.5,
+		/obj/item/stack/material/wood/branch = 1.5,
 		/obj/item/stack/material/wood/log = 1,
-		/obj/effect/decal/remains = 0.2,
+		/obj/effect/decal/remains = 0.1,
 		/obj/effect/decal/remains/human = 0.1,
-		/obj/structure/flora/bush = 2,
-		/obj/structure/flora/grass/brown = 1.2,
+		/obj/structure/flora/bush = 4,
+		/obj/structure/flora/grass/brown = 2,
 		/obj/effect/decal/cleanable/blood/gibs = 0.1,
-		/obj/effect/decal/cleanable/ash = 0.1
 		)
