@@ -3,7 +3,7 @@
 	full_name = "NSS Aurora"
 	path = "aurora"
 
-	lobby_screens = list("waystation_signup")
+	lobby_screens = list("waystation_thing")
 
 	station_levels = list(2, 3, 4, 5, 6, 7)
 	admin_levels = list(1)
