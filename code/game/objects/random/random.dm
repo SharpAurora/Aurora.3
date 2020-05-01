@@ -1597,5 +1597,5 @@
 		/obj/effect/decal/remains/human = 0.1,
 		/obj/structure/flora/bush = 4,
 		/obj/structure/flora/grass/brown = 2,
-		/obj/effect/decal/cleanable/blood/gibs = 0.1,
+		/obj/effect/decal/cleanable/blood/gibs = 0.1
 		)

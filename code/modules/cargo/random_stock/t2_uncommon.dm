@@ -52,6 +52,9 @@ STOCK_ITEM_UNCOMMON(monkey, 2)
 	else
 		new /obj/item/storage/box/monkeycubes(L)
 
+STOCK_ITEM_UNCOMMON(meson, 1.5)
+	new /obj/item/clothing/glasses/meson(L)
+
 STOCK_ITEM_UNCOMMON(specialcrayon, 1.5)
 	if (prob(50))
 		new /obj/item/pen/crayon/mime(L)
@@ -129,6 +132,9 @@ STOCK_ITEM_UNCOMMON(advwelder, 2)
 
 STOCK_ITEM_UNCOMMON(sord, 1)
 	new /obj/item/sord(L)
+
+STOCK_ITEM_UNCOMMON(woodaxe, 2)
+	new /obj/item/material/hatchet/lumber(L)
 
 STOCK_ITEM_UNCOMMON(policebaton, 1.5)
 	new /obj/item/melee/classic_baton(L)
