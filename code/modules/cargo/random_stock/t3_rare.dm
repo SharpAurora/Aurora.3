@@ -32,9 +32,6 @@ STOCK_ITEM_RARE(bsbeaker, 3)
 STOCK_ITEM_RARE(energyshield, 2)
 	new /obj/item/shield/energy(L)
 
-STOCK_ITEM_RARE(woodaxe, 2)
-	new /obj/item/material/hatchet/lumber(L)
-
 // A random RIG/hardsuit.
 // It'll come with some screwy electronics, possibly needing reprogramming.
 STOCK_ITEM_RARE(hardsuit, 0.75)
