@@ -265,3 +265,25 @@
 		return TRUE
 	else
 		return FALSE
+
+
+/obj/vehicle/bike/snowmobile
+	name = "snowmobile"
+	desc = "It's a snowmobile, used for fast exploration of winter envioronments."
+	icon_state = "snowmobile"
+
+	health = 250
+	maxhealth = 250
+
+	fire_dam_coeff = 0.5
+	brute_dam_coeff = 0.4
+
+	mob_offset_y = 1
+
+	bike_icon = "snowmobile"
+	dir = EAST
+
+	land_speed = 1
+	space_speed = 0
+
+	can_hover = FALSE
