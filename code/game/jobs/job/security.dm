@@ -70,7 +70,7 @@
 	selection_color = "#FFA4A4"
 	economic_modifier = 5
 
-	minimum_character_age = 25
+	minimum_character_age = 21
 
 	access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_morgue, access_external_airlocks, access_weapons)
 	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_external_airlocks, access_weapons)
@@ -85,7 +85,6 @@
 	shoes = /obj/item/clothing/shoes/combat
 	pda = /obj/item/device/pda/warden
 	glasses = /obj/item/clothing/glasses/sunglasses/big
-	l_pocket = /obj/item/device/flash
 
 	backpack = /obj/item/storage/backpack/security
 	satchel = /obj/item/storage/backpack/satchel_sec
@@ -219,7 +218,7 @@
 	selection_color = "#FFA4A4"
 	economic_modifier = 4
 
-	minimum_character_age = 18
+	minimum_character_age = 21
 
 	access = list(access_security, access_eva, access_sec_doors, access_brig, access_maint_tunnels, access_morgue, access_external_airlocks, access_weapons)
 	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_external_airlocks, access_weapons)

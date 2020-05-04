@@ -3,7 +3,7 @@
 	full_name = "COC waystation"
 	path = "waystation"
 
-	lobby_screens = list("aurora_asteroid", "aurora_postcard")
+	lobby_screens = list("waystation_thing")
 
 	station_levels = list(2)
 	admin_levels = list(1)

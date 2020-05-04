@@ -64,7 +64,7 @@ var/list/command_positions = list(
 
 
 var/list/engineering_positions = list(
-	"Foreman",
+	"Engineering Foreman",
 	"Engineer",
 	"Atmospheric Technician",
 	"Engineering Apprentice"

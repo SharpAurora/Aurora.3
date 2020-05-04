@@ -37,18 +37,6 @@
 	display_name = "science Goggles"
 	path = /obj/item/clothing/glasses/science
 
-/datum/gear/eyes/materialaviators
-	display_name = "aviators, material"
-	path = /obj/item/clothing/glasses/material/aviator
-
-/datum/gear/eyes/mesonaviators
-	display_name = "aviators, meson"
-	path = /obj/item/clothing/glasses/meson/aviator
-
-/datum/gear/eyes/mesonprescription
-	display_name = "meson goggles, prescription"
-	path = /obj/item/clothing/glasses/meson/prescription
-
 /datum/gear/eyes/security
 	display_name = "security HUD"
 	path = /obj/item/clothing/glasses/hud/security
@@ -101,16 +89,6 @@
 /datum/gear/eyes/medpatch
 	display_name = "HUDpatch, Medical"
 	path = /obj/item/clothing/glasses/eyepatch/hud/medical
-	cost = 2
-
-/datum/gear/eyes/mespatch
-	display_name = "HUDpatch, Mesons"
-	path = /obj/item/clothing/glasses/eyepatch/hud/meson
-	cost = 2
-
-/datum/gear/eyes/matpatch
-	display_name = "HUDpatch, Material"
-	path = /obj/item/clothing/glasses/eyepatch/hud/material
 	cost = 2
 
 /datum/gear/eyes/scipatch

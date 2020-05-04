@@ -111,7 +111,6 @@
 	product_slogans = "I hope nobody asks me for a bloody cup o' tea...;Alcohol is humanity's friend. Would you abandon a friend?;Quite delighted to serve you!;Is nobody thirsty on this station?"
 	product_ads = "Drink up!;Booze is good for you!;Alcohol is humanity's best friend.;Quite delighted to serve you!;Care for a nice, cold beer?;Nothing cures you like booze!;Have a sip!;Have a drink!;Have a beer!;Beer is good for you!;Only the finest alcohol!;Best quality booze since 2053!;Award-winning wine!;Maximum alcohol!;Man loves beer.;A toast for progress!"
 	req_access = list(access_bar)
-	random_itemcount = 0
 	vending_sound = "machines/vending/vending_cans.ogg"
 
 /obj/machinery/vending/assist
@@ -401,7 +400,6 @@
 		/obj/item/reagent_containers/pill/stox = 4
 	)
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
-	random_itemcount = 0
 	temperature_setting = -1
 
 //This one's from bay12
@@ -428,7 +426,6 @@
 		/obj/item/clothing/head/collectable/petehat = 1
 	)
 	restock_items = 1
-	random_itemcount = 0
 
 /obj/machinery/vending/wallmed1
 	name = "NanoMed"
@@ -454,7 +451,6 @@
 	premium = list(
 		/obj/item/reagent_containers/pill/tramadol = 4
 	)
-	random_itemcount = 0
 	temperature_setting = -1
 
 /obj/machinery/vending/wallmed2
@@ -478,7 +474,6 @@
 	premium = list(
 		/obj/item/reagent_containers/pill/tramadol = 4
 	)
-	random_itemcount = 0
 	temperature_setting = -1
 
 /obj/machinery/vending/security
@@ -511,7 +506,6 @@
 		/obj/item/reagent_containers/spray/pepper
 		)
 	restock_items = 1
-	random_itemcount = 0
 
 /obj/machinery/vending/hydronutrients
 	name = "NutriMax"
@@ -538,7 +532,6 @@
 	)
 
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
-	random_itemcount = 0
 
 /obj/machinery/vending/hydroseeds
 	name = "MegaSeed Servitor"
@@ -656,7 +649,6 @@
 		/obj/item/seeds/wulumunushaseed = 90
 	)
 	restock_items = 1
-	random_itemcount = 0
 
 /**
  *  Populate hydroseeds product_records
@@ -739,7 +731,6 @@
 		/obj/item/storage/toolbox/lunchbox/nt/filled = 2
 	)
 	restock_items = 1
-	random_itemcount = 0
 
 /obj/machinery/vending/sovietsoda
 	name = "BODA"
@@ -801,7 +792,6 @@
 	req_access = list(access_engine)
 	vend_id = "tools"
 	products = list(
-		/obj/item/clothing/glasses/meson = 2,
 		/obj/item/device/multitool = 4,
 		/obj/item/powerdrill = 2,
 		/obj/item/airlock_electronics = 10,
@@ -817,7 +807,6 @@
 		/obj/item/storage/belt/utility = 3
 	)
 	restock_items = 1
-	random_itemcount = 0
 
 /obj/machinery/vending/tacticool //Tried not to go overboard with the amount of fun security has access to.
 	name = "Tactical Express"
@@ -888,7 +877,6 @@
 		/obj/item/clothing/shoes/orange = 4,
 		/obj/item/clothing/head/hardhat = 4,
 		/obj/item/storage/belt/utility = 4,
-		/obj/item/clothing/glasses/meson = 4,
 		/obj/item/clothing/gloves/yellow = 4,
 		/obj/item/screwdriver = 12,
 		/obj/item/crowbar = 12,
@@ -956,7 +944,6 @@
 		/obj/item/tank/anesthetic
 	)
 	restock_items = 1
-	random_itemcount = 0
 
 /obj/machinery/vending/zora
 	name = "Zo'ra Soda"

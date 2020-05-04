@@ -34,6 +34,7 @@
 	var/fall_force = 60
 	var/list/contained_objects = list()	//If it has anything except wood. Fruit, pinecones, animals, etc.
 	var/stumptype = /obj/structure/flora/stump //stump to make when chopped
+	var/static/list/fall_forbid = list(/obj/structure/flora, /obj/effect/decal/cleanable/blood/tracks, /obj/structure/bonfire, /obj/structure/pit) //things we don't want a crush message for
 
 /obj/structure/flora/tree/proc/update_desc()
 	desc = initial(desc)
@@ -118,6 +119,8 @@
 			fall_loc = pick(fall_spots)
 	playsound(get_turf(src), 'sound/species/diona/gestalt_grow.ogg', 50)
 	for(var/atom/A in fall_loc.contents)
+		if(is_type_in_list(A, fall_forbid))
+			continue
 		if(isliving(A))
 			var/mob/living/L = A
 			visible_message(SPAN_WARNING("\The [src] crushes \the [L] under its weight!"))
