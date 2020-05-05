@@ -269,8 +269,8 @@
 
 /obj/vehicle/bike/snowmobile
 	name = "snowmobile"
-	desc = "It's a snowmobile, used for fast exploration of winter envioronments."
-	icon_state = "snowmobile"
+	desc = "It's a snowmobile, used for fast exploration of winter environments."
+	icon_state = "snowmobile_off"
 
 	health = 250
 	maxhealth = 250
@@ -281,7 +281,6 @@
 	mob_offset_y = 1
 
 	bike_icon = "snowmobile"
-	dir = EAST
 
 	land_speed = 1
 	space_speed = 0

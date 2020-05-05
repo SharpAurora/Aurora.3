@@ -77,6 +77,12 @@
 	icon_state = "ore_hydrogen"
 	material = ORE_HYDROGEN
 
+/obj/item/ore/stone
+	name = "quality stone"
+	desc = "Stone that's the right composition to compress into bricks for crafting."
+	icon_state = "ore_stone"
+	material = ORE_STONE
+
 // maybe someone can think of a creative way to use slag
 // and make slagging shit not absolutely bomb mining - geeves
 /obj/item/ore/slag

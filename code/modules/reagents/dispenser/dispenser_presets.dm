@@ -162,5 +162,10 @@
 
 /obj/machinery/chemical_dispenser/coffee/full
 	spawn_cartridges = list(
-			/obj/item/reagent_containers/chem_disp_cartridge/espresso{temperature_override = 369.15}
+			/obj/item/reagent_containers/chem_disp_cartridge/coffee{temperature_override = 369},
+			/obj/item/reagent_containers/chem_disp_cartridge/espresso{temperature_override = 369},
+			/obj/item/reagent_containers/chem_disp_cartridge/tea{temperature_override = 349},
+			/obj/item/reagent_containers/chem_disp_cartridge/hot_coco{temperature_override = 349},
+			/obj/item/reagent_containers/chem_disp_cartridge/water{temperature_override = 373},
+			/obj/item/reagent_containers/chem_disp_cartridge/ciderhot{temperature_override = 349}
 		)

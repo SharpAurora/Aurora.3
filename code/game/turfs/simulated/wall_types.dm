@@ -27,6 +27,19 @@
 	icon_state = "cult"
 	appearance_flags = NO_CLIENT_COLOR
 
+/turf/simulated/wall/rusted
+	icon = 'icons/turf/smooth/rusty_wall.dmi'
+	icon_state = "wall"
+	use_set_icon_state = TRUE
+	canSmoothWith = null
+	smooth = SMOOTH_TRUE
+	smoothing_hints = SMOOTHHINT_TARGETS_NOT_UNIQUE | SMOOTHHINT_ONLY_MATCH_TURF
+
+/turf/simulated/wall/rusted/Initialize(mapload)
+	. = ..(mapload, MATERIAL_RUST)
+	desc = "A wall that's seen better days. It's still solid, for now."
+
+
 /turf/simulated/wall/vaurca/Initialize(mapload)
 	. = ..(mapload, MATERIAL_VAURCA)
 

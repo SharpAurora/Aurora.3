@@ -44,6 +44,13 @@
 	icon_state = "abyss"
 	watertype = "seadeep"
 
+/turf/simulated/floor/beach/water/ice
+	name = "ice water"
+	icon_state = "water5"
+	movement_cost = 3
+	watertype = "water5_over"
+	temperature = 275
+
 /obj/effect/water_effect
 	name = "water"
 	icon = 'icons/misc/beach.dmi'

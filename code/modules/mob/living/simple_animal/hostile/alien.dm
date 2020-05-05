@@ -104,10 +104,10 @@
 	icon_living = "samak"
 	icon_dead = "samak_dead"
 	icon = 'icons/jungle.dmi'
-	move_to_delay = 2
+	move_to_delay = 3
 	maxHealth = 125
 	health = 125
-	speed = 2
+	speed = 3
 	melee_damage_lower = 5
 	melee_damage_upper = 15
 	attacktext = "mauled"
@@ -145,6 +145,17 @@
 	mob_size = 3
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/diyaab
 	meat_amount = 1
+
+/mob/living/simple_animal/hostile/diyaab/cave
+	name = "cavern diyaab"
+	desc = "A small pack animal. Much tougher than their surface-dwelling cousins."
+	icon_state = "diyaab_cavern"
+	icon_living = "diyaab_cavern"
+	icon_dead = "diyaab_cavern_dead"
+	maxHealth = 45
+	health = 45
+	melee_damage_lower = 3
+	melee_damage_upper = 11
 
 /mob/living/simple_animal/hostile/shantak
 	name = "shantak"

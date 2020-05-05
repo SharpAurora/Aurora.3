@@ -141,3 +141,13 @@ var/global/list/ore_data = list()
 	compresses_to = "mhydrogen"
 	scan_icon = "mineral_rare"
 	worth = 30
+
+/ore/stone
+	name = ORE_STONE
+	display_name = "quality stone"
+	compresses_to = MATERIAL_STONE
+	result_amount = 5
+	spread_chance = 25
+	ore = /obj/item/ore/stone
+	scan_icon = "mineral_common"
+	worth = 1

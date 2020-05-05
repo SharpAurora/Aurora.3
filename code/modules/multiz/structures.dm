@@ -256,3 +256,28 @@
 /obj/structure/stairs/west
 	dir = WEST
 	bound_width = 64
+
+/obj/structure/stairs/snow
+	name = "rocky steps"
+	desc = "Steps leading to another level."
+	icon_state = "snow_stairs"
+
+/obj/structure/stairs/snow/north
+	dir = NORTH
+	bound_height = 64
+	bound_y = -32
+	pixel_y = -32
+
+/obj/structure/stairs/snow/south
+	dir = SOUTH
+	bound_height = 64
+
+/obj/structure/stairs/snow/east
+	dir = EAST
+	bound_width = 64
+	bound_x = -32
+	pixel_x = -32
+
+/obj/structure/stairs/snow/west
+	dir = WEST
+	bound_width = 64

@@ -1,6 +1,7 @@
 /**********************Mineral deposits**************************/
 /turf/unsimulated/mineral
 	name = "impassable rock"
+	desc = "Thick rock, frozen over in a thick layer of ice. No getting through this."
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "rock-dark"
 	blocks_air = TRUE
@@ -466,9 +467,10 @@ var/list/mineral_can_smooth_with = list(
 		ORE_DIAMOND = 1,
 		ORE_GOLD = 2,
 		ORE_SILVER = 2,
-		ORE_PHORON = 5
+		ORE_PHORON = 2,
+		ORE_STONE = 3
 	)
-	var/mineralChance = 55
+	var/mineralChance = 50
 
 /turf/simulated/mineral/random/Initialize()
 	if(prob(mineralChance) && !mineral)
@@ -488,7 +490,8 @@ var/list/mineral_can_smooth_with = list(
 		ORE_DIAMOND = 1,
 		ORE_GOLD = 2,
 		ORE_SILVER = 2,
-		ORE_PHORON = 3
+		ORE_PHORON = 3,
+		ORE_STONE = 2
 	)
 	mineralChance = 55
 
@@ -501,9 +504,10 @@ var/list/mineral_can_smooth_with = list(
 		ORE_DIAMOND = 1,
 		ORE_GOLD = 3,
 		ORE_SILVER = 3,
-		ORE_PHORON = 2
+		ORE_PHORON = 2,
+		ORE_STONE = 1
 	)
-	mineralChance = 75
+	mineralChance = 70
 
 /turf/simulated/mineral/attack_hand(var/mob/user)
 	add_fingerprint(user)
@@ -819,3 +823,75 @@ var/list/asteroid_floor_smooth = list(
 /turf/simulated/mineral/Destroy()
 	clear_ore_effects()
 	. = ..()
+
+
+/turf/simulated/mineral/ice //wall piece
+	name = "icy rock"
+	icon = 'icons/turf/map_placeholders.dmi'
+	icon_state = "ice_rock"
+	desc = "It's a frost-covered rock. Exciting."
+	actual_icon = 'icons/turf/smooth/rock_wall_ice.dmi'
+
+	temperature = 240
+	mined_turf = /turf/simulated/floor/ice/rock
+
+/turf/simulated/mineral/ice/UpdateMineral()
+	clear_ore_effects()
+	if(!mineral)
+		name = "icy rock"
+		icon_state = "ice_rock"
+		return
+	name = "\improper [mineral.display_name] deposit"
+	new /obj/effect/mineral(src, mineral)
+
+/turf/simulated/mineral/ice/random
+	name = "mineral deposit"
+	var/mineralSpawnChanceList = list(
+		ORE_URANIUM = 2,
+		ORE_PLATINUM = 2,
+		ORE_IRON = 8,
+		ORE_COAL = 8,
+		ORE_DIAMOND = 1,
+		ORE_GOLD = 2,
+		ORE_SILVER = 2,
+		ORE_PHORON = 2,
+		ORE_STONE = 3
+	)
+	var/mineralChance = 55
+
+/turf/simulated/mineral/ice/random/Initialize()
+	if(prob(mineralChance) && !mineral)
+		var/mineral_name = pickweight(mineralSpawnChanceList) //temp mineral name
+		if(mineral_name && (mineral_name in ore_data))
+			mineral = ore_data[mineral_name]
+			UpdateMineral()
+		MineralSpread()
+	. = ..()
+
+/turf/simulated/mineral/ice/random/high_chance
+	mineralSpawnChanceList = list(
+		ORE_URANIUM = 2,
+		ORE_PLATINUM = 2,
+		ORE_IRON = 2,
+		ORE_COAL = 2,
+		ORE_DIAMOND = 1,
+		ORE_GOLD = 2,
+		ORE_SILVER = 2,
+		ORE_PHORON = 3,
+		ORE_STONE = 2
+	)
+	mineralChance = 55
+
+/turf/simulated/mineral/ice/random/higher_chance
+	mineralSpawnChanceList = list(
+		ORE_URANIUM = 3,
+		ORE_PLATINUM = 3,
+		ORE_IRON = 1,
+		ORE_COAL = 1,
+		ORE_DIAMOND = 1,
+		ORE_GOLD = 3,
+		ORE_SILVER = 3,
+		ORE_PHORON = 2,
+		ORE_STONE = 1
+	)
+	mineralChance = 70

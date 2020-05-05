@@ -10,6 +10,7 @@
 #define DEBUG
 // END_PREFERENCES
 // BEGIN_INCLUDE
+#include "_maps\waystation.dm"
 #include "code\global.dm"
 #include "code\hub.dm"
 #include "code\names.dm"
@@ -778,6 +779,7 @@
 #include "code\game\objects\effects\decals\cleanable.dm"
 #include "code\game\objects\effects\decals\contraband.dm"
 #include "code\game\objects\effects\decals\crayon.dm"
+#include "code\game\objects\effects\decals\flora.dm"
 #include "code\game\objects\effects\decals\misc.dm"
 #include "code\game\objects\effects\decals\remains.dm"
 #include "code\game\objects\effects\decals\warning_stripes.dm"
@@ -2795,8 +2797,7 @@
 #include "maps\runtime\code\runtime_unittest.dm"
 #include "maps\templates\distress\distress_equipment.dm"
 #include "maps\templates\orbital\orbital_templates.dm"
-#include "maps\waystation\waystation-1_centcomm.dmm"
-#include "maps\waystation\waystation-2.dmm"
 #include "maps\waystation\code\waystation.dm"
+#include "maps\waystation\code\waystation_lifts.dm"
 #include "maps\waystation\code\waystation_shuttles.dm"
 // END_INCLUDE

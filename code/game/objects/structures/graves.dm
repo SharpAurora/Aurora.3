@@ -7,7 +7,7 @@
 	density = FALSE
 	anchored = TRUE
 	var/open = TRUE
-	var/list/grave_types = list(MATERIAL_WOOD)
+	var/list/grave_types = list(MATERIAL_WOOD, MATERIAL_STONE)
 
 /obj/structure/pit/Destroy()
 	for(var/A in src)
@@ -35,10 +35,12 @@
 			if(do_after(user, 100))
 				visible_message(SPAN_NOTICE("\The [user] finishes the grave marker."))
 				M.use(1)
+				var/obj/structure/gravemarker/grave
 				if(M.default_type == MATERIAL_WOOD)
-					new /obj/structure/gravemarker(get_turf(src))
-				//else if(M.default_type == MATERIAL_STONE)
-				//	new /obj/structure/gravemarker/stone(get_turf(src)) ////////////////Uncomment when stone material is in
+					grave = new /obj/structure/gravemarker(get_turf(src))
+				if(M.default_type == MATERIAL_STONE)
+					grave = new /obj/structure/gravemarker/stone(get_turf(src))
+				grave.layer = src.layer + 0.01
 				for(var/mob/living/L in src.contents)
 					if(L.stat == DEAD)
 						SSjobs.DespawnMob(L)
@@ -59,7 +61,8 @@
 	name = "pit"
 	desc = "Watch your step, partner."
 	open = TRUE
-	opacity = 0
+	for(var/obj/effect/decal/D in get_turf(src))
+		qdel(D)
 	for(var/atom/movable/A in src)
 		A.forceMove(get_turf(src))
 	update_icon()
@@ -68,7 +71,6 @@
 	name = "mound"
 	desc = "Some things are better left buried."
 	open = FALSE
-	opacity = 1
 	for(var/atom/movable/A in get_turf(src))
 		if(!A.anchored && A != user)
 			A.forceMove(src)
@@ -119,7 +121,6 @@
 	name = "mound"
 	desc = "Some things are better left buried."
 	open = FALSE
-	opacity = 1
 
 /obj/structure/pit/closed/Initialize()
 	. = ..()
@@ -179,9 +180,7 @@
 		else
 			message = msg 
 
-/* UNCOMMENT WHEN STONE MATERIAL IS IN
 /obj/structure/gravemarker/stone
 	desc = "They won't be the last."
 	icon_state = "stone"
-	destroyed_stack = /obj/item/stack/material/stone/rock
-*/
+	destroyed_stack = /obj/item/stack/material/stone
