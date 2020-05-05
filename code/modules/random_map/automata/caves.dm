@@ -161,3 +161,27 @@
 	target_turf_type = /turf/unsimulated/chasm_mask
 	mineral_sparse = /turf/unsimulated/floor/asteroid/ash
 	mineral_rich = /turf/unsimulated/floor/asteroid/ash
+
+/datum/random_map/automata/cave_system/ice_minerals //This needs to be loaded after ice_caves in generate_asteroid()
+	descriptor = "ice cave minerals"
+	wall_type =  /turf/simulated/mineral/ice
+	floor_type = /turf/simulated/floor/ice/rock
+	target_turf_type = /turf/unsimulated/mask
+	mineral_sparse =  /turf/simulated/mineral/ice/random
+	mineral_rich = /turf/simulated/mineral/ice/random/high_chance
+
+/datum/random_map/automata/cave_system/ice_caves
+	descriptor = "ice caves"
+	wall_type =  /turf/unsimulated/mask
+	floor_type = /turf/simulated/floor/ice
+	target_turf_type = /turf/unsimulated/chasm_mask
+	mineral_sparse =  /turf/unsimulated/mask
+	mineral_rich = /turf/unsimulated/mask
+
+/datum/random_map/automata/cave_system/high_yield/ice
+	descriptor = "high yield ice caves"
+	wall_type = /turf/simulated/mineral/ice
+	floor_type = /turf/simulated/floor/ice/rock
+	target_turf_type = /turf/unsimulated/mask
+	mineral_sparse =  /turf/simulated/mineral/ice/random/high_chance
+	mineral_rich = /turf/simulated/mineral/ice/random/higher_chance

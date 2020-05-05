@@ -22,6 +22,13 @@
 		if(engraving)
 			to_chat(user, "A message is engraved into \the [src]: <I>[engraving]</I>")
 
+/obj/structure/flora/proc/dig_up(mob/user)
+	user.visible_message(SPAN_NOTICE("\The [user] begins digging up \the [src]..."))
+	if(do_after(user, 150))
+		if(Adjacent(user))
+			user.visible_message(SPAN_NOTICE("\The [user] removes \the [src]!"))
+			qdel(src)
+
 /obj/structure/flora/tree
 	name = "tree"
 	desc = "A big ol' tree."
@@ -34,7 +41,7 @@
 	var/fall_force = 60
 	var/list/contained_objects = list()	//If it has anything except wood. Fruit, pinecones, animals, etc.
 	var/stumptype = /obj/structure/flora/stump //stump to make when chopped
-	var/static/list/fall_forbid = list(/obj/structure/flora, /obj/effect/decal/cleanable/blood/tracks, /obj/structure/bonfire, /obj/structure/pit) //things we don't want a crush message for
+	var/static/list/fall_forbid = list(/obj/structure/flora, /obj/effect, /obj/structure/bonfire, /obj/structure/pit) //things we don't want a crush message for
 
 /obj/structure/flora/tree/proc/update_desc()
 	desc = initial(desc)
@@ -159,6 +166,9 @@
 	if(I.sharp && user.a_intent != I_HURT)
 		do_engrave(I, user)
 		return
+	if(istype(I, /obj/item/shovel))
+		dig_up(user)
+		return
 	..()
 
 /obj/structure/flora/stump/log
@@ -168,6 +178,8 @@
 	icon_state = "timber"
 
 /obj/structure/flora/stump/log/attackby(obj/item/I, mob/user)
+	if(istype(I, /obj/item/shovel)) //can't dig this up
+		return
 	if(I.can_woodcut())
 		if(cutting)
 			return
@@ -233,16 +245,6 @@
 	pixel_x = -32
 	icon = 'icons/obj/flora/jungletreesmall.dmi'
 
-//Jungle grass
-/obj/structure/flora/grass/jungle
-	name = "jungle grass"
-	desc = "Thick alien flora."
-	icon = 'icons/obj/flora/jungleflora.dmi'
-	icon_state = "grassa"
-
-/obj/structure/flora/grass/jungle/b
-	icon_state = "grassb"
-
 //rocks
 /obj/structure/flora/rock
 	icon_state = "basalt"
@@ -255,43 +257,58 @@
 	icon_state = "lavarocks"
 	desc = "A pile of rocks."
 
-//grass
+/obj/structure/flora
+	name = "bush"
+	gender = PLURAL
+	icon = 'icons/obj/flora/snowflora.dmi'
+	icon_state = "snowgrass1bb"
+	anchored = TRUE
+
 /obj/structure/flora/grass
 	name = "grass"
 	icon = 'icons/obj/flora/snowflora.dmi'
-	anchored = 1
+	mouse_opacity = 0
 
 /obj/structure/flora/grass/brown
 	icon_state = "snowgrass1bb"
 
-/obj/structure/flora/grass/brown/New()
-	..()
+/obj/structure/flora/grass/brown/Initialize()
+	. = ..()
 	icon_state = "snowgrass[rand(1, 3)]bb"
 
 
 /obj/structure/flora/grass/green
 	icon_state = "snowgrass1gb"
 
-/obj/structure/flora/grass/green/New()
-	..()
+/obj/structure/flora/grass/green/Initialize()
+	. = ..()
 	icon_state = "snowgrass[rand(1, 3)]gb"
 
 /obj/structure/flora/grass/both
 	icon_state = "snowgrassall1"
 
-/obj/structure/flora/grass/both/New()
-	..()
+/obj/structure/flora/grass/both/Initialize()
+	. = ..()
 	icon_state = "snowgrassall[rand(1, 3)]"
 
+//Jungle grass
+/obj/structure/flora/grass/jungle
+	name = "jungle grass"
+	desc = "Thick alien flora."
+	icon = 'icons/obj/flora/jungleflora.dmi'
+	icon_state = "grassa"
+
+/obj/structure/flora/grass/jungle/b
+	icon_state = "grassb"
+
 //bushes
-/obj/structure/flora/bush
+/obj/structure/flora/bush/snow
 	name = "bush"
 	icon = 'icons/obj/flora/snowflora.dmi'
 	icon_state = "snowbush1"
-	anchored = 1
 
-/obj/structure/flora/bush/New()
-	..()
+/obj/structure/flora/bush/snow/Initialize()
+	. = ..()
 	icon_state = "snowbush[rand(1, 6)]"
 
 /obj/structure/flora/pottedplant

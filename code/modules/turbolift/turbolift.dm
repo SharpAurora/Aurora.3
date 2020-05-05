@@ -74,7 +74,10 @@
 		target_floor = null
 
 		sleep(15)
-		control_panel_interior.visible_message("<b>The elevator</b> announces, \"[origin.lift_announce_str]\"")
+		if(origin.announce_speak)
+			control_panel_interior.visible_message("<b>The elevator</b> announces, \"[origin.lift_announce_str]\"")
+		else
+			control_panel_interior.visible_message(origin.lift_announce_str)
 
 		queue_movement(floor_wait_delay + move_delay)
 		return 1
@@ -99,7 +102,7 @@
 	origin.move_contents_to(destination)
 
 	current_floor = next_floor
-	control_panel_interior.visible_message("The elevator [moving_upwards ? "rises" : "descends"] smoothly.")
+	control_panel_interior.visible_message("The elevator [moving_upwards ? "rises" : "descends"].")
 
 	queue_movement()
 	return 1

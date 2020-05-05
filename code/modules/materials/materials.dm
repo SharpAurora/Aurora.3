@@ -347,6 +347,15 @@
 	stack_type = /obj/item/stack/material/marble
 	golem = "Marble Golem"
 
+/material/stone/stone
+	name = MATERIAL_STONE
+	icon_colour = "#7c7c7c"
+	weight = 24
+	hardness = 60
+	integrity = 201
+	stack_type = /obj/item/stack/material/stone
+	golem = "Marble Golem"
+
 /material/steel
 	name = DEFAULT_WALL_MATERIAL
 	stack_type = /obj/item/stack/material/steel

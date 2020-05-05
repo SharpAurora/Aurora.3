@@ -258,6 +258,9 @@
 	name = "ice"
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "ice"
+	temperature = 240
+	movement_cost = 1
+	plating_is_base = TRUE
 
 /turf/simulated/floor/snow
 	name = "snow"
@@ -266,21 +269,58 @@
 	footstep_sound = "snow"
 	does_footprint = TRUE
 	footprint_color = COLOR_SNOW
-	track_distance = 4
+	track_distance = 2
 	diggable = TRUE
+	plating_is_base = TRUE
 
 /turf/simulated/floor/snow/Initialize()
 	. = ..()
 	icon_state = pick("snow[rand(1,12)]","snow0")
 
+/turf/simulated/floor/ice/rock
+	name = "frozen stone"
+	icon = 'icons/turf/ice_cavern.dmi'
+	icon_state = "icy_rock"
+	desc = "Frozen rocks, streaked with thick ice."
+	smooth = SMOOTH_FALSE
+	canSmoothWith = null
+	temperature = 230
+	movement_cost = 0
+	plating_is_base = TRUE
+
+	footstep_sound = "asteroid"
+
+/turf/simulated/floor/ice/rock/get_smooth_underlay_icon(mutable_appearance/underlay_appearance, turf/asking_turf, adjacency_dir)
+	underlay_appearance.icon = icon
+	underlay_appearance.icon_state = "icy_rock"
+	if(prob(20))
+		underlay_appearance.icon_state += "[rand(1,19)]"
+	return TRUE
+
+/turf/simulated/floor/ice/rock/Initialize(mapload)
+	if(prob(20))
+		var/variant = rand(1,19)
+		icon_state = "icy_rock[variant]"
+	. = ..()
+
 /turf/simulated/floor/plating/snow
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "snowplating"
 	footstep_sound = "snow"
+	temperature = 240
+	plating_is_base = TRUE
 
 /turf/simulated/floor/airless/ceiling
 	icon_state = "asteroidplating"
 	baseturf = /turf/space
+
+/turf/simulated/floor/geist
+	name = "geistrock"
+	desc = "hard, stony ground, laced with the hair-like weave of geistlily roots."
+	icon = 'icons/turf/floors.dmi'
+	icon_state = "growth"
+	temperature = 230
+	plating_is_base = TRUE
 
 /turf/simulated/floor/light
 

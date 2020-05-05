@@ -20,6 +20,7 @@ var/global/list/total_active_bonfires = list()
 	var/heat_range = 5 //Range in which it will heat other people
 	var/heating_power
 	var/last_ambient_message
+	var/burn_out = TRUE //Whether or not it deletes itself when fuel is depleted
 
 /obj/structure/bonfire/Initialize()
 	. = ..()
@@ -188,7 +189,7 @@ var/global/list/total_active_bonfires = list()
 
 	handle_reagents()
 
-	fuel -= 2
+	fuel -= rand(1, 2)
 
 	if(fuel <= 0)
 		extinguish()
@@ -219,6 +220,10 @@ var/global/list/total_active_bonfires = list()
 	total_active_bonfires -= src
 	if(cook_machine)
 		cook_machine.stat |= POWEROFF
+	if(burn_out)
+		visible_message(SPAN_NOTICE("\The [src] burns out, turning to a pile of ash and burnt wood."))
+		new /obj/effect/decal/cleanable/ash(get_turf(src))
+		qdel(src)
 
 /obj/structure/bonfire/proc/heat()
 	if(!on_fire)
@@ -326,6 +331,7 @@ var/global/list/total_active_bonfires = list()
 	pixel_x = -16
 	safe = TRUE
 	density = TRUE
+	burn_out = FALSE
 
 /obj/structure/bonfire/fireplace/New(var/newloc, var/material_name)
 	..()

@@ -27,6 +27,7 @@
 	var/tmp/cached_adjacency
 
 	smooth = SMOOTH_TRUE | SMOOTH_NO_CLEAR_ICON
+	tracks_footprint = FALSE
 
 // Walls always hide the stuff below them.
 /turf/simulated/wall/levelupdate(mapload)

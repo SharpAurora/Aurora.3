@@ -101,6 +101,13 @@
 	default_type = MATERIAL_MARBLE
 	drop_sound = 'sound/items/drop/boots.ogg'
 
+/obj/item/stack/material/stone
+	name = "stone brick"
+	icon_state = "sheet-stone"
+	default_type = MATERIAL_STONE
+	icon_has_variants = TRUE
+	drop_sound = 'sound/items/drop/boots.ogg'
+
 /obj/item/stack/material/diamond
 	name = "diamond"
 	icon_state = "sheet-diamond"

@@ -17,7 +17,6 @@
 	levelupdate()
 	if (above)
 		above.update_mimic()
-
 	queue_smooth_neighbors(src)
 
 // Helper to change this turf into an appropriate openturf type, generally you should use this instead of ChangeTurf(/turf/simulated/open).

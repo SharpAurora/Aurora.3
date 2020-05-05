@@ -1589,13 +1589,42 @@
 	icon = 'icons/obj/woodrelated.dmi'
 	icon_state = "tree_log"
 	spawnlist = list(
-		/obj/structure/flora/stump = 1,
-		/obj/structure/flora/stump/log = 0.5,
-		/obj/item/stack/material/wood/branch = 1.5,
+		/obj/structure/flora/stump = 4,
+		/obj/structure/flora/stump/log = 2,
+		/obj/item/stack/material/wood/branch = 2,
 		/obj/item/stack/material/wood/log = 1,
 		/obj/effect/decal/remains = 0.1,
 		/obj/effect/decal/remains/human = 0.1,
 		/obj/structure/flora/bush = 4,
 		/obj/structure/flora/grass/brown = 2,
 		/obj/effect/decal/cleanable/blood/gibs = 0.1
+		)
+
+/obj/random/exploration_loot
+	name = "random exploration loot"
+	desc = "A wide mix of unique items that aren't usually found, as a reward for exploration."
+	icon = 'icons/obj/vaurca_items.dmi'
+	icon_state = "puzzlebox"
+	spawnlist = list(
+		/obj/item/material/star,
+		/obj/item/melee/hammer,
+		/obj/item/melee/hammer/powered,
+		/obj/item/gun/energy/floragun,
+		/obj/item/device/powersink,
+		/obj/item/spirit_board,
+		/obj/item/device/orbital_dropper/drill,
+		/obj/item/device/chameleon,
+		/obj/item/material/twohanded/chainsaw,
+		/obj/item/plastique,
+		/obj/item/shield/energy,
+		/obj/item/landmine,
+		/obj/item/rfd/construction,
+		/obj/item/dnainjector,
+		/obj/item/storage/box/anti_photons,
+		/obj/item/storage/box/aggression,
+		/obj/item/storage/box/dynamite,
+		/obj/item/nullrod/orb,
+		/obj/item/gun/launcher/crossbow/vaurca,
+		/obj/item/gun/energy/net,
+		/obj/item/gun/launcher/crossbow/RFD
 		)
