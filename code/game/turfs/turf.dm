@@ -45,6 +45,7 @@
 	var/list/resources
 
 	// Plating data.
+	var/plating_is_base	//The plating data for this floor is the same as it is initially. Mostly for weird things like snow and ice building.
 	var/base_name = "plating"
 	var/base_desc = "The naked hull."
 	var/base_icon = 'icons/turf/flooring/plating.dmi'
@@ -80,6 +81,12 @@
 
 	if (mapload && permit_ao)
 		queue_ao()
+
+	if(plating_is_base)
+		base_name = name
+		base_desc = desc
+		base_icon = icon
+		base_icon_state = icon_state
 
 	var/area/A = loc
 
@@ -404,6 +411,11 @@ var/const/enterloopsanity = 100
 			to_chat(user, span("warning", "\The [source] is too dry to wash that."))
 			last_clean = world.time
 	source.reagents.trans_to_turf(src, 1, 10)	//10 is the multiplier for the reaction effect. probably needed to wet the floor properly.
+
+/turf/proc/clear_tile_effects()
+	for(var/obj/effect/O in src)
+		if(istype(O,/obj/effect/decal/cleanable) || istype(O,/obj/effect/overlay))
+			qdel(O)
 
 /turf/proc/update_blood_overlays()
 	return

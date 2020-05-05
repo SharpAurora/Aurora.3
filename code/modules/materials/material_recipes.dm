@@ -168,6 +168,10 @@
 	..()
 	recipes += new/datum/stack_recipe("[display_name] fireplace", /obj/structure/bonfire/fireplace, 15, time = 150, one_per_turf = 1, on_floor = 1, supplied_material = "[name]")
 
+/material/stone/stone/generate_recipes()
+	..()
+	recipes += new/datum/stack_recipe("grave marker", /obj/structure/gravemarker/stone, 2, time = 30, one_per_turf = 1, on_floor = 1)
+
 /material/cardboard/generate_recipes()
 	..()
 	recipes += new/datum/stack_recipe("box", /obj/item/storage/box)

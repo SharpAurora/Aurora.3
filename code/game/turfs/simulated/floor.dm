@@ -2,7 +2,7 @@
 	name = "plating"
 	icon = 'icons/turf/flooring/plating.dmi'
 	icon_state = "plating"
-
+	gender = PLURAL
 	// Damage to flooring.
 	var/broken
 	var/burnt
@@ -35,6 +35,9 @@
 	name = flooring.name
 	desc = flooring.desc
 	footstep_sound = flooring.footstep_sound
+
+	if(istype(src, /turf/simulated/floor/snow))
+		does_footprint = FALSE
 	if (mapload)
 		queue_icon_update()
 	else
@@ -54,6 +57,7 @@
 	desc = base_desc
 	icon = base_icon
 	icon_state = base_icon_state
+	does_footprint = initial(does_footprint)
 
 	if(flooring)
 		if(flooring.build_type && place_product)
@@ -65,6 +69,7 @@
 	burnt = null
 	flooring_override = null
 	levelupdate()
+	clear_tile_effects()
 
 	if(!defer_icon_update)
 		update_icon(1)

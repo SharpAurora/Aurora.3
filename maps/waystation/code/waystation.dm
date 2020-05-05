@@ -5,15 +5,17 @@
 
 	lobby_screens = list("waystation_thing")
 
-	station_levels = list(2)
+	station_levels = list(2, 3, 4)
 	admin_levels = list(1)
-	contact_levels = list(2)
-	player_levels = list(2)
+	contact_levels = list(2, 3, 4)
+	player_levels = list(2, 3, 4)
 	restricted_levels = list()
 	accessible_z_levels = list("8" = 10, "7" = 15, "2" = 60)
 	base_turf_by_z = list(
 		"1" = /turf/simulated/floor/snow,
-		"2" = /turf/simulated/floor/snow,
+		"2" = /turf/simulated/floor/ice/rock,
+		"3" = /turf/simulated/floor/ice/rock,
+		"4" = /turf/simulated/floor/snow,
 	)
 
 	station_name = "COC Aurora"
@@ -75,4 +77,12 @@
 		/datum/shuttle/autodock/ferry/distress
 	)
 
+/datum/map/waystation/generate_asteroid()
+	new /datum/random_map/automata/cave_system/ice_caves(null, 0, 0, 2, 255, 255)
+	new /datum/random_map/automata/cave_system/ice_minerals(null, 0, 0, 2, 255, 186)
+	new /datum/random_map/automata/cave_system/high_yield/ice(null, 0, 187, 2, 255, 255)
+	new /datum/random_map/automata/cave_system/ice_caves(null, 0, 0, 3, 255, 255)
+	new /datum/random_map/automata/cave_system/ice_minerals(null, 0, 0, 3, 255, 255)
 
+/datum/map/waystation/finalize_load()
+	world.maxz++

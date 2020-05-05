@@ -23,6 +23,9 @@ STOCK_ITEM_UNCOMMON(marble, 2)
 STOCK_ITEM_UNCOMMON(iron, 2)
 	new /obj/item/stack/material/iron(L, 50)
 
+STOCK_ITEM_UNCOMMON(wax, 2)
+	new /obj/item/stack/wax(L, 50)
+
 STOCK_ITEM_UNCOMMON(flare, 2)
 	new /obj/item/device/flashlight/flare(L)
 	new /obj/item/device/flashlight/flare(L)

@@ -11,7 +11,7 @@
 /obj/structure/ice_crystal/Initialize()
 	. = ..()
 	icon_state = pick("crystal_1", "crystal_2", "crystal_3")
-	set_light(rand(1, 3), 1, LIGHT_COLOR_CYAN)
+	set_light(rand(2, 3), 1, LIGHT_COLOR_CYAN)
 	if(do_process)
 		START_PROCESSING(SSprocessing, src)
 
