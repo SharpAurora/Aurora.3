@@ -14,12 +14,12 @@
 	a_intent = I_HURT
 	stop_automated_movement_when_pulled = 0
 	meat_type = /obj/item/reagent_containers/food/snacks/dwellermeat
-	mob_size = 12
+	mob_size = 20
 
 	health = 120
 	maxHealth = 120
-	melee_damage_lower = 20
-	melee_damage_upper = 20
+	melee_damage_lower = 15
+	melee_damage_upper = 25
 	attacktext = "chomped"
 	attack_sound = 'sound/weapons/bite.ogg'
 	speed = 4
