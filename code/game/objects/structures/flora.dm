@@ -245,6 +245,19 @@
 	pixel_x = -32
 	icon = 'icons/obj/flora/jungletreesmall.dmi'
 
+/obj/structure/flora/tree/geist
+	name = "geist tree"
+	desc = "A rare tree that sometimes grows from areas thick with geistlillies. Very few have been recorded."
+	icon = 'icons/obj/flora/jungletreesmall.dmi'
+	icon_state = "geist_tree"
+	max_chop_health = 360
+	chop_health = 360 
+	fall_force = 80
+
+/obj/structure/flora/tree/geist/Initialize()
+	. = ..()
+	set_light(8,3,LIGHT_COLOR_VIOLET)
+
 //rocks
 /obj/structure/flora/rock
 	icon_state = "basalt"
