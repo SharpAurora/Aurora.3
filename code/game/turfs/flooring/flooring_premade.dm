@@ -258,7 +258,7 @@
 	name = "ice"
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "ice"
-	temperature = 240
+	temperature = 243
 	movement_cost = 1
 	plating_is_base = TRUE
 
@@ -284,7 +284,7 @@
 	desc = "Frozen rocks, streaked with thick ice."
 	smooth = SMOOTH_FALSE
 	canSmoothWith = null
-	temperature = 230
+	temperature = 237
 	movement_cost = 0
 	plating_is_base = TRUE
 
@@ -307,7 +307,7 @@
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "snowplating"
 	footstep_sound = "snow"
-	temperature = 240
+	temperature = 245
 	plating_is_base = TRUE
 
 /turf/simulated/floor/airless/ceiling
