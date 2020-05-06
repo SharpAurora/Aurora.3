@@ -137,7 +137,6 @@
 
 	uniform = /obj/item/clothing/under/rank/head_of_security/corp
 	shoes = /obj/item/clothing/shoes/laceup
-	l_ear = /obj/item/device/radio/headset/headset_sec
 	id = /obj/item/card/id/navy
 	pda = /obj/item/device/pda/detective
 
@@ -181,7 +180,6 @@
 
 	uniform = /obj/item/clothing/under/det/forensics
 	shoes = /obj/item/clothing/shoes/laceup
-	l_ear = /obj/item/device/radio/headset/headset_sec
 	pda = /obj/item/device/pda/detective
 
 	backpack_contents = list(
@@ -274,7 +272,6 @@
 	suit = /obj/item/clothing/suit/storage/hazardvest/cadet
 	head = /obj/item/clothing/head/beret/sec/cadet
 	shoes = /obj/item/clothing/shoes/jackboots
-	l_ear = /obj/item/device/radio/headset/headset_sec
 
 	backpack = /obj/item/storage/backpack/security
 	satchel = /obj/item/storage/backpack/satchel_sec

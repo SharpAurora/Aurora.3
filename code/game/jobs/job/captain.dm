@@ -30,7 +30,6 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 	uniform = /obj/item/clothing/under/suit_jacket/charcoal
 	shoes = /obj/item/clothing/shoes/brown
-	l_ear = /obj/item/device/radio/headset
 	glasses = /obj/item/clothing/glasses/sunglasses
 	id = /obj/item/card/id/gold
 	pda = /obj/item/device/pda/captain
@@ -106,7 +105,6 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 
 	uniform = /obj/item/clothing/under/suit_jacket/charcoal
 	shoes = /obj/item/clothing/shoes/brown
-	l_ear = /obj/item/device/radio/headset
 	id = /obj/item/card/id/navy
 	pda = /obj/item/device/pda/heads/hop
 	backpack_contents = list(

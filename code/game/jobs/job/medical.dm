@@ -97,7 +97,6 @@
 	uniform = /obj/item/clothing/under/rank/medical
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/medical
 	shoes = /obj/item/clothing/shoes/medical
-	l_ear = /obj/item/device/radio/headset/headset_med
 	pda = /obj/item/device/pda/medical
 	id = /obj/item/card/id/white
 	suit_store = /obj/item/device/flashlight/pen
@@ -213,7 +212,6 @@
 	uniform = /obj/item/clothing/under/rank/psych
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/psych
 	shoes = /obj/item/clothing/shoes/psych
-	l_ear = /obj/item/device/radio/headset/headset_med
 	pda =  /obj/item/device/pda/psych
 	id = /obj/item/card/id/white
 
@@ -255,7 +253,6 @@
 	uniform = /obj/item/clothing/under/rank/medical/black
 	suit = /obj/item/clothing/suit/storage/toggle/fr_jacket
 	shoes = /obj/item/clothing/shoes/jackboots
-	l_ear = /obj/item/device/radio/headset/headset_med
 	l_hand = /obj/item/storage/firstaid/adv
 	r_hand = /obj/item/reagent_containers/hypospray
 	belt = /obj/item/storage/belt/medical/emt
@@ -296,7 +293,6 @@
 
 	uniform = /obj/item/clothing/under/rank/medical/intern
 	shoes = /obj/item/clothing/shoes/medical
-	l_ear = /obj/item/device/radio/headset/headset_med
 
 	backpack = /obj/item/storage/backpack/medic
 	satchel = /obj/item/storage/backpack/satchel_med
