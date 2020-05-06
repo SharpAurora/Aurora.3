@@ -300,9 +300,9 @@
 		//breathing in hot/cold air also heats/cools you a bit
 		var/temp_adj = breath.temperature - owner.bodytemperature
 		if (temp_adj < 0)
-			temp_adj /= (BODYTEMP_COLD_DIVISOR * 5)	//don't raise temperature as much as if we were directly exposed
+			temp_adj /= (BODYTEMP_COLD_DIVISOR * 15)	//don't raise temperature as much as if we were directly exposed
 		else
-			temp_adj /= (BODYTEMP_HEAT_DIVISOR * 5)	//don't raise temperature as much as if we were directly exposed
+			temp_adj /= (BODYTEMP_HEAT_DIVISOR * 15)	//don't raise temperature as much as if we were directly exposed
 
 		var/relative_density = breath.total_moles / (MOLES_CELLSTANDARD * BREATH_PERCENTAGE)
 		temp_adj *= relative_density

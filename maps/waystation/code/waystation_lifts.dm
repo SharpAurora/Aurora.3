@@ -12,9 +12,9 @@
 		/area/turbolift/mine_surface
 		)
 
-	wall_type =  /turf/simulated/wall/rusted //<<<<<<<<<<< railing/fence/something
-	floor_type = /turf/simulated/floor/wood //<<<<<<<<<< wood
-	door_type =  /obj/machinery/door/airlock/lift //<<<<<<<<<<< railing gate
+	wall_type =  /turf/simulated/wall/rusted 
+	floor_type = /turf/simulated/floor/wood 
+	door_type =  /obj/machinery/door/airlock/lift 
 
 /area/turbolift/mine_cavern
 	name = "Caverns"
@@ -22,7 +22,7 @@
 
 	lift_floor_label = "Below Surface"
 	lift_floor_name = "Below Surface"
-	base_turf = /turf/simulated/floor/plating //<< rocky ground
+	base_turf = /turf/simulated/floor/plating
 
 	sound_env = TUNNEL_ENCLOSED
 	arrival_sound = 'sound/machines/airlock_open_force.ogg'

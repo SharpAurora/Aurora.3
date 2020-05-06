@@ -24,12 +24,12 @@
 	if(!do_process)
 		STOP_PROCESSING(SSprocessing, src)
 	var/datum/gas_mixture/env = loc.return_air()
-	if(env && abs(env.temperature - (T0C - 28)) > 1)
+	if(env && abs(env.temperature - (T0C - 25)) > 1)
 		var/transfer_moles = 0.3 * env.total_moles
 		var/datum/gas_mixture/removed = env.remove(transfer_moles)
 
 		if(removed)
-			var/heat_transfer = removed.get_thermal_energy_change(T0C - 32)
+			var/heat_transfer = removed.get_thermal_energy_change(T0C - 25)
 			if(heat_transfer < 0)
 				heat_transfer = min(abs(heat_transfer), cooling_power)
 				removed.add_thermal_energy(-heat_transfer)
