@@ -637,3 +637,56 @@ var/list/holder_mob_icon_cache = list()
 	icon_state = "schlorgo"
 	item_state = "schlorgo"
 	w_class = ITEMSIZE_NORMAL
+
+/obj/item/holder/skikja
+	name = "skikja"
+	icon = 'icons/mob/npc/waystation.dmi'
+	icon_state = "manta_rest"
+	w_class = ITEMSIZE_NORMAL
+	var/frightened
+
+/obj/item/holder/skikja/process()
+	..()
+	if(prob(10))
+		loc.visible_message("\The [contained] wriggles free!")
+		release_to_floor()
+
+/obj/item/holder/skikja/attack_self(mob/M)
+	..()
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(H.a_intent == I_HURT && !contained.stat)
+			H.visible_message(SPAN_WARNING("\The [contained] blurbles and wriggles away!"))
+			frightened = TRUE
+			release_to_floor()
+
+/obj/item/holder/skikja/release_to_floor()
+	var/turf/T = get_turf(src)
+
+	for(var/mob/M in contents)
+		M.forceMove(T) //if the holder was placed into a disposal, this should place the animal in the disposal
+		M.reset_view()
+		M.Released()
+		if(istype(M, /mob/living/simple_animal/skikja)) //typecheck for some weird reason
+			var/mob/living/simple_animal/skikja/S = M
+			if(frightened)
+				S.set_flee_target(T)
+				S.handle_flee_target()
+
+	contained = null
+
+	qdel(src)
+
+/obj/item/holder/infernofly
+	name = "infernofly"
+	icon = 'icons/mob/npc/waystation.dmi'
+	icon_state = "infernofly0"
+	w_class = ITEMSIZE_TINY
+
+/obj/item/holder/infernofly/Initialize()
+	. = ..()
+	set_light(1.4, 1, LIGHT_COLOR_YELLOW)
+
+/obj/item/holder/infernofly/Destroy()
+	set_light(0)
+	. = ..()
