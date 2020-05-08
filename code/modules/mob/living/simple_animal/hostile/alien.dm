@@ -128,10 +128,10 @@
 	icon_living = "diyaab"
 	icon_dead = "diyaab_dead"
 	icon = 'icons/jungle.dmi'
-	move_to_delay = 1
+	move_to_delay = 3
 	maxHealth = 25
 	health = 25
-	speed = 1
+	speed = 2
 	melee_damage_lower = 1
 	melee_damage_upper = 8
 	attacktext = "gouged"
@@ -152,8 +152,8 @@
 	icon_state = "diyaab_cavern"
 	icon_living = "diyaab_cavern"
 	icon_dead = "diyaab_cavern_dead"
-	maxHealth = 45
-	health = 45
+	maxHealth = 40
+	health = 40
 	melee_damage_lower = 3
 	melee_damage_upper = 11
 
@@ -165,10 +165,10 @@
 	icon_living = "shantak"
 	icon_dead = "shantak_dead"
 	icon = 'icons/jungle.dmi'
-	move_to_delay = 1
+	move_to_delay = 3
 	maxHealth = 75
 	health = 75
-	speed = 1
+	speed = 2
 	melee_damage_lower = 3
 	melee_damage_upper = 12
 	attacktext = "gouged"

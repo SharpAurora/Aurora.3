@@ -28,6 +28,7 @@
 	canbrush = TRUE
 	emote_sounds = list('sound/effects/creatures/goat.ogg')
 	has_udder = TRUE
+	var/angry_emote = "gets an evil-looking gleam in their eye."
 
 	butchering_products = list(/obj/item/stack/material/animalhide = 3)
 
@@ -62,7 +63,7 @@
 /mob/living/simple_animal/hostile/retaliate/goat/Retaliate()
 	..()
 	if(stat == CONSCIOUS)
-		visible_message("<span class='warning'>[src] gets an evil-looking gleam in their eye.</span>")
+		visible_message(SPAN_WARNING("\The [src] [angry_emote]"))
 
 /mob/living/simple_animal/hostile/retaliate/goat/Move()
 	..()

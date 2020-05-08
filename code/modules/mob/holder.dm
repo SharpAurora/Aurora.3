@@ -648,7 +648,7 @@ var/list/holder_mob_icon_cache = list()
 /obj/item/holder/skikja/process()
 	..()
 	if(prob(10))
-		loc.visible_message("\The [contained] wriggles free!")
+		loc.visible_message(SPAN_NOTICE("\The [contained] wriggles free!"))
 		release_to_floor()
 
 /obj/item/holder/skikja/attack_self(mob/M)
