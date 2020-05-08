@@ -70,6 +70,8 @@
 	return FALSE
 
 /mob/living/simple_animal/skikja/proc/bury_self(var/turf/T)
+	if(!isturf(loc))
+		return FALSE
 	if(is_type_in_list(T, hideable_turfs))
 		visible_message(SPAN_NOTICE("\The [src] lays against the [T] and shakes itself back and forth. Soon, it is entirely camoflauged against it."))
 		resting = TRUE
@@ -177,7 +179,7 @@
 	if(flee_target && !(flee_target in view(src)))
 		flee_target = null
 		stop_automated_movement = FALSE
-		bury_self(get_turf(src)) //hide after running, poor thing
+		INVOKE_ASYNC(src, .proc/bury_self, get_turf(src)) //hide after running, poor thing
 		return
 
 	if(flee_target)
@@ -226,7 +228,7 @@
 //Fireflies, mostly copied from bee code
 /mob/living/simple_animal/infernofly
 	name = "infernoflies"
-	desc = "Harmless bioluminescent insects that pulse light to attract mates."
+	desc = "Harmless bioluminescent insects that pulse light to attract mates. These also produce heat and therefore are frequently found in cold climates."
 	icon = 'icons/mob/npc/waystation.dmi'
 	icon_state = "infernofly1"
 	icon_dead = "infernofly1"
@@ -241,6 +243,7 @@
 	turns_per_move = 6
 	flying = TRUE
 	holder_type = /obj/item/holder/infernofly
+	faction = "Ambient"
 
 /mob/living/simple_animal/infernofly/Initialize()
 	. = ..()
@@ -320,17 +323,25 @@
 		grabber.visible_message(SPAN_NOTICE("\The [grabber] catches \an [name_single]!"), SPAN_NOTICE("You snatch \an [name_single]!"))
 		if(!loner)
 			strength -= 1
-			var/mob/living/simple_animal/infernofly/fly = new(get_turf(src))
+			var/mob/living/simple_animal/infernofly/single/fly = new(get_turf(src))
 			fly.get_scooped(grabber)
 			update_icons()
 		else
-			grabber.put_in_hands(src)
+			get_scooped(grabber)
 
 	else
-		to_chat(grabber, SPAN_NOTICE("You try to grab from the group of [src], but don't manage to catch any."))
+		to_chat(grabber, SPAN_NOTICE("You try to grab \an [name_single], but it slips away."))
 		step_away(src, grabber, 1)
 
 	return FALSE
 
 /mob/living/simple_animal/infernofly/attempt_pull(var/mob/living/grabber)
 	return attempt_grab(grabber)
+
+/mob/living/simple_animal/infernofly/single
+	loner = TRUE
+
+/mob/living/simple_animal/infernofly/single/Initialize()
+	. = .. ()
+	strength = 1
+	update_icons()

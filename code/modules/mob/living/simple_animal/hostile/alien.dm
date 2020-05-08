@@ -152,8 +152,8 @@
 	icon_state = "diyaab_cavern"
 	icon_living = "diyaab_cavern"
 	icon_dead = "diyaab_cavern_dead"
-	maxHealth = 45
-	health = 45
+	maxHealth = 40
+	health = 40
 	melee_damage_lower = 3
 	melee_damage_upper = 11
 
