@@ -101,6 +101,7 @@
 	//Napping
 	var/can_nap = 0
 	var/icon_rest = null
+	var/icon_sleep
 
 	var/tameable = TRUE //if you can tame it, used by the dociler for now
 
@@ -280,13 +281,8 @@
 					audible_emote("[pick(emote_hear)].",0)
 		speak_audio()
 
-	if (can_nap)
-		if (resting)
-			if (prob(1))
-				fall_asleep()
-		else
-			if (!stat || prob(0.5))
-				wake_up()
+	if(can_nap)
+		handle_nap()
 
 	if(nutrition < max_nutrition / 3 && isturf(loc))	//If we're hungry enough (and not being held/in a bag), we'll check our tile for food.
 		handle_eating()
@@ -294,6 +290,12 @@
 /mob/living/simple_animal/proc/handle_supernatural()
 	if(purge)
 		purge -= 1
+
+/mob/living/simple_animal/proc/handle_nap()
+	if(sleeping && stat != DEAD && prob(1)) //Only chance to wake up if we're sleeping (duh), not dead(duh), and small prob
+		wake_up()
+	if(resting && !stat && prob(2)) //If we're relaxing and not unconscious, we might fall asleep
+		fall_asleep()
 
 /mob/living/simple_animal/proc/handle_eating()
 	var/list/food_choices = list()
@@ -658,7 +660,8 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 //Puts the mob to sleep
 /mob/living/simple_animal/proc/fall_asleep()
 	if (stat != DEAD)
-		resting = 1
+		sleeping = TRUE
+		resting = TRUE
 		stat = UNCONSCIOUS
 		canmove = 0
 		wander = 0
@@ -669,6 +672,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 //Wakes the mob up from sleeping
 /mob/living/simple_animal/proc/wake_up()
 	if (stat != DEAD)
+		sleeping = FALSE
 		stat = CONSCIOUS
 		resting = 0
 		canmove = 1
@@ -679,7 +683,10 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	if (stat == DEAD)
 		icon_state = icon_dead
 	else if ((stat == UNCONSCIOUS || resting) && icon_rest)
-		icon_state = icon_rest
+		if(sleeping && icon_sleep)
+			icon_state = icon_sleep
+		else
+			icon_state = icon_rest
 	else if (icon_living)
 		icon_state = icon_living
 
@@ -687,10 +694,7 @@ mob/living/simple_animal/bullet_act(var/obj/item/projectile/Proj)
 	set name = "Rest"
 	set category = "Abilities"
 
-	if (resting)
-		wake_up()
-	else
-		fall_asleep()
+	resting = !resting
 
 	to_chat(src, span("notice","You are now [resting ? "resting" : "getting up"]"))
 

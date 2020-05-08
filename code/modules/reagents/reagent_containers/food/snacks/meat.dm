@@ -88,6 +88,20 @@
 	reagents.add_reagent("virusfood", 2)
 	src.bitesize = 1
 
+/obj/item/reagent_containers/food/snacks/meat/skikja
+	name = "skikja meat"
+	desc = "A thin cut of skikja meat. So many little bones..."
+	icon_state = "fishfillet"
+	filling_color = "#456691"
+	cooked_icon = "chickenbreast_cooked"
+	slice_path = /obj/item/reagent_containers/food/snacks/rawcutlet
+	slices_num = 2
+
+/obj/item/reagent_containers/food/snacks/meat/skikja/Initialize()
+	. = ..()
+	reagents.clear_reagents()
+	reagents.add_reagent("protein", 2)
+
 /obj/item/reagent_containers/food/snacks/meat/biogenerated
 	name = "bio meat"
 	desc = "Did this come from the Biogenerator, or is it a biohazard? Perhaps it is both."
