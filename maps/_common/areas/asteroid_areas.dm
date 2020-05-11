@@ -2,7 +2,14 @@
 
 /area/mine
 	icon_state = "mining"
-	ambience = list('sound/ambience/ambimine.ogg', 'sound/ambience/song_game.ogg')
+	ambience = list('sound/waystation/cave-drips.ogg',
+	'sound/waystation/dark-ambience.ogg',
+	'sound/waystation/dark-cave-drone.ogg',
+	'sound/waystation/tundra0.ogg',
+	'sound/waystation/tundra1.ogg',
+	'sound/waystation/tundra2.ogg',
+	'sound/ambience/ambimaint2.ogg'
+	)
 	sound_env = ASTEROID
 
 /area/mine/explored
@@ -28,6 +35,15 @@
 /area/outpost/abandoned
 	name = "Abandoned"
 	icon_state = "dark"
+	sound_env = FOREST
+	ambience = list('sound/waystation/tundra0.ogg',
+	'sound/waystation/tundra1.ogg',
+	'sound/waystation/tundra2.ogg',
+	'sound/waystation/wind-houling-1.ogg',
+	'sound/waystation/wind-noise.ogg',
+	'sound/waystation/wind-synthesized-a.ogg',
+	'sound/ambience/ambimo2.ogg'
+	)
 
 // Main mining
 /area/outpost/mining_main

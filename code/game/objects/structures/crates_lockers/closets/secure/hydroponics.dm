@@ -46,7 +46,6 @@
 	new /obj/item/storage/bag/plants(src)
 	new /obj/item/clothing/under/rank/scientist(src)
 	new /obj/item/device/analyzer/plant_analyzer(src)
-	new /obj/item/device/radio/headset/headset_sci(src)
 	new /obj/item/clothing/head/greenbandana(src)
 	new /obj/item/material/minihoe(src)
 	new /obj/item/material/hatchet(src)

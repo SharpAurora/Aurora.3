@@ -4,21 +4,19 @@
 	station_area = 1
 
 /area/storage/tools
-	name = "Auxiliary Tool Storage"
+	name = "Construction Site - Alpha"
 	icon_state = "storage"
-	allow_nightmode = 1
 
 /area/storage/primary
-	name = "Primary Tool Storage"
+	name = "Construction Site - Bravo"
 	icon_state = "primarystorage"
-	allow_nightmode = 1
 
 /area/storage/autolathe
-	name = "Autolathe Storage"
+	name = "Construction Site - Charlie"
 	icon_state = "storage"
 
 /area/storage/art
-	name = "Art Supply Storage"
+	name = "Construction Site - Delta"
 	icon_state = "storage"
 
 /area/storage/auxillary
@@ -46,7 +44,7 @@
 	icon_state = "emergencystorage"
 
 /area/storage/tech
-	name = "Technical Storage"
+	name = "Construction Site - Echo"
 	icon_state = "auxstorage"
 
 /area/storage/testroom

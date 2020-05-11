@@ -75,3 +75,16 @@
 		return
 	power_change()
 	..(severity)
+
+//For mapping
+/obj/machinery/light_switch/north
+	pixel_y = 32
+
+/obj/machinery/light_switch/south
+	pixel_y = -32
+
+/obj/machinery/light_switch/east
+	pixel_x = 32
+
+/obj/machinery/light_switch/west
+	pixel_x = -32

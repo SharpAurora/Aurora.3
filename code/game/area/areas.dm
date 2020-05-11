@@ -18,7 +18,7 @@
 	layer = 10
 	luminosity = 0
 	mouse_opacity = 0
-	var/lightswitch = FALSE
+	var/lightswitch = TRUE
 
 	var/eject = null
 
@@ -40,18 +40,15 @@
 	var/list/all_doors = list()		//Added by Strumpetplaya - Alarm Change - Contains a list of doors adjacent to this area
 	var/air_doors_activated = 0
 	var/list/ambience = list(
-		'sound/ambience/ambigen1.ogg',
+		'sound/ambience/ambiatm1.ogg',
 		'sound/ambience/ambigen3.ogg',
 		'sound/ambience/ambigen4.ogg',
 		'sound/ambience/ambigen5.ogg',
 		'sound/ambience/ambigen6.ogg',
-		'sound/ambience/ambigen7.ogg',
-		'sound/ambience/ambigen8.ogg',
-		'sound/ambience/ambigen9.ogg',
 		'sound/ambience/ambigen10.ogg',
-		'sound/ambience/ambigen11.ogg',
-		'sound/ambience/ambigen12.ogg',
-		'sound/ambience/ambigen14.ogg'
+		'sound/waystation/tundra0.ogg',
+		'sound/waystation/tundra1.ogg',
+		'sound/waystation/tundra2.ogg'
 	)
 	var/list/forced_ambience = null
 	var/loop_ambience = TRUE
@@ -346,7 +343,7 @@ var/list/mob/living/forced_ambiance_list = new
 
 	if(!L.client.ambience_playing)
 		L.client.ambience_playing = 1
-		L << sound('sound/ambience/shipambience.ogg', repeat = loop_ambience, wait = 0, volume = 35, channel = 2)
+		L << sound('sound/ambience/shipambience.ogg', repeat = loop_ambience, wait = 0, volume = 8, channel = 2)
 
 	if(forced_ambience)
 		if(forced_ambience.len)
@@ -357,7 +354,7 @@ var/list/mob/living/forced_ambiance_list = new
 	else if(src.ambience.len && prob(35))
 		if((world.time >= L.client.played + 600))
 			var/sound = pick(ambience)
-			L << sound(sound, repeat = 0, wait = 0, volume = 25, channel = 1)
+			L << sound(sound, repeat = 0, wait = 0, volume = 30, channel = 1)
 			L.client.played = world.time
 
 /area/proc/gravitychange(var/gravitystate = 0)

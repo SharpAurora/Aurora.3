@@ -38,7 +38,6 @@
 	pda = /obj/item/device/pda/lawyer
 	shoes = /obj/item/clothing/shoes/laceup
 	glasses = /obj/item/clothing/glasses/sunglasses/big
-	l_ear = /obj/item/device/radio/headset/representative
 	l_hand =  /obj/item/storage/briefcase
 	backpack_contents = list(
 		/obj/item/device/camera = 1,
