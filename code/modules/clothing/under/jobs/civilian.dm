@@ -254,11 +254,11 @@
 
 //ranger stuff
 /obj/item/clothing/under/rank/ranger
-	name = "Ranger uniform"
+	name = "ranger uniform"
 	desc = "A uniform utilized by rank and file rangers."
 	icon_state = "necro_research_alt"
 	worn_state = "necro_research_alt"
 
 /obj/item/clothing/under/rank/ranger/lead
-	name = "Ranger Lieutenant uniform"
+	name = "ranger Lieutenant uniform"
 	desc = "A uniform utilized by ranking ranger officers."
