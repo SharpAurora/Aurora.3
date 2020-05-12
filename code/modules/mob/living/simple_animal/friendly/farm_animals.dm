@@ -19,7 +19,7 @@
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
-	faction = "goat"
+	faction = FACTION_LIVESTOCK
 	attacktext = "kicked"
 	maxHealth = 40
 	melee_damage_lower = 1
@@ -100,6 +100,7 @@
 	has_udder = TRUE
 	butchering_products = list(/obj/item/stack/material/animalhide = 8)
 	forbidden_foods = list(/obj/item/reagent_containers/food/snacks/egg)
+	faction = FACTION_LIVESTOCK
 
 /mob/living/simple_animal/cow/attack_hand(mob/living/carbon/M as mob)
 	if(!stat && M.a_intent == I_DISARM && icon_state != icon_dead)
@@ -146,6 +147,7 @@
 	canbrush = TRUE
 	hunger_enabled = FALSE
 	emote_sounds = list('sound/effects/creatures/chick.ogg')
+	faction = FACTION_LIVESTOCK
 
 /mob/living/simple_animal/chick/Initialize()
 	. = ..()
@@ -195,6 +197,7 @@
 	hunger_enabled = FALSE
 	canbrush = TRUE
 	forbidden_foods = list(/obj/item/reagent_containers/food/snacks/egg)
+	faction = FACTION_LIVESTOCK
 
 	var/static/chicken_count = 0
 	emote_sounds = list('sound/effects/creatures/chicken.ogg', 'sound/effects/creatures/chicken_bwak.ogg')

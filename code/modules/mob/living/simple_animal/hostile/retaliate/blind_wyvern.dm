@@ -40,6 +40,6 @@
 	max_n2 = 0
 	minbodytemp = 0
 
-	faction = "cavern"
+	faction = FACTION_CAVERN
 
 	flying = TRUE

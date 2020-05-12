@@ -22,7 +22,7 @@
 	melee_damage_upper = 30
 	heat_damage_per_tick = 20
 	cold_damage_per_tick = 20
-	faction = "spiders"
+	faction = FACTION_SPIDER
 
 	mob_swap_flags = HUMAN|SIMPLE_ANIMAL|SLIME|MONKEY
 	mob_push_flags = ALLMOBS

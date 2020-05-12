@@ -20,6 +20,7 @@
 	maxHealth = 250
 	canbrush = TRUE
 	brush = /obj/item/reagent_containers/glass/rag
+	faction = FACTION_LIVESTOCK
 
 	mob_size = 15
 

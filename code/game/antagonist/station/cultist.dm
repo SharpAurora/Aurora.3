@@ -33,7 +33,7 @@ var/datum/antagonist/cultist/cult
 	antaghud_indicator = "hudcultist"
 	required_age = 10
 
-	faction = "cult"
+	faction = FACTION_CULT
 
 	var/allow_narsie = 1
 	var/datum/mind/sacrifice_target

@@ -11,14 +11,14 @@
 	melee_damage_upper = 50
 	attacktext = "chomped"
 	attack_sound = 'sound/weapons/bite.ogg'
-	faction = "creature"
+	faction = FACTION_CREATURE
 	speed = 4
 	mob_size = 14
 
 	tameable = FALSE
 
 /mob/living/simple_animal/hostile/creature/cult
-	faction = "cult"
+	faction = FACTION_CULT
 
 	min_oxy = 0
 	max_oxy = 0

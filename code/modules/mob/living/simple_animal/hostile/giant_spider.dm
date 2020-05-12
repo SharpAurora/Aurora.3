@@ -29,7 +29,7 @@
 	cold_damage_per_tick = 20
 	var/poison_per_bite = 5
 	var/poison_type = "toxin"
-	faction = "spiders"
+	faction = FACTION_SPIDER
 	var/busy = 0
 	pass_flags = PASSTABLE
 	move_to_delay = 6

@@ -27,8 +27,8 @@
 	harm_intent_damage = 5
 
 	minbodytemp = 190
-	maxbodytemp = 320
-	cold_damage_per_tick = 1	
+	maxbodytemp = 325
+	cold_damage_per_tick = 0.5	
 
 	friendly = "rubs against"
 
@@ -38,10 +38,11 @@
 	nutrition_step = 0.1 
 	bite_factor = 0.3
 	digest_factor = 0.1 
+	var/next_search //next time we look for food
 
 	stop_automated_movement_when_pulled = FALSE
 
-	scan_range = 8
+	scan_range = 7
 
 	can_nap = TRUE
 	canbrush = TRUE 
@@ -49,11 +50,12 @@
 
 	flying = TRUE 
 
-	faction = "Snow Wildlife"
+	faction = FACTION_SNOW
 
 	var/static/list/hideable_turfs = list(/turf/simulated/floor/snow)
 	var/hiding
 	var/flee_target
+	var/do_reveal_timer
 	var/obj/item/reagent_containers/food/snacks/food_target
 
 /mob/living/simple_animal/skikja/update_icons()
@@ -70,26 +72,30 @@
 	return FALSE
 
 /mob/living/simple_animal/skikja/proc/bury_self(var/turf/T)
+	world << "Attempting bury_self in [T]"
 	if(!isturf(loc))
 		return FALSE
 	if(is_type_in_list(T, hideable_turfs))
+		world << "[T] in hideable turfs, burying"
 		visible_message(SPAN_NOTICE("\The [src] lays against the [T] and shakes itself back and forth. Soon, it is entirely camoflauged against it."))
 		resting = TRUE
 		hiding = TRUE
 		stop_automated_movement = TRUE
 		icon_state = icon_hide
-		addtimer(CALLBACK(src, .proc/reveal_self), rand(900, 1500))
+		do_reveal_timer = addtimer(CALLBACK(src, .proc/reveal_self), rand(900, 1500), TIMER_STOPPABLE)
 
 /mob/living/simple_animal/skikja/proc/handle_hidden()
 	food_search()
 	return
 
 /mob/living/simple_animal/skikja/proc/food_search()
+	if(flee_target || world.time < next_search) //Too scared to care, or we lost interest recently
+		return FALSE
 	if(food_target)
 		if(resting || hiding || flee_target)
 			food_target = null
 			return
-		if(prob(95))
+		if(prob(80) || (nutrition / max_nutrtion) <= 0.25)
 			world << "Checking out the food"
 			walk_to(src, food_target.loc, 1)
 			if(Adjacent(food_target.loc))
@@ -97,11 +103,14 @@
 					visible_message(SPAN_NOTICE("\The [src] sniffs \the [food_target] curiously."))
 				if(prob(10))
 					say(pick(speak))
+				if(isturf(food_target.loc) && (nutrition / max_nutrition) <= 0.5)
+					UnarmedAttack(food_target)
 		else
 			world << "lost interest in food target"
 			say(pick(speak))
 			walk_away(src, food_target.loc, 2, 2)
 			food_target = null
+			next_search = world.time + rand(300, 900)
 		return
 	var/list/food_curiosity = list()
 	for(var/obj/item/reagent_containers/food/snacks/G in orange(src, scan_range))
@@ -158,9 +167,9 @@
 			if(!resting)
 				restore_self()
 				food_search()
-				if(prob(20))
+				if(prob(10))
 					bury_self(get_turf(src))
-			else if(prob(15))
+			else if(prob(10))
 				lay_down()
 			..()
 
@@ -168,6 +177,10 @@
 	..()
 	if(hiding)
 		if(isliving(AM))
+			if(isanimal(AM))
+				var/mob/living/simple_animal/SA = AM
+				if(AM.flying)
+					return
 			set_flee_target(AM)
 		else
 			set_flee_target(get_turf(src))
@@ -175,11 +188,13 @@
 
 
 /mob/living/simple_animal/skikja/proc/handle_flee_target()
+	world << "handling flee target"
 	//see if we should stop fleeing
 	if(flee_target && !(flee_target in view(src)))
 		flee_target = null
 		stop_automated_movement = FALSE
 		INVOKE_ASYNC(src, .proc/bury_self, get_turf(src)) //hide after running, poor thing
+		world << "Should have nulled flee target. Flee target: [flee_target]"
 		return
 
 	if(flee_target)
@@ -187,6 +202,11 @@
 			say("Blibblbl!!")
 		stop_automated_movement = TRUE
 		walk_away(src, flee_target, 7, 2)
+		deltimer(do_reveal_timer)
+	//This is mostly a precaution against infinite flee loops
+	else
+		flee_target = null
+		stop_automated_movement = FALSE
 
 /mob/living/simple_animal/skikja/proc/set_flee_target(atom/A)
 	if(A)
@@ -223,6 +243,20 @@
 		poke(1)
 	set_flee_target(AM.thrower? AM.thrower : get_turf(src))
 
+/mob/living/simple_animal/skikja/attempt_grab(var/mob/living/grabber)
+	var/prob_mod = 1
+	if(ishuman(grabber))
+		var/mob/living/carbon/human/H = grabber
+		if(H.species)
+			prob_mod = H.species.resist_mod
+	restore_self()
+	if(prob(30 * prob_mod))
+		return TRUE
+	else
+		visible_message(SPAN_WARNING("\The [src] slips away from \the [grabber]!"))
+		set_flee_target(grabber)
+		handle_flee_target()
+		return FALSE
 
 
 //Fireflies, mostly copied from bee code
@@ -233,6 +267,8 @@
 	icon_state = "infernofly1"
 	icon_dead = "infernofly1"
 	mob_size = 0.5
+	mob_swap_flags = null
+	mob_push_flags = null
 	unsuitable_atoms_damage = 2.5
 	maxHealth = 15
 	density = FALSE
@@ -278,7 +314,7 @@
 		return
 
 	//ambient
-	if(prob(2))
+	if(prob(1))
 		if(loner)
 			visible_message(SPAN_GOOD(pick("\The [src] lights up briefly.","The light of \the [src] blinks.")))
 		else
