@@ -122,7 +122,7 @@
 	var/spawn_delay = 0
 	var/spawn_time = 5
 
-	faction = "worms"
+	faction = FACTION_WORMS
 
 /mob/living/simple_animal/hostile/greatworm/Initialize()
 	. = ..()
@@ -276,7 +276,7 @@
 	minbodytemp = 0
 	var/mob/living/simple_animal/hostile/greatworm/originator
 
-	faction = "worms"
+	faction = FACTION_WORMS
 
 /mob/living/simple_animal/hostile/lesserworm/Initialize()
 	. = ..()
@@ -345,7 +345,7 @@
 	emote_hear = list("gargles")
 	emote_see = list("ooozes","pulses","drips","pumps")
 
-	faction = "worms"
+	faction = FACTION_WORMS
 
 /mob/living/simple_animal/hostile/greatwormking/Destroy()
 	playsound(src.loc, 'sound/hallucinations/wail.ogg', 200, 1, usepressure = 0)

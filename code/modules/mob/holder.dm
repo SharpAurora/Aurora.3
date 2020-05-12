@@ -646,10 +646,13 @@ var/list/holder_mob_icon_cache = list()
 	var/frightened
 
 /obj/item/holder/skikja/process()
+	world << "Skikja holder process"
 	..()
 	if(prob(10))
 		loc.visible_message(SPAN_NOTICE("\The [contained] wriggles free!"))
 		release_to_floor()
+	else
+		world << "tried to wriggle. failed"
 
 /obj/item/holder/skikja/attack_self(mob/M)
 	..()
@@ -661,6 +664,7 @@ var/list/holder_mob_icon_cache = list()
 			release_to_floor()
 
 /obj/item/holder/skikja/release_to_floor()
+	world << "Attempting release_to_floor"
 	var/turf/T = get_turf(src)
 
 	for(var/mob/M in contents)

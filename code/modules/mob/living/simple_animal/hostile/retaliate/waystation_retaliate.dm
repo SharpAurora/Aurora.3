@@ -17,7 +17,7 @@
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
-	faction = null
+	faction = FACTION_SNOW
 	attacktext = "gored"
 	maxHealth = 60
 	melee_damage_lower = 7

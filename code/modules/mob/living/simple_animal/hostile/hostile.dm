@@ -27,6 +27,7 @@
 	var/attack_emote = "stares menacingly at"
 
 	var/smart = FALSE // This makes ranged mob check for friendly fire and obstacles
+	var/static/list/ignore_factions = list("Ambient") //Factions we do not attack. Most for mobs not fighting
 
 /mob/living/simple_animal/hostile/Initialize()
 	. = ..()
@@ -358,6 +359,8 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	if((L.faction == src.faction) && !attack_same)
 		return FALSE
 	if(L in friends)
+		return FALSE
+	if(L.faction in ignore_factions)
 		return FALSE
 	if(!L.stat)
 		var/current_health = INFINITY
