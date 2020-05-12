@@ -75,6 +75,8 @@
 	world << "Attempting bury_self in [T]"
 	if(!isturf(loc))
 		return FALSE
+	if(food_target)
+		return
 	if(is_type_in_list(T, hideable_turfs))
 		world << "[T] in hideable turfs, burying"
 		visible_message(SPAN_NOTICE("\The [src] lays against the [T] and shakes itself back and forth. Soon, it is entirely camoflauged against it."))
@@ -95,7 +97,7 @@
 		if(resting || hiding || flee_target)
 			food_target = null
 			return
-		if(prob(80) || (nutrition / max_nutrtion) <= 0.25)
+		if(prob(95) || (nutrition / max_nutrition) <= 0.25)
 			world << "Checking out the food"
 			walk_to(src, food_target.loc, 1)
 			if(Adjacent(food_target.loc))
@@ -179,7 +181,7 @@
 		if(isliving(AM))
 			if(isanimal(AM))
 				var/mob/living/simple_animal/SA = AM
-				if(AM.flying)
+				if(SA.flying)
 					return
 			set_flee_target(AM)
 		else
@@ -198,6 +200,7 @@
 		return
 
 	if(flee_target)
+		food_target = null //fleeing is more important than eating
 		if(prob(25)) 
 			say("Blibblbl!!")
 		stop_automated_movement = TRUE
