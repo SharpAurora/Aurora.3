@@ -17,6 +17,7 @@
 	unbreakable = 1 //It's already broken.
 	drops_debris = 0
 	drop_sound = 'sound/effects/glass_step.ogg'
+	crafting_precision = list(CRAFTING_WOOD = 2)
 
 /obj/item/material/shard/set_material(var/new_material)
 	..(new_material)

@@ -48,6 +48,7 @@
 	var/shard_icon                        // Related to above.
 	var/shard_can_repair = 1              // Can shards be turned into sheets with a welder?
 	var/list/recipes                      // Holder for all recipes usable with a sheet of this material.
+	var/list/tool_recipes = list()                 // Holder for all recipes usable with a sheet of this material and the proper crafting tool. 
 	var/destruction_desc = "breaks apart" // Fancy string for barricades/tables/objects exploding.
 
 	// Icons
@@ -96,6 +97,9 @@
 
 	//What golem species is created with this material
 	var/golem = null
+
+	//What this classifies as for crafting, such as CRAFT_STONE
+	var/craft_type
 
 /material/proc/build_rod_product(var/mob/user, var/obj/item/stack/used_stack, var/obj/item/stack/target_stack)
 	if(!rod_product)
@@ -170,6 +174,7 @@
 		if (multipart_reinf_icon)
 			multipart_reinf_icon = new(multipart_reinf_icon)
 			multipart_reinf_icon.Blend(icon_colour, ICON_MULTIPLY)
+	generate_tool_recipes()
 
 // This is a placeholder for proper integration of windows/windoors into the system.
 /material/proc/build_windows(var/mob/living/user, var/obj/item/stack/used_stack)
@@ -248,6 +253,7 @@
 	stack_origin_tech = list(TECH_MATERIAL = 5)
 	door_icon_base = "stone"
 	golem = "Uranium Golem"
+	craft_type = CRAFTING_STONE
 
 /material/diamond
 	name = MATERIAL_DIAMOND
@@ -264,6 +270,7 @@
 	hardness = 100
 	stack_origin_tech = list(TECH_MATERIAL = 6)
 	golem = "Diamond Golem"
+	craft_type = CRAFTING_METAL_HARD
 
 /material/gold
 	name = MATERIAL_GOLD
@@ -276,6 +283,7 @@
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
 	golem = "Gold Golem"
+	craft_type = CRAFTING_METAL_SOFT
 
 /material/bronze
 	name = MATERIAL_BRONZE
@@ -286,6 +294,7 @@
 	icon_colour = "#EDD12F"
 	stack_origin_tech = list(TECH_MATERIAL = 2)
 	golem = "Bronze Golem"
+	craft_type = CRAFTING_METAL_SOFT
 
 /material/osmium
 	name = MATERIAL_OSMIUM
@@ -307,6 +316,7 @@
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
 	golem = "Bronze Golem"
+	craft_type = CRAFTING_METAL_SOFT
 
 /material/phoron
 	name = MATERIAL_PHORON
@@ -321,6 +331,7 @@
 	sheet_singular_name = "crystal"
 	sheet_plural_name = "crystals"
 	golem = "Phoron Golem"
+	craft_type = CRAFTING_STONE
 
 /material/stone
 	name = MATERIAL_SANDSTONE
@@ -337,6 +348,7 @@
 	sheet_singular_name = "brick"
 	sheet_plural_name = "bricks"
 	golem = "Sand Golem"
+	craft_type = CRAFTING_STONE
 
 /material/stone/marble
 	name = MATERIAL_MARBLE
@@ -367,6 +379,7 @@
 	icon_colour = "#666666"
 	golem = "Steel Golem"
 	hitsound = 'sound/weapons/smash.ogg'
+	craft_type = CRAFTING_METAL_HARD
 
 /material/diona
 	name = MATERIAL_DIONA
@@ -409,6 +422,7 @@
 	composite_material = list(DEFAULT_WALL_MATERIAL = 3750, "platinum" = 3750) //todo
 	golem = "Plasteel Golem"
 	hitsound = 'sound/weapons/smash.ogg'
+	craft_type = CRAFTING_METAL_HARD
 
 /material/plasteel/titanium
 	name = MATERIAL_TITANIUM
@@ -423,6 +437,7 @@
 	icon_colour = "#D1E6E3"
 	icon_reinf = "reinf_metal"
 	golem = "Titanium Golem"
+	craft_type = CRAFTING_METAL_HARD
 
 /material/glass
 	name = MATERIAL_GLASS
@@ -608,6 +623,7 @@
 	stack_origin_tech = list(TECH_MATERIAL = 5)
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
+	craft_type = CRAFTING_METAL_HARD
 
 /material/tritium
 	name = MATERIAL_TRITIUM
@@ -616,6 +632,7 @@
 	stack_origin_tech = list(TECH_MATERIAL = 5)
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
+	craft_type = CRAFTING_METAL_HARD
 
 /material/mhydrogen
 	name = MATERIAL_HYDROGEN_METALLIC
@@ -635,6 +652,7 @@
 	stack_origin_tech = list(TECH_MATERIAL = 2)
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
+	craft_type = CRAFTING_METAL_HARD
 
 /material/iron
 	name = MATERIAL_IRON
@@ -646,6 +664,7 @@
 	sheet_plural_name = "ingots"
 	golem = "Iron Golem"
 	hitsound = 'sound/weapons/smash.ogg'
+	craft_type = CRAFTING_METAL_HARD
 
 // Adminspawn only, do not let anyone get this.
 /material/elevatorium
@@ -683,6 +702,7 @@
 	sheet_plural_name = "planks"
 	golem = "Wood Golem"
 	hitsound = 'sound/effects/woodhit.ogg'
+	craft_type = CRAFTING_WOOD
 
 /material/wood/log //This is gonna replace wood planks in a  way for NBT, leaving it here for now
 	name = MATERIAL_WOOD_LOG
@@ -760,6 +780,7 @@
 	flags = MATERIAL_PADDING
 	hardness = 1
 	golem = "Cloth Golem"
+	craft_type = CRAFTING_FABRIC
 
 /material/cult
 	name = MATERIAL_CULT
@@ -805,6 +826,7 @@
 	melting_point = T0C+300
 	protectiveness = 3 // 13%
 	golem = "Homunculus"
+	craft_type = CRAFTING_FABRIC
 
 /material/carpet
 	name = MATERIAL_CARPET
@@ -828,6 +850,7 @@
 	melting_point = T0C+300
 	protectiveness = 1 // 4%
 	golem = "Cloth Golem"
+	craft_type = CRAFTING_FABRIC
 
 /material/cloth_teal
 	name = MATERIAL_CLOTH_TEAL
@@ -839,6 +862,7 @@
 	melting_point = T0C+300
 	protectiveness = 1 // 4%
 	golem = "Cloth Golem"
+	craft_type = CRAFTING_FABRIC
 
 /material/cloth_black
 	name = MATERIAL_CLOTH_BLACK
@@ -850,6 +874,7 @@
 	melting_point = T0C+300
 	protectiveness = 1 // 4%
 	golem = "Cloth Golem"
+	craft_type = CRAFTING_FABRIC
 
 /material/cloth_green
 	name = MATERIAL_CLOTH_GREEN
@@ -861,6 +886,7 @@
 	melting_point = T0C+300
 	protectiveness = 1 // 4%
 	golem = "Cloth Golem"
+	craft_type = CRAFTING_FABRIC
 
 /material/cloth_purple
 	name = MATERIAL_CLOTH_PURPLE
@@ -872,6 +898,7 @@
 	melting_point = T0C+300
 	protectiveness = 1 // 4%
 	golem = "Cloth Golem"
+	craft_type = CRAFTING_FABRIC
 
 /material/cloth_blue
 	name = MATERIAL_CLOTH_BLUE
@@ -883,6 +910,7 @@
 	melting_point = T0C+300
 	protectiveness = 1 // 4%
 	golem = "Cloth Golem"
+	craft_type = CRAFTING_FABRIC
 
 /material/cloth_beige
 	name = MATERIAL_CLOTH_BEIGE
@@ -894,6 +922,7 @@
 	melting_point = T0C+300
 	protectiveness = 1 // 4%
 	golem = "Cloth Golem"
+	craft_type = CRAFTING_FABRIC
 
 /material/cloth_lime
 	name = MATERIAL_CLOTH_LIME
@@ -905,6 +934,7 @@
 	melting_point = T0C+300
 	protectiveness = 1 // 4%
 	golem = "Cloth Golem"
+	craft_type = CRAFTING_FABRIC
 
 /material/hide //TODO make different hides somewhat different among them
 	name = MATERIAL_HIDE
@@ -919,6 +949,7 @@
 	weight = 1
 	protectiveness = 3 // 13%
 	golem = "Homunculus"
+	craft_type = CRAFTING_FABRIC
 
 /material/hide/corgi
 	name = MATERIAL_HIDE_CORGI

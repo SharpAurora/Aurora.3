@@ -237,3 +237,63 @@
 /material/diamond/generate_recipes()
 	..()
 	recipes += new/datum/stack_recipe("diamond floor tile", /turf/simulated/floor/diamond, 1, 4, 20)
+
+
+
+
+//	recipes += new/datum/stack_recipe("[display_name] ring", /obj/item/clothing/ring/material, 1, on_floor = TRUE, supplied_material = "[name]")
+// So we need to do this for materials and then we can do produce()
+// New(title, result_type, req_amount = 1, res_amount = 1, max_res_amount = 1, time = 0, one_per_turf = 0, on_floor = 0, supplied_material = null)
+// changeling_mob.mind.changeling.hivemind_members[name] = src
+/material/proc/get_tool_recipes()
+	world << "running get tool recipes for [src]"
+	if(!tool_recipes)
+		tool_recipes = generate_tool_recipes()
+	world << "[tool_recipes.len] recipes in for [src]"
+	return tool_recipes
+
+/material/proc/generate_tool_recipes()
+/*	tool_recipes += list(
+	"ring" = list(/obj/item/clothing/ring/material, "[name]"),
+	"spoon" = list(/obj/item/material/kitchen/utensil/spoon/plastic, "[name]"),
+	"necklace" = list(/obj/item/clothing/accessory/necklace, "[name]")
+	)
+	if(integrity>=50)
+		tool_recipes += list("lock" = list(/obj/item/material/lock_construct, "[name]"))
+	if(hardness>=10)
+		tool_recipes += list("ashtray" = list(/obj/item/material/ashtray, "[name]"))
+	if(hardness>50)
+		tool_recipes += list(
+		"fork" = list(/obj/item/material/kitchen/utensil/fork/plastic, "[name]"),
+		"knife" = list(/obj/item/material/kitchen/utensil/knife/plastic, "[name]"),
+		"spearhead" = list(/obj/item/material/spearhead, "[name]"),
+		"key" = list(/obj/item/key/material, "[name]")
+		)*/
+	tool_recipes["ring"] = /obj/item/clothing/ring/material
+	tool_recipes["spoon"] = /obj/item/material/kitchen/utensil/spoon/plastic
+	tool_recipes["necklace"] = /obj/item/clothing/accessory/necklace
+
+	if(integrity>=50)
+		tool_recipes["lock"] = /obj/item/material/lock_construct
+	if(hardness>=10)
+		tool_recipes["ashtray"] = /obj/item/material/ashtray
+	if(hardness>50)
+		tool_recipes["fork"] = /obj/item/material/kitchen/utensil/fork/plastic
+		tool_recipes["knife"] = /obj/item/material/kitchen/utensil/knife/plastic
+		tool_recipes["spearhead"] = /obj/item/material/spearhead
+		tool_recipes["key"] = /obj/item/key/material
+
+/material/wood/generate_tool_recipes()
+	..()
+	tool_recipes["torch handle"] = /obj/item/torch_handle
+	tool_recipes["skewer"] = /obj/item/reagent_containers/cooking_container/fire/skewer
+	tool_recipes["wooden sandals"] = /obj/item/clothing/shoes/sandal
+	tool_recipes["wood circlet"] = /obj/item/woodcirclet
+	tool_recipes["crossbow frame"] = /obj/item/crossbowframe
+	tool_recipes["rifle stock"] = /obj/item/stock
+	tool_recipes["wooden bucket"] = /obj/item/reagent_containers/glass/bucket/wood
+	tool_recipes["arrow"] = /obj/item/arrow/wood
+
+/material/wood/branch/generate_tool_recipes()
+	tool_recipes["torch handle"] = /obj/item/torch_handle
+	tool_recipes["skewer"] = /obj/item/reagent_containers/cooking_container/fire/skewer

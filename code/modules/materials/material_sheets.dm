@@ -11,6 +11,7 @@
 	var/material/material
 	var/perunit
 	var/apply_colour //temp pending icon rewrite
+	var/list/tool_recipes = list() //things we make when crafting with tools
 	drop_sound = 'sound/items/drop/axe.ogg'
 
 /obj/item/stack/material/Initialize()
@@ -25,6 +26,7 @@
 		return
 
 	recipes = material.get_recipes()
+	tool_recipes = material.get_tool_recipes()
 	stacktype = material.stack_type
 	if(islist(material.stack_origin_tech))
 		origin_tech = material.stack_origin_tech.Copy()
@@ -74,6 +76,9 @@
 		..()
 
 /obj/item/stack/material/attackby(var/obj/item/W, var/mob/user)
+	if(W.can_craft(src))
+		get_craft_chunk(user)
+		return
 	if(iscoil(W))
 		material.build_wired_product(user, W, src)
 		return

@@ -65,3 +65,9 @@
 #define MATERIAL_CLOTH_BEIGE             "beige"
 #define MATERIAL_CLOTH_LIME              "lime"
 
+// tool crafting
+#define CRAFTING_WOOD "wood"
+#define CRAFTING_STONE "stone"
+#define CRAFTING_METAL_HARD "hard metal"
+#define CRAFTING_METAL_SOFT "soft metal"
+#define CRAFTING_FABRIC "fabric"

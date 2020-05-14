@@ -88,4 +88,3 @@
 	playsound(src, "shatter", 70, 1)
 	if(!consumed && drops_debris) material.place_shard(T)
 	qdel(src)
-

@@ -35,6 +35,7 @@
 	drill_verb = "delicately picking"
 	w_class = 2
 	can_wield = 0
+	crafting_precision = list(CRAFTING_STONE = 7)
 
 	action_button_name = null
 
@@ -53,6 +54,7 @@
 	drill_verb = "delicately picking"
 	w_class = 2
 	can_wield = 0
+	crafting_precision = list(CRAFTING_STONE = 6)
 
 	action_button_name = null
 
@@ -71,6 +73,7 @@
 	drill_verb = "delicately picking"
 	w_class = 2
 	can_wield = 0
+	crafting_precision = list(CRAFTING_STONE = 5)
 
 	action_button_name = null
 
@@ -89,6 +92,7 @@
 	drill_verb = "delicately picking"
 	w_class = 2
 	can_wield = 0
+	crafting_precision = list(CRAFTING_STONE = 4)
 
 	action_button_name = null
 
@@ -107,6 +111,7 @@
 	drill_verb = "delicately picking"
 	w_class = 2
 	can_wield = 0
+	crafting_precision = list(CRAFTING_STONE = 4)
 
 	action_button_name = null
 
@@ -125,6 +130,7 @@
 	drill_verb = "delicately picking"
 	w_class = 2
 	can_wield = 0
+	crafting_precision = list(CRAFTING_STONE = 4)
 
 	action_button_name = null
 
@@ -143,6 +149,7 @@
 	drill_verb = "clearing"
 	w_class = 3
 	can_wield = 0
+	crafting_precision = list(CRAFTING_STONE = 4)
 
 	action_button_name = null
 

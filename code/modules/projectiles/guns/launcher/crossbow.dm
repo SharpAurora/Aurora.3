@@ -16,6 +16,12 @@
 /obj/item/arrow/proc/removed() //Helper for metal rods falling apart.
 	return
 
+/obj/item/arrow/wood
+	name = "arrow"
+	throwforce = 6
+	w_class = ITEMSIZE_SMALL
+	drop_sound = 'sound/items/drop/card.ogg'
+
 /obj/item/spike
 	name = "alloy spike"
 	desc = "It's about a foot of weird silver metal with a wicked point."

@@ -26,3 +26,21 @@
 		to_chat(user, "<span class='warning'>\The [src] crumbles in your hands!</span>")
 		qdel(src)
 	return ..()
+
+/obj/item/key/material
+	var/material/material = null
+
+/obj/item/clothing/ring/material/get_material()
+	return material
+
+/obj/item/key/material/Initialize(mapload, var/new_material)
+	. = ..(mapload)
+	if(!new_material)
+		new_material = DEFAULT_WALL_MATERIAL
+	material = SSmaterials.get_material_by_name(new_material)
+	if(!istype(material))
+		qdel(src)
+		return
+	name = "[material.display_name] key"
+	desc = "A key made from [material.display_name]."
+	color = material.icon_colour
