@@ -1398,7 +1398,7 @@
 
 /datum/seed/tea
 	name = "tea"
-	seed_name = "tea leaf"
+	seed_name = "tea"
 	display_name = "tea plant"
 	chems = list("tea" = list(3,5))
 
