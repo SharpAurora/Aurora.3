@@ -1418,7 +1418,8 @@
 
 /datum/seed/coffee
 	name = "coffee"
-	seed_name = "coffee beans"
+	seed_name = "coffee"
+	seed_noun = "beans"
 	display_name = "coffee plant"
 	chems = list("coffee" = list(3,5))
 
