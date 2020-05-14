@@ -122,12 +122,12 @@
 			            access_forensics_lockers, access_morgue, access_maint_tunnels, access_all_personal_lockers,
 			            access_research, access_engine, access_mining, access_medical, access_construction, access_mailsorting,
 			            access_heads, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks,
-				    access_detective, access_weapons)
+				    access_detective, access_weapons, access_hos)
 	minimal_access = list(access_security, access_eva, access_sec_doors, access_brig, access_armory,
 			            access_forensics_lockers, access_morgue, access_maint_tunnels, access_all_personal_lockers,
 			            access_research, access_engine, access_mining, access_medical, access_construction, access_mailsorting,
 			            access_heads, access_hos, access_RC_announce, access_keycard_auth, access_gateway, access_external_airlocks,
-				    access_detective, access_weapons)
+				    access_detective, access_weapons, access_hos)
 	minimal_player_age = 0
 	outfit = /datum/outfit/job/detective
 
@@ -136,13 +136,16 @@
 	jobtype = /datum/job/detective
 
 	uniform = /obj/item/clothing/under/rank/head_of_security/corp
-	shoes = /obj/item/clothing/shoes/laceup
+	shoes = /obj/item/clothing/shoes/combat
 	id = /obj/item/card/id/navy
 	pda = /obj/item/device/pda/detective
+	glasses = /obj/item/clothing/glasses/sunglasses/big
+	head = /obj/item/clothing/head/beret/sec/hos
 
-	backpack_contents = list(
-		/obj/item/storage/box/evidence = 1
-	)
+	backpack = /obj/item/storage/backpack/security
+	satchel = /obj/item/storage/backpack/satchel_sec
+	dufflebag = /obj/item/storage/backpack/duffel/sec
+	messengerbag = /obj/item/storage/backpack/messenger/sec
 
 /datum/outfit/job/detective/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
@@ -229,7 +232,6 @@
 
 	uniform = /obj/item/clothing/under/rank/security
 	shoes = /obj/item/clothing/shoes/jackboots
-	l_ear = /obj/item/device/radio/headset/headset_sec
 	pda = /obj/item/device/pda/security
 	l_pocket = /obj/item/device/flash
 

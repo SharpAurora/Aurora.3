@@ -26,8 +26,6 @@
 	new /obj/item/clothing/head/caphat/formal(src)
 	new /obj/item/clothing/under/captainformal(src)
 	//Tools
-	new /obj/item/device/radio/headset/heads/captain(src)
-	new /obj/item/device/radio/headset/heads/captain/alt(src)
 	new /obj/item/cartridge/captain(src)
 	new /obj/item/gun/energy/pistol(src)
 	new /obj/item/device/flash(src)
@@ -109,7 +107,7 @@
 	new /obj/item/clothing/head/caphat/hop(src)
 
 /obj/structure/closet/secure_closet/hos
-	name = "head of security's locker"
+	name = "security lead's locker"
 	req_access = list(access_hos)
 	icon_state = "hossecure1"
 	icon_closed = "hossecure"
@@ -123,34 +121,20 @@
 	//Supply
 	new /obj/item/storage/box/flashbangs(src)
 	//Appearance
-	new /obj/item/storage/backpack/security(src)
-	new /obj/item/storage/backpack/satchel_sec(src)
-	new /obj/item/clothing/under/rank/head_of_security(src)
 	new /obj/item/clothing/under/rank/head_of_security/corp(src)
 	new /obj/item/clothing/suit/storage/toggle/armor/hos/jensen(src)
-	new /obj/item/clothing/suit/armor/hos(src)
 	new /obj/item/clothing/suit/storage/vest/hos(src)
-	new /obj/item/clothing/head/helmet/hos/cap(src)
-	new /obj/item/clothing/head/helmet/hos(src)
-	new /obj/item/clothing/head/beret/sec/hos(src)
-	new /obj/item/clothing/accessory/badge/hos(src)
-	new /obj/item/clothing/shoes/black_boots(src)
-	new /obj/item/clothing/gloves/black_leather(src)
+	new /obj/item/clothing/shoes/winter(src)
+	new /obj/item/clothing/gloves/swat/tactical(src)
+	new /obj/item/clothing/suit/storage/hooded/wintercoat/security(src)
 	//Tools
-	new /obj/item/cartridge/hos(src)
-	new /obj/item/device/radio/headset/heads/hos(src)
-	new /obj/item/device/radio/headset/heads/hos/alt(src)
-	new /obj/item/storage/box/tranquilizer(src)
 	new /obj/item/clothing/glasses/sunglasses/sechud(src)
-	new /obj/item/clothing/glasses/sunglasses/sechud/head(src)
-	new /obj/item/shield/riot/tact(src)
 	new /obj/item/melee/baton/loaded(src)
-	new /obj/item/melee/telebaton(src)
 	new /obj/item/gun/energy/pistol(src)
-	new /obj/item/taperoll/police(src)
 	new /obj/item/device/flash(src)
-	new /obj/item/device/holowarrant(src)
-	new /obj/item/device/breath_analyzer(src)
+	new /obj/item/gun/projectile/shotgun/pump/combat(src)
+	new /obj/item/storage/box/shotgunshells(src)
+	new /obj/item/device/radio(src)
 	//Belts
 	new /obj/item/clothing/accessory/holster/waist(src)
 	new /obj/item/storage/belt/security(src)
@@ -177,8 +161,6 @@
 	new /obj/item/clothing/head/helmet/hos(src)
 	//Tools
 	new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
-	new /obj/item/device/radio/headset/heads/hos(src)
-	new /obj/item/device/radio/headset/heads/hos/alt(src)
 	//Belts
 	new /obj/item/storage/belt/security(src)
 	new /obj/item/clothing/accessory/holster/waist(src)
@@ -219,8 +201,6 @@
 	new /obj/item/clothing/gloves/black_leather(src)
 	//Tools
 	new /obj/item/cartridge/security(src)
-	new /obj/item/device/radio/headset/headset_sec(src)
-	new /obj/item/device/radio/headset/headset_sec/alt(src)
 	new /obj/item/clothing/glasses/sunglasses/sechud/aviator(src)
 	new /obj/item/clothing/glasses/sunglasses/sechud(src)
 	new /obj/item/taperoll/police(src)
@@ -351,8 +331,6 @@
 	new /obj/item/clothing/gloves/black(src)
 	new /obj/item/clothing/shoes/brown(src)
 	//Tools
-	new /obj/item/device/radio/headset/headset_sec(src)
-	new /obj/item/device/radio/headset/headset_sec/alt(src)
 	new /obj/item/clothing/suit/storage/vest/detective(src)
 	new /obj/item/ammo_magazine/mc9mm/flash(src)
 	new /obj/item/gun/projectile/pistol/detective(src)
@@ -381,8 +359,6 @@
 	new /obj/item/clothing/under/det/classic(src)
 	new /obj/item/clothing/shoes/laceup(src)
 	//Tools
-	new /obj/item/device/radio/headset/headset_sec(src)
-	new /obj/item/device/radio/headset/headset_sec/alt(src)
 	new /obj/item/storage/box/evidence(src)
 	new /obj/item/device/flash(src)
 	new /obj/item/taperoll/police(src)

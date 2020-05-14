@@ -52,8 +52,6 @@
 	new /obj/item/clothing/accessory/storage/webbing(src)
 	new /obj/item/clothing/under/rank/chief_engineer(src)
 	new /obj/item/clothing/shoes/brown(src)
-	new /obj/item/device/radio/headset/heads/ce(src)
-	new /obj/item/device/radio/headset/heads/ce/alt(src)
 	new /obj/item/clothing/accessory/storage/overalls/chief(src)
 
 /obj/structure/closet/secure_closet/engineering_electrical
@@ -150,8 +148,6 @@
 	new /obj/item/clothing/head/hardhat/red/atmos(src)
 	new /obj/item/device/flashlight(src)
 	new /obj/item/extinguisher(src)
-	new /obj/item/device/radio/headset/headset_eng(src)
-	new /obj/item/device/radio/headset/headset_eng/alt(src)
 	new /obj/item/clothing/suit/storage/hazardvest/blue/atmos(src)
 	new /obj/item/clothing/mask/gas(src)
 	new /obj/item/cartridge/atmos(src)

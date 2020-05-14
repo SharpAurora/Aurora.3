@@ -71,6 +71,18 @@ var/global/list/total_active_bonfires = list()
 		else
 			..()
 
+/obj/structure/bonfire/AltClick(mob/user)
+	if(!ishuman(user))
+		return
+	var/mob/living/carbon/human/H = user
+	if(use_check_and_message(H))
+		return
+	if(fuel >= max(max_fuel * 0.1, 50))
+		to_chat(H, SPAN_NOTICE("You grab a burning stick from the fire."))
+		fuel -= 40
+		var/obj/item/device/flashlight/flare/torch/shitty/torch = new(get_turf(user))
+		H.put_in_active_hand(torch)
+
 /obj/structure/bonfire/attackby(obj/item/W, mob/user)
 	if(isflamesource(W) && !on_fire) // needs to go last or else nothing else will work
 		light(user)

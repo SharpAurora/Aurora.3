@@ -101,6 +101,25 @@
 	else
 		..()
 
+/obj/item/device/flashlight/flare/torch/shitty
+	name = "flaming stick"
+	desc = "How exciting!"
+	brightness_on = 1.5
+	light_power = 1
+	produce_heat = 400
+
+/obj/item/device/flashlight/flare/torch/shitty/Initialize()
+	. = ..()
+	fuel = rand(30, 45)
+	on = TRUE
+	START_PROCESSING(SSprocessing, src)
+	update_icon()
+
+/obj/item/device/flashlight/flare/torch/shitty/turn_off()
+	visible_message("\The [src] burns out.")
+	new /obj/effect/decal/cleanable/ash(get_turf(src))
+	qdel(src)
+
 /obj/item/torch_handle
 	name = "torch handle"
 	desc = "An old-school torch handle. Not exactly useful without a head."

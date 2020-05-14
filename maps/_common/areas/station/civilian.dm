@@ -17,7 +17,7 @@
 	sound_env = SMALL_ENCLOSED
 
 /area/crew_quarters/sleep
-	name = "Dormitories"
+	name = "Inn"
 	icon_state = "Sleep"
 	allow_nightmode = 1
 	holomap_color = HOLOMAP_AREACOLOR_DORMS
@@ -191,7 +191,7 @@
 	icon_state = "quartloading"
 
 /area/quartermaster/qm
-	name = "Cargo - Quartermaster's Office"
+	name = "Restaurant Manager's Office"
 	icon_state = "quart"
 
 /area/quartermaster/miningdock
@@ -217,7 +217,7 @@
 	icon_state = "garden"
 
 /area/store
-	name = "Surface - Commissary"
+	name = "Independent Shop"
 	icon_state = "quartstorage"
 	station_area = 1
 

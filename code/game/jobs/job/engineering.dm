@@ -137,7 +137,6 @@
 	pda = /obj/item/device/pda/atmos
 	id = /obj/item/card/id/silver
 	shoes = /obj/item/clothing/shoes/workboots
-	l_ear = /obj/item/device/radio/headset/headset_eng
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel_eng
@@ -175,7 +174,6 @@
 	shoes = /obj/item/clothing/shoes/orange
 	head = /obj/item/clothing/head/beret/engineering
 	belt = /obj/item/storage/belt/utility
-	l_ear = /obj/item/device/radio/headset/headset_eng
 
 	belt_contents = list(
 		/obj/item/weldingtool = 1,

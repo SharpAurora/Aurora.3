@@ -226,7 +226,23 @@ datum/track/New(var/title_name, var/audio)
 		new/datum/track("Posin'", 'sound/music/recordplayer/Posin.ogg'),
 		new/datum/track("Jazz Instrumental", 'sound/music/recordplayer/JazzInstrumental.ogg'),
 		new/datum/track("Le Swing", 'sound/music/recordplayer/LeSwing.ogg'),
-		new/datum/track("Cosmorot", 'sound/music/recordplayer/Cosmorot.ogg')
+		new/datum/track("Cosmorot", 'sound/music/recordplayer/Cosmorot.ogg'),
+		new/datum/track("Beyond", 'sound/ambience/ambispace.ogg'),
+		new/datum/track("Clouds of Fire", 'sound/music/clouds.s3m'),
+		new/datum/track("D`Bert", 'sound/music/title2.ogg'),
+		new/datum/track("D`Fort", 'sound/ambience/song_game.ogg'),
+		new/datum/track("Floating", 'sound/music/main.ogg'),
+		new/datum/track("Endless Space", 'sound/music/space.ogg'),
+		new/datum/track("Part A", 'sound/misc/TestLoop1.ogg'),
+		new/datum/track("Scratch", 'sound/music/title1.ogg'),
+		new/datum/track("Trai`Tor", 'sound/music/traitor.ogg'),
+		new/datum/track("Thunderdome", 'sound/music/THUNDERDOME.ogg'),
+		new/datum/track("Space Oddity", 'sound/music/space_oddity.ogg'),
+		new/datum/track("Space Asshole", 'sound/music/space_asshole.ogg'),
+		new/datum/track("Velvet Rose", 'sound/music/Velvet-Rose.ogg'),
+		new/datum/track("Easy Keys", 'sound/music/Easy-Keys.ogg'),
+		new/datum/track("Dancing at Dusk", 'sound/music/Dancing-At-Dusk.ogg'),
+		new/datum/track("Elexive - Cowboy", 'sound/music/Elexive-Cowboy.ogg')
 	)
 
 /obj/machinery/media/jukebox/phonograph/update_icon()

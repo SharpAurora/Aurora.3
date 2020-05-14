@@ -138,9 +138,9 @@
 	icon_state = "checkpoint1"
 
 /area/security/vacantoffice
-	name = "Vacant Office"
+	name = "Ranger Station"
 	icon_state = "security"
 
 /area/security/vacantoffice2
-	name = "Security - Meeting Room"
+	name = "Ranger Station - Lt. Office"
 	icon_state = "security"

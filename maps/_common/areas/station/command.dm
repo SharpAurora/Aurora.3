@@ -46,7 +46,7 @@
 	icon_state = "bridge"
 
 /area/crew_quarters/captain
-	name = "Command - Captain's Office"
+	name = "Overseer's Office"
 	icon_state = "captain"
 	sound_env = MEDIUM_SOFTFLOOR
 	holomap_color = HOLOMAP_AREACOLOR_COMMAND
@@ -55,7 +55,7 @@
 	holomap_color = HOLOMAP_AREACOLOR_COMMAND
 
 /area/crew_quarters/heads/hop
-	name = "Command - HoP's Office"
+	name = "Operation Manager's Office"
 	icon_state = "head_quarters"
 
 /area/crew_quarters/heads/hor
