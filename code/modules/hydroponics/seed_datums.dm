@@ -1395,3 +1395,44 @@
 	set_trait(TRAIT_PLANT_ICON, "alien3")
 	set_trait(TRAIT_WATER_CONSUMPTION, 6)
 	set_trait(TRAIT_IDEAL_HEAT, 283)
+
+/datum/seed/tea
+	name = "tea"
+	seed_name = "tea"
+	display_name = "tea plant"
+	chems = list("tea" = list(3,5))
+
+/datum/seed/tea/setup_traits()
+	..()
+	set_trait(TRAIT_MATURATION,6)
+	set_trait(TRAIT_PRODUCTION,6)
+	set_trait(TRAIT_YIELD,5)
+	set_trait(TRAIT_PRODUCT_ICON,"tobacco")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#749733")
+	set_trait(TRAIT_PLANT_COLOUR,"#749733")
+	set_trait(TRAIT_PLANT_ICON,"vine2")
+	set_trait(TRAIT_IDEAL_HEAT, 299)
+	set_trait(TRAIT_IDEAL_LIGHT, 7)
+	set_trait(TRAIT_WATER_CONSUMPTION, 6)
+	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
+
+/datum/seed/coffee
+	name = "coffee"
+	seed_name = "coffee"
+	seed_noun = "beans"
+	display_name = "coffee plant"
+	chems = list("coffee" = list(3,5))
+
+/datum/seed/coffee/setup_traits()
+	..()
+	set_trait(TRAIT_MATURATION,6)
+	set_trait(TRAIT_PRODUCTION,6)
+	set_trait(TRAIT_YIELD,5)
+	set_trait(TRAIT_PRODUCT_ICON,"bean")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#3b1f06")
+	set_trait(TRAIT_PLANT_COLOUR,"#749733")
+	set_trait(TRAIT_PLANT_ICON,"vine2")
+	set_trait(TRAIT_IDEAL_HEAT, 299)
+	set_trait(TRAIT_IDEAL_LIGHT, 7)
+	set_trait(TRAIT_WATER_CONSUMPTION, 6)
+	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.15)
