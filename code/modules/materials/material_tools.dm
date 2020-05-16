@@ -19,7 +19,7 @@
 	var/obj/item/material/crafting_block/B
 	if(material.craft_type == CRAFTING_FABRIC)
 		B = new /obj/item/material/crafting_block/fabric(get_turf(user), material.name)
-	if(material.name == MATERIAL_WOOD_BRANCH)
+	else if(material.name == MATERIAL_WOOD_BRANCH)
 		B = new /obj/item/material/crafting_block/branch(get_turf(user), material.name)
 	else
 		B = new /obj/item/material/crafting_block(get_turf(user), material.name)
@@ -81,7 +81,6 @@
 	var/time_to_craft = precision >= 7 ? 60 : 40
 	if(do_after(user, time_to_craft * precision))
 		if(!Adjacent(user) || (loc != user && !isturf(loc))) //Gotta still be close
-			world << "Not adjacent, not on user, not on turf"
 			return
 		if(istype(I, /obj/item/device/autoshaper))
 			var/obj/item/device/autoshaper/A = I

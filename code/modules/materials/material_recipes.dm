@@ -244,10 +244,8 @@
 
 
 /material/proc/get_tool_recipes()
-	world << "running get tool recipes for [src]"
 	if(!tool_recipes)
 		tool_recipes = generate_tool_recipes()
-	world << "[tool_recipes.len] recipes in for [src]"
 	return tool_recipes
 
 /material/proc/generate_tool_recipes()
