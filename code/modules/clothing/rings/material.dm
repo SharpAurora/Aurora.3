@@ -56,5 +56,6 @@
 	icon_state = "bracelet_material"
 
 /obj/item/clothing/ring/material/bracelet/Initialize(var/mapload, var/new_material)
+	. = ..()
 	name = "[material.display_name] bracelet"
 	desc = "A bracelet made from [material.display_name]."

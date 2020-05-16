@@ -60,7 +60,12 @@
 		/obj/item/robot_parts                                                = TRADER_SUBTYPES_ONLY,
 		/obj/item/robot_parts/robot_component                                = TRADER_BLACKLIST,
 		/obj/item/storage/pill_bottle/happy                           = TRADER_THIS_TYPE,
-		/obj/item/storage/pill_bottle/zoom                            = TRADER_THIS_TYPE
+		/obj/item/storage/pill_bottle/zoom                            = TRADER_THIS_TYPE,
+		/obj/item/material/knife/woodcarving                          = TRADER_ALL,
+		/obj/item/chisel                                              = TRADER_ALL,
+		/obj/item/fabric_tool                                         = TRADER_ALL,
+		/obj/item/thermal_chisel                                      = TRADER_ALL,
+		/obj/item/device/autoshaper                                   = TRADER_ALL
 	)
 
 	mob_transfer_message = "<span class='danger'>You are transported to the ORIGIN. When the transportation dizziness wears off, you find you are surrounded by cackling Vox...</span>"

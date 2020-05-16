@@ -71,3 +71,4 @@
 #define CRAFTING_METAL_HARD "hard metal"
 #define CRAFTING_METAL_SOFT "soft metal"
 #define CRAFTING_FABRIC "fabric"
+#define CRAFTING_HIGH_STRENGTH "high strength"

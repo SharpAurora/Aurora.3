@@ -1107,7 +1107,7 @@ var/list/total_extraction_beacons = list()
 	item_state = "jackhammer"
 	origin_tech = list(TECH_MATERIAL = 3, TECH_POWER = 2, TECH_ENGINEERING = 2)
 	desc = "With an integrated AI chip and hair-trigger precision, this baby makes sculpting almost automatic!"
-	crafting_precision = list(CRAFTING_STONE = 8, CRAFTING_METAL_SOFT = 6, CRAFTING_METAL_HARD = 4, CRAFTING_WOOD = 3)
+	crafting_precision = list(CRAFTING_STONE = 8, CRAFTING_METAL_SOFT = 6, CRAFTING_METAL_HARD = 5, CRAFTING_WOOD = 2, CRAFTING_HIGH_STRENGTH = 1)
 
 /obj/structure/sculpting_block
 	name = "sculpting block"

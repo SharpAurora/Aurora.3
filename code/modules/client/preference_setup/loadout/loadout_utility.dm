@@ -192,4 +192,20 @@
 	melee["bat"] = /obj/item/material/twohanded/baseballbat
 	melee["duelling knife"] = /obj/item/material/hatchet/unathiknife
 	melee["police baton"] = /obj/item/melee/classic_baton
+	melee["hatchet"] = /obj/item/material/hatchet
 	gear_tweaks += new/datum/gear_tweak/path(melee)
+
+/datum/gear/utility/crafting_tools
+	display_name = "crafting tools"
+	description = "A selection of basic crafting tools."
+	path = /obj/item
+	cost = 3
+
+/datum/gear/utility/crafting_tools/New()
+	..()
+	var/tool = list()
+	tool["chisel"] = /obj/item/chisel
+	tool["woodcarving knife"] = /obj/item/material/knife/woodcarving
+	tool["fabric tool"] = /obj/item/fabric_tool
+	tool["thermal chisel"] = /obj/item/thermal_chisel
+	gear_tweaks += new/datum/gear_tweak/path(tool)

@@ -28,19 +28,18 @@
 	return ..()
 
 /obj/item/key/material
-	var/material/material = null
+	var/material/material
 
-/obj/item/clothing/ring/material/get_material()
+/obj/item/key/material/get_material()
 	return material
 
-/obj/item/key/material/Initialize(mapload, var/new_material)
-	. = ..(mapload)
+/obj/item/key/material/New(var/newloc, var/new_material)
+	..(newloc)
 	if(!new_material)
 		new_material = DEFAULT_WALL_MATERIAL
 	material = SSmaterials.get_material_by_name(new_material)
-	if(!istype(material))
+	if(!material)
 		qdel(src)
-		return
 	name = "[material.display_name] key"
 	desc = "A key made from [material.display_name]."
 	color = material.icon_colour

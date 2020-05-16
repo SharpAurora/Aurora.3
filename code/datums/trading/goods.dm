@@ -257,7 +257,11 @@ Sells devices, odds and ends, and medical stuff
 		/obj/item/device/depth_scanner             = TRADER_THIS_TYPE,
 		/obj/item/device/beacon_locator            = TRADER_THIS_TYPE,
 		/obj/item/device/antibody_scanner          = TRADER_THIS_TYPE,
-		/obj/item/stack/medical/advanced           = TRADER_BLACKLIST
+		/obj/item/stack/medical/advanced           = TRADER_BLACKLIST,
+		/obj/item/chisel/artisan                   = TRADER_THIS_TYPE,
+		/obj/item/fabric_tool                      = TRADER_ALL,
+		/obj/item/thermal_chisel                   = TRADER_ALL,
+		/obj/item/device/autoshaper                = TRADER_THIS_TYPE
 	)
 
 	speech = list(
@@ -364,10 +368,11 @@ Sells devices, odds and ends, and medical stuff
 		/obj/item/clothing/suit/space/void/mining        = TRADER_THIS_TYPE,
 		/obj/machinery/mining/drill                      = TRADER_THIS_TYPE,
 		/obj/machinery/mining/brace                      = TRADER_THIS_TYPE,
-		/mob/living/heavy_vehicle/premade/ripley                      = TRADER_THIS_TYPE,
+		/mob/living/heavy_vehicle/premade/ripley         = TRADER_THIS_TYPE,
 		/obj/item/custom_ka_upgrade/upgrade_chips        = TRADER_SUBTYPES_ONLY,
 		/obj/item/custom_ka_upgrade/barrels              = TRADER_SUBTYPES_ONLY,
-		/obj/item/custom_ka_upgrade/cells                = TRADER_SUBTYPES_ONLY
+		/obj/item/custom_ka_upgrade/cells                = TRADER_SUBTYPES_ONLY,
+		/obj/item/chisel                                 = TRADER_ALL
 	)
 
 	speech = list(

@@ -43,6 +43,7 @@
 	attack_verb = list("chopped", "torn", "cut")
 	applies_material_colour = 0
 	drop_sound = 'sound/items/drop/axe.ogg'
+	crafting_precision = list(CRAFTING_WOOD = 3)
 
 /obj/item/material/hatchet/can_woodcut()
 	return TRUE
@@ -55,6 +56,7 @@
 	force_divisor = 0.25 // 15 when wielded with hardness 60 (steel)
 	slot_flags = SLOT_BELT
 	attack_verb = list("cleaved", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
+	crafting_precision = list(CRAFTING_WOOD = 1)
 
 /obj/item/material/hatchet/butch/can_woodcut()
 	return FALSE
@@ -65,6 +67,7 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "unathiknife"
 	attack_verb = list("ripped", "torn", "cut")
+	crafting_precision = null
 
 /obj/item/material/hatchet/unathiknife/can_woodcut()
 	return FALSE
@@ -75,6 +78,8 @@
 	icon = 'icons/waystation/weapons.dmi'
 	icon_state = "axe"
 	item_state = "axe"
+	force_divisor = 0.25 // 15 with hardness 60 (steel)
+	thrown_force_divisor = 0.5 // 10 with weight 20 (steel)
 	contained_sprite = TRUE
 
 /obj/item/material/hook

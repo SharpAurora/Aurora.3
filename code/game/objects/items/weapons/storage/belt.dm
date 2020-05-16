@@ -56,7 +56,11 @@
 		/obj/item/pipewrench,
 		/obj/item/powerdrill,
 		/obj/item/device/radio,
-		/obj/item/device/debugger
+		/obj/item/device/debugger,
+		/obj/item/chisel,
+		/obj/item/material/knife/woodcarving,
+		/obj/item/thermal_chisel,
+		/obj/item/fabric_tool
 		)
 
 
@@ -341,7 +345,10 @@
 		/obj/item/warp_core,
 		/obj/item/extraction_pack,
 		/obj/item/rfd/mining,
-		/obj/item/gun/custom_ka
+		/obj/item/gun/custom_ka,
+		/obj/item/chisel,
+		/obj/item/thermal_chisel,
+		/obj/item/device/autoshaper
 		)
 
 /obj/item/storage/belt/hydro
@@ -367,7 +374,8 @@
 		/obj/item/reagent_containers/spray, //includes if you ever wish to get a spraybottle full of other chemicals, Like water
 		/obj/item/device/analyzer/plant_analyzer,
 		/obj/item/clothing/gloves/botanic_leather,
-		/obj/item/device/radio
+		/obj/item/device/radio,
+		/obj/item/material/knife/woodcarving
 	)
 
 /obj/item/storage/belt/ninja //credits to BurgerBB

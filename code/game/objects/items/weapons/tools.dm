@@ -242,6 +242,7 @@
 	max_fuel = 40
 	matter = list(DEFAULT_WALL_MATERIAL = 100, MATERIAL_GLASS = 120)
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_BIO = 4)
+	crafting_precision = list(CRAFTING_METAL_SOFT = 4, CRAFTING_METAL_HARD = 6, CRAFTING_HIGH_STRENGTH = 2)
 	
 
 	var/last_gen = 0

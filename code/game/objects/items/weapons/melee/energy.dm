@@ -300,10 +300,16 @@
 	active_force = 20
 	force = 10
 	origin_tech = list(TECH_MAGNET = 3)
+	crafting_precision = list(CRAFTING_WOOD = 3)
 
 /obj/item/melee/energy/sword/knife/activate(mob/living/user)
 	..()
 	icon_state = "edagger1"
+	crafting_precision = list(CRAFTING_METAL_SOFT = 3)
+
+/obj/item/melee/energy/sword/knife/deactivate(mob/living/user)
+	..()
+	crafting_precision = initial(crafting_precision)
 
 /*
 *Power Sword

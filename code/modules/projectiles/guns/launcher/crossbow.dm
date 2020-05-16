@@ -12,6 +12,7 @@
 	edge = 0
 	hitsound = "swing_hit"
 	drop_sound = 'sound/items/drop/sword.ogg'
+	crafting_precision = list(CRAFTING_WOOD = 1)
 
 /obj/item/arrow/proc/removed() //Helper for metal rods falling apart.
 	return
@@ -21,6 +22,7 @@
 	throwforce = 6
 	w_class = ITEMSIZE_SMALL
 	drop_sound = 'sound/items/drop/card.ogg'
+	crafting_precision = null
 
 /obj/item/spike
 	name = "alloy spike"

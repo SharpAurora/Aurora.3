@@ -11,6 +11,7 @@
 	var/material/material
 	var/perunit
 	var/apply_colour //temp pending icon rewrite
+	var/cutting_chunk
 	var/list/tool_recipes = list() //things we make when crafting with tools
 	drop_sound = 'sound/items/drop/axe.ogg'
 
@@ -77,7 +78,15 @@
 
 /obj/item/stack/material/attackby(var/obj/item/W, var/mob/user)
 	if(W.can_craft(src))
-		get_craft_chunk(user)
+		if(cutting_chunk)
+			return
+		cutting_chunk = TRUE
+		user.visible_message(SPAN_NOTICE("\The [user] begins to cut off a section of \the [src]."),
+						SPAN_NOTICE("You begin to carve a crafting section off of \the [src]."))
+		if(do_after(user, 50))
+			if(Adjacent(user))
+				get_craft_chunk(user, W.crafting_precision[material.craft_type])
+		cutting_chunk = FALSE
 		return
 	if(iscoil(W))
 		material.build_wired_product(user, W, src)

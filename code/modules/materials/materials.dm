@@ -270,7 +270,7 @@
 	hardness = 100
 	stack_origin_tech = list(TECH_MATERIAL = 6)
 	golem = "Diamond Golem"
-	craft_type = CRAFTING_METAL_HARD
+	craft_type = CRAFTING_HIGH_STRENGTH
 
 /material/gold
 	name = MATERIAL_GOLD
@@ -294,7 +294,7 @@
 	icon_colour = "#EDD12F"
 	stack_origin_tech = list(TECH_MATERIAL = 2)
 	golem = "Bronze Golem"
-	craft_type = CRAFTING_METAL_SOFT
+	craft_type = CRAFTING_METAL_HARD
 
 /material/osmium
 	name = MATERIAL_OSMIUM
@@ -304,6 +304,7 @@
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
 	value = 30
+	craft_type = CRAFTING_HIGH_STRENGTH
 
 /material/silver
 	name = MATERIAL_SILVER
@@ -422,7 +423,7 @@
 	composite_material = list(DEFAULT_WALL_MATERIAL = 3750, "platinum" = 3750) //todo
 	golem = "Plasteel Golem"
 	hitsound = 'sound/weapons/smash.ogg'
-	craft_type = CRAFTING_METAL_HARD
+	craft_type = CRAFTING_HIGH_STRENGTH
 
 /material/plasteel/titanium
 	name = MATERIAL_TITANIUM
@@ -437,7 +438,6 @@
 	icon_colour = "#D1E6E3"
 	icon_reinf = "reinf_metal"
 	golem = "Titanium Golem"
-	craft_type = CRAFTING_METAL_HARD
 
 /material/glass
 	name = MATERIAL_GLASS
@@ -616,15 +616,6 @@
 	stack_type = null
 	shard_type = SHARD_NONE
 
-/material/osmium
-	name = MATERIAL_OSMIUM
-	stack_type = /obj/item/stack/material/osmium
-	icon_colour = "#9999FF"
-	stack_origin_tech = list(TECH_MATERIAL = 5)
-	sheet_singular_name = "ingot"
-	sheet_plural_name = "ingots"
-	craft_type = CRAFTING_METAL_HARD
-
 /material/tritium
 	name = MATERIAL_TRITIUM
 	stack_type = /obj/item/stack/material/tritium
@@ -632,7 +623,6 @@
 	stack_origin_tech = list(TECH_MATERIAL = 5)
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
-	craft_type = CRAFTING_METAL_HARD
 
 /material/mhydrogen
 	name = MATERIAL_HYDROGEN_METALLIC
@@ -719,6 +709,7 @@
 	destruction_desc = "splinters"
 	sheet_singular_name = "piece"
 	sheet_plural_name = "pile"
+	craft_type = null
 
 /material/wood/branch
 	name = MATERIAL_WOOD_BRANCH
@@ -825,6 +816,7 @@
 	ignition_point = T0C+300
 	melting_point = T0C+300
 	protectiveness = 3 // 13%
+	hardness = 5
 	golem = "Homunculus"
 	craft_type = CRAFTING_FABRIC
 
@@ -839,6 +831,7 @@
 	sheet_singular_name = "tile"
 	sheet_plural_name = "tiles"
 	protectiveness = 1 // 4%
+	hardness = 1
 	golem = "Cloth Golem"
 
 /material/cotton
@@ -849,6 +842,7 @@
 	ignition_point = T0C+232
 	melting_point = T0C+300
 	protectiveness = 1 // 4%
+	hardness = 1
 	golem = "Cloth Golem"
 	craft_type = CRAFTING_FABRIC
 
@@ -861,6 +855,7 @@
 	ignition_point = T0C+232
 	melting_point = T0C+300
 	protectiveness = 1 // 4%
+	hardness = 1
 	golem = "Cloth Golem"
 	craft_type = CRAFTING_FABRIC
 
@@ -873,6 +868,7 @@
 	ignition_point = T0C+232
 	melting_point = T0C+300
 	protectiveness = 1 // 4%
+	hardness = 1
 	golem = "Cloth Golem"
 	craft_type = CRAFTING_FABRIC
 
@@ -885,6 +881,7 @@
 	ignition_point = T0C+232
 	melting_point = T0C+300
 	protectiveness = 1 // 4%
+	hardness = 1
 	golem = "Cloth Golem"
 	craft_type = CRAFTING_FABRIC
 
@@ -897,6 +894,7 @@
 	ignition_point = T0C+232
 	melting_point = T0C+300
 	protectiveness = 1 // 4%
+	hardness = 1
 	golem = "Cloth Golem"
 	craft_type = CRAFTING_FABRIC
 
@@ -909,6 +907,7 @@
 	ignition_point = T0C+232
 	melting_point = T0C+300
 	protectiveness = 1 // 4%
+	hardness = 1
 	golem = "Cloth Golem"
 	craft_type = CRAFTING_FABRIC
 
@@ -921,6 +920,7 @@
 	ignition_point = T0C+232
 	melting_point = T0C+300
 	protectiveness = 1 // 4%
+	hardness = 1
 	golem = "Cloth Golem"
 	craft_type = CRAFTING_FABRIC
 
@@ -933,6 +933,7 @@
 	ignition_point = T0C+232
 	melting_point = T0C+300
 	protectiveness = 1 // 4%
+	hardness = 1
 	golem = "Cloth Golem"
 	craft_type = CRAFTING_FABRIC
 
@@ -996,6 +997,7 @@
 	door_icon_base = "stone"
 	protectiveness = 10 // 33%
 	golem = "Homunculus"
+	craft_type = CRAFTING_STONE
 
 /material/bone/necromancer
 	name = MATERIAL_BONE_CURSED
@@ -1003,6 +1005,7 @@
 	integrity = 150
 	hardness = 60
 	protectiveness = 20 // 50%
+	craft_type = null
 
 /material/vaurca
 	name = MATERIAL_VAURCA

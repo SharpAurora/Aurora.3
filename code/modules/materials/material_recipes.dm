@@ -8,10 +8,6 @@
 
 	// If is_brittle() returns true, these are only good for a single strike.
 	recipes += new/datum/stack_recipe("[display_name] baseball bat", /obj/item/material/twohanded/baseballbat, 10, time = 20, one_per_turf = 0, on_floor = 1, supplied_material = "[name]")
-	recipes += new/datum/stack_recipe("[display_name] sword hilt", /obj/item/material/sword_hilt, 10, time = 100, one_per_turf = 0, on_floor = 1, supplied_material = "[name]")
-	recipes += new/datum/stack_recipe("[display_name] sword blade", /obj/item/material/sword_blade, 15, time = 100, one_per_turf = 0, on_floor = 1, supplied_material = "[name]")
-	recipes += new/datum/stack_recipe("[display_name] spoon", /obj/item/material/kitchen/utensil/spoon/plastic, 1, on_floor = 1, supplied_material = "[name]")
-	recipes += new/datum/stack_recipe("[display_name] ring", /obj/item/clothing/ring/material, 1, on_floor = 1, supplied_material = "[name]")
 	recipes += new/datum/stack_recipe("[display_name] armor plate", /obj/item/material/armor_plating, 3, time = 20, on_floor = 1, supplied_material = "[name]")
 	recipes += new/datum/stack_recipe("[display_name] railing", /obj/structure/railing, 2, time = 50, one_per_turf = FALSE, on_floor = TRUE, supplied_material = "[name]")
 
@@ -21,16 +17,7 @@
 		recipes += new/datum/stack_recipe("[display_name] stool", /obj/item/stool, one_per_turf = 1, on_floor = 1, supplied_material = "[name]")
 		recipes += new/datum/stack_recipe("[display_name] chair", /obj/structure/bed/chair, one_per_turf = 1, on_floor = 1, supplied_material = "[name]")
 		recipes += new/datum/stack_recipe("[display_name] bed", /obj/structure/bed, 2, one_per_turf = 1, on_floor = 1, supplied_material = "[name]")
-		recipes += new/datum/stack_recipe("[display_name] lock",/obj/item/material/lock_construct, 1, time = 20, one_per_turf = 0, on_floor = 1, supplied_material = "[name]")
 		recipes += new/datum/stack_recipe("[display_name] urn", /obj/item/material/urn, 10, time = 30, one_per_turf = FALSE, on_floor = 1, supplied_material = "[name]")
-	if(hardness>=10)
-		recipes += new/datum/stack_recipe("[display_name] ashtray", /obj/item/material/ashtray, 2, one_per_turf = 1, on_floor = 1, supplied_material = "[name]")
-	if(hardness>50)
-		recipes += new/datum/stack_recipe("[display_name] fork", /obj/item/material/kitchen/utensil/fork/plastic, 1, on_floor = 1, supplied_material = "[name]")
-		recipes += new/datum/stack_recipe("[display_name] knife", /obj/item/material/kitchen/utensil/knife/plastic, 1, on_floor = 1, supplied_material = "[name]")
-		recipes += new/datum/stack_recipe("[display_name] blade", /obj/item/material/butterflyblade, 6, time = 20, one_per_turf = 0, on_floor = 1, supplied_material = "[name]")
-		recipes += new/datum/stack_recipe("[display_name] spearhead", /obj/item/material/spearhead, 6, time = 20, one_per_turf = 0, on_floor = 1, supplied_material = "[name]")
-		recipes += new/datum/stack_recipe("[display_name] drill_head", /obj/item/material/drill_head, 6, time = 20, one_per_turf = 0, on_floor = 1, supplied_material = "[name]")
 	if(name == "sandstone")
 		recipes += new/datum/stack_recipe("planting bed", /obj/machinery/portable_atmospherics/hydroponics/soil, 3, time = 10, one_per_turf = 1, on_floor = 1)
 
@@ -61,7 +48,6 @@
 	recipes += new/datum/stack_recipe("pot", /obj/item/reagent_containers/cooking_container/fire/pot, 3, time = 30, one_per_turf = 0, on_floor = 1)
 	recipes += new/datum/stack_recipe("fireplace pot", /obj/item/reagent_containers/cooking_container/fire/oven, 15, time = 60, one_per_turf = 1, on_floor = 1)
 	recipes += new/datum/stack_recipe("potbelly stove", /obj/structure/bonfire/fireplace/stove, 15, time = 120, one_per_turf = 1, on_floor = 1)
-	recipes += new/datum/stack_recipe("key", /obj/item/key, 1, time = 10, one_per_turf = 0, on_floor = 1)
 	recipes += new/datum/stack_recipe("table frame", /obj/structure/table, 1, time = 10, one_per_turf = 1, on_floor = 1)
 	recipes += new/datum/stack_recipe("custodial cart", /obj/structure/janitorialcart, 15, time = 120, one_per_turf = 1, on_floor = 1)
 	recipes += new/datum/stack_recipe("rack", /obj/structure/table/rack, 1, time = 5, one_per_turf = 1, on_floor = 1)
@@ -132,11 +118,8 @@
 
 /material/wood/generate_recipes()
 	..()
-	recipes += new/datum/stack_recipe("wooden sandals", /obj/item/clothing/shoes/sandal, 1)
-	recipes += new/datum/stack_recipe("wood circlet", /obj/item/woodcirclet, 1)
 	recipes += new/datum/stack_recipe("wood floor tile", /obj/item/stack/tile/wood, 1, 4, 20)
 	recipes += new/datum/stack_recipe("wooden chair", /obj/structure/bed/chair/wood, 3, time = 10, one_per_turf = 1, on_floor = 1)
-	recipes += new/datum/stack_recipe("crossbow frame", /obj/item/crossbowframe, 5, time = 25, one_per_turf = 0, on_floor = 0)
 	recipes += new/datum/stack_recipe("coffin", /obj/structure/closet/coffin, 5, time = 15, one_per_turf = 1, on_floor = 1)
 	recipes += new/datum/stack_recipe("rifle stock", /obj/item/stock, 10, time = 25, one_per_turf = 0, on_floor = 0)
 	recipes += new/datum/stack_recipe("beehive assembly", /obj/item/beehive_assembly, 4)
@@ -147,8 +130,6 @@
 	recipes += new/datum/stack_recipe("shaft", /obj/item/material/shaft, 10, time = 25, one_per_turf = 0, on_floor = 0)
 	recipes += new/datum/stack_recipe("buckler donut", /obj/item/material/woodenshield, 20, time = 25, one_per_turf = 0, on_floor = 0)
 	recipes += new/datum/stack_recipe("bonfire", /obj/structure/bonfire, 5, time = 50, one_per_turf = 1, on_floor = 1)
-	recipes += new/datum/stack_recipe("torch handle", /obj/item/torch_handle, 2, time = 15, one_per_turf = 0, on_floor = 0)
-	recipes += new/datum/stack_recipe("skewer", /obj/item/reagent_containers/cooking_container/fire/skewer, 1)
 	recipes += new/datum/stack_recipe("drink barrel", /obj/structure/reagent_dispensers/keg/wood, 5, time = 50, one_per_turf = 1, on_floor = 1)
 	recipes += new/datum/stack_recipe("grave marker", /obj/structure/gravemarker, 2, time = 30, one_per_turf = 1, on_floor = 1)
 
@@ -161,8 +142,6 @@
 /material/wood/branch/generate_recipes()
 	recipes = list()
 	recipes += new/datum/stack_recipe("bonfire", /obj/structure/bonfire, 10, time = 50, one_per_turf = 1, on_floor = 1)
-	recipes += new/datum/stack_recipe("torch handle", /obj/item/torch_handle, 1, time = 15, one_per_turf = 0, on_floor = 0)
-	recipes += new/datum/stack_recipe("skewer", /obj/item/reagent_containers/cooking_container/fire/skewer, 1)
 
 /material/stone/generate_recipes()
 	..()
@@ -239,12 +218,31 @@
 	recipes += new/datum/stack_recipe("diamond floor tile", /turf/simulated/floor/diamond, 1, 4, 20)
 
 
+////////////////////////////////////
+// Tool Crafting Datums and Recipes
+////////////////////////////////////
+
+/datum/crafting_item
+	var/name = "tool crafting item"
+	var/item_material
+	var/obj/item/item_type
+
+/datum/crafting_item/New(var/named, var/obj/item/creation, var/material)
+	..()
+	name = named
+	item_type = creation
+	item_material = material
+
+/datum/crafting_item/proc/create(mob/user)
+	var/obj/item/O
+	if(item_material)
+		O = new item_type(get_turf(user), item_material)
+	else
+		O = new item_type(get_turf(user))
+	return O
 
 
-//	recipes += new/datum/stack_recipe("[display_name] ring", /obj/item/clothing/ring/material, 1, on_floor = TRUE, supplied_material = "[name]")
-// So we need to do this for materials and then we can do produce()
-// New(title, result_type, req_amount = 1, res_amount = 1, max_res_amount = 1, time = 0, one_per_turf = 0, on_floor = 0, supplied_material = null)
-// changeling_mob.mind.changeling.hivemind_members[name] = src
+
 /material/proc/get_tool_recipes()
 	world << "running get tool recipes for [src]"
 	if(!tool_recipes)
@@ -253,47 +251,48 @@
 	return tool_recipes
 
 /material/proc/generate_tool_recipes()
-/*	tool_recipes += list(
-	"ring" = list(/obj/item/clothing/ring/material, "[name]"),
-	"spoon" = list(/obj/item/material/kitchen/utensil/spoon/plastic, "[name]"),
-	"necklace" = list(/obj/item/clothing/accessory/necklace, "[name]")
-	)
-	if(integrity>=50)
-		tool_recipes += list("lock" = list(/obj/item/material/lock_construct, "[name]"))
-	if(hardness>=10)
-		tool_recipes += list("ashtray" = list(/obj/item/material/ashtray, "[name]"))
-	if(hardness>50)
-		tool_recipes += list(
-		"fork" = list(/obj/item/material/kitchen/utensil/fork/plastic, "[name]"),
-		"knife" = list(/obj/item/material/kitchen/utensil/knife/plastic, "[name]"),
-		"spearhead" = list(/obj/item/material/spearhead, "[name]"),
-		"key" = list(/obj/item/key/material, "[name]")
-		)*/
-	tool_recipes["ring"] = /obj/item/clothing/ring/material
-	tool_recipes["spoon"] = /obj/item/material/kitchen/utensil/spoon/plastic
-	tool_recipes["necklace"] = /obj/item/clothing/accessory/necklace
+
+	tool_recipes += new /datum/crafting_item("ring", /obj/item/clothing/ring/material, name)
+	tool_recipes += new /datum/crafting_item("spoon", /obj/item/material/kitchen/utensil/spoon/plastic, name)
+	tool_recipes += new /datum/crafting_item("necklace", /obj/item/clothing/accessory/necklace, name)
+	tool_recipes += new /datum/crafting_item("bracelet", /obj/item/clothing/ring/material/bracelet, name)
 
 	if(integrity>=50)
-		tool_recipes["lock"] = /obj/item/material/lock_construct
+		tool_recipes += new /datum/crafting_item("lock", /obj/item/material/lock_construct, name)
 	if(hardness>=10)
-		tool_recipes["ashtray"] = /obj/item/material/ashtray
+		tool_recipes += new /datum/crafting_item("ashtray", /obj/item/material/ashtray, name)
+		tool_recipes += new /datum/crafting_item("sword hilt", /obj/item/material/sword_hilt, name)
+		tool_recipes += new /datum/crafting_item("sword blade", /obj/item/material/sword_blade, name)
+		tool_recipes += new /datum/crafting_item("key", /obj/item/key/material, name)
 	if(hardness>50)
-		tool_recipes["fork"] = /obj/item/material/kitchen/utensil/fork/plastic
-		tool_recipes["knife"] = /obj/item/material/kitchen/utensil/knife/plastic
-		tool_recipes["spearhead"] = /obj/item/material/spearhead
-		tool_recipes["key"] = /obj/item/key/material
+		tool_recipes += new /datum/crafting_item("fork", /obj/item/material/kitchen/utensil/fork/plastic, name)
+		tool_recipes += new /datum/crafting_item("knife", /obj/item/material/kitchen/utensil/knife/plastic, name)
+		tool_recipes += new /datum/crafting_item("spearhead", /obj/item/material/spearhead, name)
+		tool_recipes += new /datum/crafting_item("knife blade", /obj/item/material/butterflyblade, name)
+		tool_recipes += new /datum/crafting_item("drill head", /obj/item/material/drill_head, name)
+
+/material/steel/generate_tool_recipes()
+	..()
+	tool_recipes += new /datum/crafting_item("shield fittings", /obj/item/material/shieldbits)
+	tool_recipes += new /datum/crafting_item("bolt", /obj/item/arrow)
 
 /material/wood/generate_tool_recipes()
 	..()
-	tool_recipes["torch handle"] = /obj/item/torch_handle
-	tool_recipes["skewer"] = /obj/item/reagent_containers/cooking_container/fire/skewer
-	tool_recipes["wooden sandals"] = /obj/item/clothing/shoes/sandal
-	tool_recipes["wood circlet"] = /obj/item/woodcirclet
-	tool_recipes["crossbow frame"] = /obj/item/crossbowframe
-	tool_recipes["rifle stock"] = /obj/item/stock
-	tool_recipes["wooden bucket"] = /obj/item/reagent_containers/glass/bucket/wood
-	tool_recipes["arrow"] = /obj/item/arrow/wood
+	tool_recipes += new /datum/crafting_item("torch handle", /obj/item/torch_handle)
+	tool_recipes += new /datum/crafting_item("skewer", /obj/item/reagent_containers/cooking_container/fire/skewer)
+	tool_recipes += new /datum/crafting_item("wooden sandals", /obj/item/clothing/shoes/sandal)
+	tool_recipes += new /datum/crafting_item("wood circlet", /obj/item/woodcirclet)
+	tool_recipes += new /datum/crafting_item("crossbow frame", /obj/item/crossbowframe)
+	tool_recipes += new /datum/crafting_item("wooden bucket", /obj/item/reagent_containers/glass/bucket/wood)
+	tool_recipes += new /datum/crafting_item("arrow", /obj/item/arrow/wood)
 
 /material/wood/branch/generate_tool_recipes()
-	tool_recipes["torch handle"] = /obj/item/torch_handle
-	tool_recipes["skewer"] = /obj/item/reagent_containers/cooking_container/fire/skewer
+	tool_recipes += new /datum/crafting_item("torch handle", /obj/item/torch_handle)
+	tool_recipes += new /datum/crafting_item("skewer", /obj/item/reagent_containers/cooking_container/fire/skewer)
+
+/material/leather/generate_tool_recipes()
+	..()
+	tool_recipes += new /datum/crafting_item("armpit holster", /obj/item/clothing/accessory/holster/armpit/brown)
+	tool_recipes += new /datum/crafting_item("waist holster", /obj/item/clothing/accessory/holster/waist/brown)
+	tool_recipes += new /datum/crafting_item("thigh holster", /obj/item/clothing/accessory/holster/thigh/brown)
+	tool_recipes += new /datum/crafting_item("hip holster", /obj/item/clothing/accessory/holster/hip/brown)
