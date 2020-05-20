@@ -119,6 +119,7 @@
 	mob_size = 10
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/samak
 	butchering_products = list(/obj/item/stack/material/animalhide = 3)
+	ignore_factions = list(FACTION_AMBIENT, FACTION_SNOW)
 
 /mob/living/simple_animal/hostile/diyaab
 	name = "diyaab"
@@ -145,6 +146,7 @@
 	mob_size = 3
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/diyaab
 	meat_amount = 1
+	ignore_factions = list(FACTION_AMBIENT, FACTION_SNOW)
 
 /mob/living/simple_animal/hostile/diyaab/cave
 	name = "cavern diyaab"
@@ -179,6 +181,7 @@
 	mob_size = 5
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/shantak
 	butchering_products = list(/obj/item/stack/material/animalhide = 2)
+	ignore_factions = list(FACTION_AMBIENT, FACTION_SNOW)
 
 /mob/living/simple_animal/yithian
 	name = "yithian"
