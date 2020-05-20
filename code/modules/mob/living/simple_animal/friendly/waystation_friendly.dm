@@ -52,7 +52,7 @@
 
 	faction = FACTION_SNOW
 
-	var/static/list/hideable_turfs = list(/turf/simulated/floor/snow)
+	var/list/hideable_turfs = list(/turf/simulated/floor/snow)
 	var/flee_target
 	var/do_reveal_timer
 	var/obj/item/reagent_containers/food/snacks/food_target
