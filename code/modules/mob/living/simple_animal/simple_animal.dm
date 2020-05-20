@@ -114,6 +114,8 @@
 	var/list/butchering_products	//if anything else is created when butchering this creature, like bones and leather
 	var/harvesting //If we're currently butchering it
 
+	var/hiding //if hidden 
+
 
 /mob/living/simple_animal/proc/update_nutrition_stats()
 	nutrition_step = mob_size * 0.03 * metabolic_factor
