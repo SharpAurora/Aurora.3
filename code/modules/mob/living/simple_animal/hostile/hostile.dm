@@ -27,7 +27,7 @@
 	var/attack_emote = "stares menacingly at"
 
 	var/smart = FALSE // This makes ranged mob check for friendly fire and obstacles
-	var/static/list/ignore_factions = list("Ambient") //Factions we do not attack. Mostly for mobs not fighting
+	var/list/ignore_factions = list(FACTION_AMBIENT) //Factions we do not attack. Mostly for mobs not fighting
 
 	//For hostile mobs that wait for prey
 	var/patient //Does this mob wait for prey?
