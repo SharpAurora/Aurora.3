@@ -4,14 +4,16 @@
 	icon = 'icons/mob/npc/waystation.dmi'
 	icon_state = "angler"
 	icon_living = "angler"
-	icon_resting = "angler-rest"
+	icon_rest = "angler-rest"
 	icon_dead = "angler-rest"
 
 	speak_chance = FALSE
 	emote_sounds = list('sound/species/shadow/grue_screech.ogg', 'sound/species/shadow/grue_growl.ogg')
+	see_invisible = SEE_INVISIBLE_NOLIGHTING
+	see_in_dark = 8
 	
 	meat_amount = 4
-	meat_type = /obj/item/reagent_containers/food/snacks/carpmeat
+	meat_type = /obj/item/reagent_containers/food/snacks/dwellermeat
 
 	maxHealth = 85
 	health = 85
@@ -20,7 +22,7 @@
 	response_disarm = "pushes"
 	response_harm   = "hits"
 
-	blood_type = "#0f1038" //Blood colour for impact visuals.
+	blood_type = "#0f1038" 
 	faction = FACTION_CAVERN
 	attacktext = "rends"
 	attack_emote = "shrieks at"
@@ -31,40 +33,57 @@
 	maxbodytemp = 320
 
 	speed = 1
-	butchering_products = list()
-	var/next_bide //when we decide to go back into watch and wait mode
-	var/minimum_wait //the minimum time we bide for
+	butchering_products = list(/obj/item/stack/material/animalhide/lizard = 2)
 
-/mob/living/simple_animal/hostile/angler/think()
-	if(stance == HOSTILE_STANCE_IDLE && world.time >= next_bide)
-		bide()
-	..()
 
-/mob/living/simple_animal/hostile/angler/proc/bide()
-	if(!resting) //If we aren't resting, we rest, and bide our time for prey
-		stop_automated_movement = TRUE
-		resting = TRUE
-		minimum_wait = world.time + rand(1800, 3000)
-	else
-		if(prob(1) && world.time >= minimum_wait) //If we ARE biding our time and a very small chance, we get up and wander a bit.
-			resting = FALSE
-			stop_automated_movement = FALSE
-			next_bide = world.time + rand(600, 1200)
-	update_icons()
+	patient = TRUE
+	wander_time = 600 //How long we'll wander for. This is the minimum time, 2 times this is max time
+	patience = 1800 //How long we'll rest for. 
 
-/mob/living/simple_animal/hostile/angler/see_target()
-	var/range = 10
-	if(resting)
-		range = 3
-	return (target_mob in view(range, src)) ? (TRUE) : (FALSE)
+/mob/living/simple_animal/hostile/angler/Initialize()
+	. = ..()
+	set_light(1.8, 1, LIGHT_COLOR_YELLOW)
 
-/mob/living/simple_animal/hostile/angler/MoveToTarget()
-	if(resting)
-		resting = FALSE
-		update_icons()
-	..()
+/mob/living/simple_animal/hostile/angler/Destroy()
+	. = ..()
+	set_light(0)
 
 /mob/living/simple_animal/hostile/angler/AttackingTarget()
 	if(prob(20))
 		make_noise()
 	return ..()
+
+/mob/living/simple_animal/hostile/giant_spider/iceking
+	name = "ice king"
+	desc = "A huge predator that uses camoflauge to hunt prey. This type of spider is a solitary species, and is unusual in that the males are as large and aggressive as the females. Only the females are venomous."
+	icon = 'icons/mob/npc/waystation.dmi'
+	icon_state = "iceking"
+	icon_living = "iceking"
+	icon_dead = "iceking_dead"
+	icon_rest = "iceking_rest"
+	maxHealth = 225
+	health = 225
+	melee_damage_lower = 18
+	melee_damage_upper = 22
+	cold_damage_per_tick = 5
+	minbodytemp = 150
+	maxbodytemp = 310
+	poison_per_bite = 3 //stronger but not as much poison
+
+	mob_size = 9
+
+	patient = TRUE
+	wander_time = 300 
+	patience = 2400
+	resting_view = 5 //better at sensing targets
+
+/mob/living/simple_animal/hostile/giant_spider/iceking/Initialize()
+	. = ..()
+	if(prob(50))
+		poison_per_bite = 0
+	else
+		poison_type = pick("toxin", "panotoxin", "dextrotoxin")
+
+/mob/living/simple_animal/hostile/giant_spider/iceking/examine(mob/user)
+	if(..(user, 1))
+		to_chat(user, "This one has the markings of a [poison_per_bite ? "female" : "male"].")

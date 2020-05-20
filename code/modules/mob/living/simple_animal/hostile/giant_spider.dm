@@ -95,7 +95,7 @@
 /mob/living/simple_animal/hostile/giant_spider/think()
 	..()
 	if(!stat)
-		if(stance == HOSTILE_STANCE_IDLE)
+		if(stance == HOSTILE_STANCE_IDLE && !patient)
 			//1% chance to skitter madly away
 			if(!busy && prob(1))
 				/*var/list/move_targets = list()

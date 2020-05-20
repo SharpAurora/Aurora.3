@@ -53,7 +53,6 @@
 	faction = FACTION_SNOW
 
 	var/static/list/hideable_turfs = list(/turf/simulated/floor/snow)
-	var/hiding
 	var/flee_target
 	var/do_reveal_timer
 	var/obj/item/reagent_containers/food/snacks/food_target
@@ -72,13 +71,11 @@
 	return FALSE
 
 /mob/living/simple_animal/skikja/proc/bury_self(var/turf/T)
-	world << "Attempting bury_self in [T]"
 	if(!isturf(loc))
 		return FALSE
 	if(food_target)
 		return
 	if(is_type_in_list(T, hideable_turfs))
-		world << "[T] in hideable turfs, burying"
 		visible_message(SPAN_NOTICE("\The [src] lays against the [T] and shakes itself back and forth. Soon, it is entirely camoflauged against it."))
 		resting = TRUE
 		hiding = TRUE
@@ -98,7 +95,6 @@
 			food_target = null
 			return
 		if(prob(95) || (nutrition / max_nutrition) <= 0.25)
-			world << "Checking out the food"
 			walk_to(src, food_target.loc, 1)
 			if(Adjacent(food_target.loc))
 				if(prob(20))
@@ -108,7 +104,6 @@
 				if(isturf(food_target.loc) && (nutrition / max_nutrition) <= 0.5)
 					UnarmedAttack(food_target)
 		else
-			world << "lost interest in food target"
 			say(pick(speak))
 			walk_away(src, food_target.loc, 2, 2)
 			food_target = null
@@ -121,15 +116,11 @@
 		food_curiosity += G
 		for(var/mob/living/carbon/human/H in orange(src, scan_range))
 			if(istype(H.l_hand, G))
-				world << "Found [G] on [H]"
 				food_curiosity += G
 			if(istype(H.r_hand, G))
-				world << "Found [G] on [H]"
 				food_curiosity += G
 	if(prob(30) && food_curiosity.len)
-		world << "Food searching"
 		food_target = pick(food_curiosity)
-		world << "food is [food_target]"
 		reveal_self()
 		var/distance = get_dist(src, food_target.loc)
 		var/mob/living/carbon/human/M
@@ -190,13 +181,12 @@
 
 
 /mob/living/simple_animal/skikja/proc/handle_flee_target()
-	world << "handling flee target"
 	//see if we should stop fleeing
 	if(flee_target && !(flee_target in view(src)))
 		flee_target = null
+		walk(src, 0) //Cancels running
 		stop_automated_movement = FALSE
 		INVOKE_ASYNC(src, .proc/bury_self, get_turf(src)) //hide after running, poor thing
-		world << "Should have nulled flee target. Flee target: [flee_target]"
 		return
 
 	if(flee_target)
@@ -282,7 +272,7 @@
 	turns_per_move = 6
 	flying = TRUE
 	holder_type = /obj/item/holder/infernofly
-	faction = "Ambient"
+	faction = FACTION_AMBIENT
 
 /mob/living/simple_animal/infernofly/Initialize()
 	. = ..()
