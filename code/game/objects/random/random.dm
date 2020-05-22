@@ -864,6 +864,8 @@
 		/obj/item/storage/fancy/crayons = 0.5,
 		/obj/item/storage/wallet/random/ = 0.1,
 		/obj/item/trap/animal = 0.8,
+		/obj/item/material/knife/woodcarving = 0.2,
+		/obj/item/chisel = 0.2,
 		/obj/random/arcade = 0.25,
 		/obj/random/backpack = 0.7,
 		/obj/random/belt = 0.9,
@@ -996,7 +998,13 @@
 		/obj/item/rig/military = 0.5,
 		/obj/item/rig/unathi/fancy = 0.5,
 		/obj/item/rig/vaurca/minimal = 0.5,
-		/obj/item/anomaly_core = 0.5
+		/obj/item/anomaly_core = 0.5,
+		/obj/item/material/knife/woodcarving/artisan = 0.5,
+		/obj/item/chisel/artisan = 0.5,
+		/obj/item/fabric_tool/artisan = 0.5,
+		/obj/item/thermal_chisel/artisan = 0.5,
+		/obj/item/device/autoshaper = 0.5,
+		/obj/item/device/autoshaper/artisan = 0.25
 	)
 
 /obj/random/junk
@@ -1626,5 +1634,10 @@
 		/obj/item/nullrod/orb,
 		/obj/item/gun/launcher/crossbow/vaurca,
 		/obj/item/gun/energy/net,
-		/obj/item/gun/launcher/crossbow/RFD
+		/obj/item/gun/launcher/crossbow/RFD,
+		/obj/item/material/knife/woodcarving/artisan,
+		/obj/item/chisel/artisan,
+		/obj/item/fabric_tool/artisan,
+		/obj/item/thermal_chisel/artisan,
+		/obj/item/device/autoshaper
 		)

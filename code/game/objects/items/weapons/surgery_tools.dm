@@ -56,6 +56,7 @@
 	flags = CONDUCT
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	attack_verb = list("burnt")
+	crafting_precision = list(CRAFTING_METAL_SOFT = 3, CRAFTING_METAL_HARD = 1)
 
 /*
  * Surgical Drill
@@ -95,6 +96,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GLASS = 5000)
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	drop_sound = 'sound/items/drop/knife.ogg'
+	crafting_precision = list(CRAFTING_WOOD = 6)
 
 /*
  * Researchable Scalpels

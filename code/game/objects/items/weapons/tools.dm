@@ -66,6 +66,7 @@
 	var/random_icon = TRUE
 	drop_sound = 'sound/items/drop/scrap.ogg'
 	usesound = 'sound/items/Screwdriver.ogg'
+	crafting_precision = list(CRAFTING_WOOD = 2, CRAFTING_STONE = 2)
 
 /obj/item/screwdriver/Initialize()
 	. = ..()
@@ -204,6 +205,7 @@
 
 	//R&D tech level
 	origin_tech = list(TECH_ENGINEERING = 1)
+	crafting_precision = list(CRAFTING_METAL_SOFT = 2, CRAFTING_METAL_HARD = 4)
 
 	//Welding tool specific stuff
 	var/welding = 0 	//Whether or not the welding tool is off(0), on(1) or currently welding(2)
@@ -240,6 +242,7 @@
 	max_fuel = 40
 	matter = list(DEFAULT_WALL_MATERIAL = 100, MATERIAL_GLASS = 120)
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_BIO = 4)
+	crafting_precision = list(CRAFTING_METAL_SOFT = 4, CRAFTING_METAL_HARD = 6, CRAFTING_HIGH_STRENGTH = 2)
 	
 
 	var/last_gen = 0
@@ -309,6 +312,12 @@
 
 	..()
 	return
+
+/obj/item/weldingtool/can_craft(obj/O)
+	if(welding == 1)
+		return ..()
+	else
+		return FALSE
 
 /obj/item/weldingtool/process()
 	if(welding)
@@ -588,6 +597,7 @@
 	attack_verb = list("attacked", "bashed", "battered", "bludgeoned", "whacked")
 	drop_sound = 'sound/items/drop/sword.ogg'
 	usesound = 'sound/items/Crowbar.ogg'
+	crafting_precision = list(CRAFTING_STONE = 2)
 
 /obj/item/crowbar/iscrowbar()
 	return TRUE

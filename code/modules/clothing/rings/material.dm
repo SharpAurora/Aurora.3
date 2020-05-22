@@ -50,3 +50,12 @@
 
 /obj/item/clothing/ring/material/uranium/Initialize(var/mapload)
 	. = ..(mapload, MATERIAL_URANIUM)
+
+/obj/item/clothing/ring/material/bracelet
+	icon = 'icons/obj/clothing/rings.dmi'
+	icon_state = "bracelet_material"
+
+/obj/item/clothing/ring/material/bracelet/Initialize(var/mapload, var/new_material)
+	. = ..()
+	name = "[material.display_name] bracelet"
+	desc = "A bracelet made from [material.display_name]."

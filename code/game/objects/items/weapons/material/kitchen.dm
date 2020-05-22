@@ -95,6 +95,7 @@
 	scoop_food = FALSE
 	sharp = TRUE
 	edge = TRUE
+	crafting_precision = list(CRAFTING_WOOD = 3)
 
 // Identical to the tactical knife but nowhere near as stabby.
 // Kind of like the toy esword compared to the real thing.
@@ -106,6 +107,7 @@
 	item_state = "knife"
 	applies_material_colour = 0
 	unbreakable = 1
+	crafting_precision = list(CRAFTING_WOOD = 4)
 
 /obj/item/material/kitchen/utensil/knife/attack(mob/target, mob/living/user, var/target_zone)
 	if ((user.is_clumsy()) && prob(50))

@@ -182,6 +182,7 @@
 	origin_tech = list(TECH_COMBAT = 4)
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
+	crafting_precision = list(CRAFTING_WOOD = 1)
 
 /obj/item/melee/ceremonial_sword/marine
 	name = "sol marine ceremonial sword"

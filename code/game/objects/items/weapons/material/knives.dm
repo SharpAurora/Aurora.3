@@ -16,6 +16,7 @@
 	attack_verb = list("slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	unbreakable = 1
 	drop_sound = 'sound/items/drop/knife.ogg'
+	crafting_precision = list(CRAFTING_WOOD = 4, CRAFTING_FABRIC = 2)
 
 /obj/item/material/knife/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 	if(active == 1)

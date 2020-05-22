@@ -31,6 +31,7 @@
 	icon = 'icons/obj/weapons.dmi'
 	hitsound = "swing_hit"
 	drop_sound = 'sound/items/drop/sword.ogg'
+	crafting_precision = list(CRAFTING_WOOD = 1)
 
 /obj/item/material/twohanded/proc/unwield()
 	wielded = 0

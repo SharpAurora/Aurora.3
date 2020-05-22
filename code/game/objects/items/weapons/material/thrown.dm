@@ -11,6 +11,7 @@
 	sharp = 1
 	edge =  1
 	w_class = ITEMSIZE_SMALL
+	crafting_precision = list(CRAFTING_WOOD = 3)
 
 /obj/item/material/star/New()
 	..()

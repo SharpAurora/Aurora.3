@@ -83,6 +83,7 @@
 	var/drilling = FALSE
 
 	action_button_name = "Wield pick/drill"
+	crafting_precision = list(CRAFTING_STONE = 2)
 
 /obj/item/pickaxe/proc/unwield()
 	wielded = FALSE
@@ -217,6 +218,7 @@
 	icon_state = "sledgehammer"
 	icon = 'icons/obj/weapons.dmi'
 	hitsound = "swing_hit"
+	crafting_precision = null
 
 /obj/item/pickaxe/silver
 	name = "silver pickaxe"
@@ -1106,6 +1108,7 @@ var/list/total_extraction_beacons = list()
 	item_state = "jackhammer"
 	origin_tech = list(TECH_MATERIAL = 3, TECH_POWER = 2, TECH_ENGINEERING = 2)
 	desc = "With an integrated AI chip and hair-trigger precision, this baby makes sculpting almost automatic!"
+	crafting_precision = list(CRAFTING_STONE = 8, CRAFTING_METAL_SOFT = 6, CRAFTING_METAL_HARD = 5, CRAFTING_WOOD = 2, CRAFTING_HIGH_STRENGTH = 1)
 
 /obj/structure/sculpting_block
 	name = "sculpting block"

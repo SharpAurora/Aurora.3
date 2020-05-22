@@ -199,6 +199,28 @@
 
 	drop_sound = 'sound/items/drop/scrap.ogg'
 
+//necklace
+/obj/item/clothing/accessory/necklace
+	name = "necklace"
+	desc = "A fashionable necklace."
+	icon_state = "locket"
+	item_state = "locket"
+	w_class = ITEMSIZE_TINY
+	slot_flags = SLOT_MASK | SLOT_TIE
+	drop_sound = 'sound/items/drop/ring.ogg'
+
+/obj/item/clothing/accessory/necklace/Initialize(var/mapload, var/new_material)
+	. = ..(mapload)
+	if(!new_material)
+		new_material = MATERIAL_SILVER
+	material = SSmaterials.get_material_by_name(new_material)
+	if(!istype(material))
+		qdel(src)
+		return
+	name = "[material.display_name] necklace"
+	desc = "A fashionable necklace made from [material.display_name]."
+	color = material.icon_colour
+
 //Medals
 /obj/item/clothing/accessory/medal
 	name = "bronze medal"

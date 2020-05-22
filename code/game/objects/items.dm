@@ -84,6 +84,9 @@
 	var/lock_picking_level = 0 //used to determine whether something can pick a lock, and how well.
 	// Its vital that if you make new power tools or new recipies that you include this
 
+	var/list/crafting_precision = list() //assoc list of material craft_types this is good for, such as CRAFTING_STONE. See materials defines. Set = to precision number, 10 VERY MAX
+	var/quality_desc //Do we have a specific quality description
+
 /obj/item/Destroy()
 	if(ismob(loc))
 		var/mob/m = loc
@@ -140,6 +143,8 @@
 	I.forceMove(T)
 
 /obj/item/examine(mob/user, var/distance = -1)
+	if(quality_desc && get_dist(get_turf(src), get_turf(user)) <= w_class)
+		to_chat(user, FONT_SMALL(SPAN_NOTICE(quality_desc)))
 	var/size
 	switch(src.w_class)
 		if (5.0 to INFINITY)
