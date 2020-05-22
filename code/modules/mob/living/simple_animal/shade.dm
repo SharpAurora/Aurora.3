@@ -25,7 +25,7 @@
 	speed = -1
 	stop_automated_movement = 1
 	status_flags = 0
-	faction = "cult"
+	faction = FACTION_CULT
 	status_flags = CANPUSH
 	hunger_enabled = 0
 	appearance_flags = NO_CLIENT_COLOR

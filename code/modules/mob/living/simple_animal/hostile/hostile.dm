@@ -27,6 +27,15 @@
 	var/attack_emote = "stares menacingly at"
 
 	var/smart = FALSE // This makes ranged mob check for friendly fire and obstacles
+	var/list/ignore_factions = list(FACTION_AMBIENT) //Factions we do not attack. Mostly for mobs not fighting
+
+	//For hostile mobs that wait for prey
+	var/patient //Does this mob wait for prey?
+	var/next_bide //when we decide to go back into watch and wait mode. Do not change this.
+	var/minimum_wait //the minimum time we bide for. Do not change this.
+	var/wander_time  //How long we'll wander for between resting/waiting periods. This is the minimum time, 2 times this is max time
+	var/patience //How long we'll rest for, at minimum. 
+	var/resting_view = 3 //How far we sense targets if resting
 
 /mob/living/simple_animal/hostile/Initialize()
 	. = ..()
@@ -48,6 +57,10 @@
 	for (var/atom/A in targets)
 		if(A == src)
 			continue
+		if(isanimal(A))
+			var/mob/living/simple_animal/M = A
+			if(M.hiding)
+				continue
 		var/datum/callback/cb = null
 		for (var/type in target_type_validator_map)
 			if (istype(A, type))
@@ -91,6 +104,8 @@
 /mob/living/simple_animal/hostile/attackby(var/obj/item/O, var/mob/user)
 	..()
 	if(target_mob != user)
+		if(patient)
+			stop_rest()
 		target_mob = user
 		stance = HOSTILE_STANCE_ATTACK
 
@@ -99,32 +114,45 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	if(istype(AM,/obj/))
 		var/obj/O = AM
 		if((target_mob != O.thrower) && ismob(O.thrower))
+			if(resting)
+				stop_rest()
 			target_mob = O.thrower
 			stance = HOSTILE_STANCE_ATTACK
 
 /mob/living/simple_animal/hostile/attack_generic(var/mob/user, var/damage, var/attack_message)
 	..()
 	if(target_mob != user)
+		if(patient)
+			stop_rest()
 		target_mob = user
 		stance = HOSTILE_STANCE_ATTACK
 
 /mob/living/simple_animal/hostile/attack_hand(mob/living/carbon/human/M as mob)
 	..()
 	if(target_mob != M)
+		if(patient)
+			stop_rest()
 		target_mob = M
 		stance = HOSTILE_STANCE_ATTACK
 
 //This proc is called after a target is acquired
 /mob/living/simple_animal/hostile/proc/FoundTarget()
+	if(patient)
+		stop_rest()
 	return
 
 /mob/living/simple_animal/hostile/proc/Found(var/atom/A)
 	return
 
 /mob/living/simple_animal/hostile/proc/see_target()
-	return (target_mob in view(10, src)) ? (TRUE) : (FALSE)
+	var/vision = 10
+	if(resting)
+		vision = resting_view
+	return (target_mob in view(vision, src)) ? (TRUE) : (FALSE)
 
 /mob/living/simple_animal/hostile/proc/MoveToTarget()
+	if(resting)
+		stop_rest()
 	stop_automated_movement = 1
 	if(QDELETED(target_mob) || SA_attackable(target_mob))
 		LoseTarget()
@@ -181,6 +209,8 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 		return T
 
 /mob/living/simple_animal/hostile/proc/LoseTarget()
+	if(patient)
+		next_bide = world.time + rand(patience / 4, patience / 2) //If we're someone who likes to hide, we'll wander around for just a little bit before going back down
 	stance = HOSTILE_STANCE_IDLE
 	target_mob = null
 	walk(src, 0)
@@ -190,6 +220,8 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	return
 
 /mob/living/simple_animal/hostile/proc/ListTargets(var/dist = 7)
+	if(resting)
+		dist = resting_view
 	var/list/L = view(src, dist)
 	return L
 
@@ -198,20 +230,26 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	walk(src, 0)
 
 /mob/living/simple_animal/hostile/think()
+	if(patient && stance == HOSTILE_STANCE_IDLE) //This goes up here because it affects automated movement.
+		bide()
+
 	..()
+
 	switch(stance)
 		if(HOSTILE_STANCE_IDLE)
 			targets = ListTargets(10)
 			target_mob = FindTarget()
-			if(destroy_surroundings && isnull(target_mob))
+			if(destroy_surroundings && isnull(target_mob) && !resting)
 				DestroySurroundings()
 
 		if(HOSTILE_STANCE_ATTACK)
+			stop_rest()
 			if(destroy_surroundings)
 				DestroySurroundings(TRUE)
 			MoveToTarget()
 
 		if(HOSTILE_STANCE_ATTACKING)
+			stop_rest()
 			if(!AttackTarget() && destroy_surroundings)	//hit a window OR a mob, not both at once
 				DestroySurroundings(TRUE)
 			if(attacked_times >= rand(0, 4))
@@ -219,6 +257,21 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 				target_mob = FindTarget()
 				attacked_times = 0
 
+/mob/living/simple_animal/hostile/proc/bide()
+	if(!resting && world.time >= next_bide) //If we aren't resting, we rest, and bide our time for prey
+		stop_automated_movement = TRUE
+		resting = TRUE
+		minimum_wait = world.time + rand(patience, patience * 2)
+	else
+		if(prob(1) && world.time >= minimum_wait) //If we ARE biding our time and a very small chance, we get up and wander a bit.
+			resting = FALSE
+			stop_automated_movement = FALSE
+			next_bide = world.time + rand(wander_time, wander_time * 2)
+	update_icons()
+
+/mob/living/simple_animal/hostile/proc/stop_rest() //For biding creatures. Makes sure we aren't in our resting icon when attacking something.
+	resting = FALSE
+	update_icons()
 
 /mob/living/simple_animal/hostile/proc/OpenFire(target_mob)
 	if(!see_target())
@@ -358,6 +411,8 @@ mob/living/simple_animal/hostile/hitby(atom/movable/AM as mob|obj,var/speed = TH
 	if((L.faction == src.faction) && !attack_same)
 		return FALSE
 	if(L in friends)
+		return FALSE
+	if(L.faction in ignore_factions)
 		return FALSE
 	if(!L.stat)
 		var/current_health = INFINITY

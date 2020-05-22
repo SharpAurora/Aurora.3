@@ -28,7 +28,7 @@
 	min_n2 = 0
 	max_n2 = 0
 	unsuitable_atoms_damage = 15
-	faction = "alien"
+	faction = FACTION_ALIEN
 	environment_smash = 2
 	status_flags = CANPUSH
 	minbodytemp = 0
@@ -99,7 +99,7 @@
 /mob/living/simple_animal/hostile/samak
 	name = "samak"
 	desc = "A fast, armoured predator accustomed to hiding and ambushing in cold terrain."
-	faction = "samak"
+	faction = FACTION_PREDATOR
 	icon_state = "samak"
 	icon_living = "samak"
 	icon_dead = "samak_dead"
@@ -119,11 +119,12 @@
 	mob_size = 10
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/samak
 	butchering_products = list(/obj/item/stack/material/animalhide = 3)
+	ignore_factions = list(FACTION_AMBIENT, FACTION_SNOW)
 
 /mob/living/simple_animal/hostile/diyaab
 	name = "diyaab"
 	desc = "A small pack animal. Although omnivorous, it will hunt meat on occasion."
-	faction = "diyaab"
+	faction = FACTION_DIYAAB
 	icon_state = "diyaab"
 	icon_living = "diyaab"
 	icon_dead = "diyaab_dead"
@@ -145,6 +146,7 @@
 	mob_size = 3
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/diyaab
 	meat_amount = 1
+	ignore_factions = list(FACTION_AMBIENT, FACTION_SNOW)
 
 /mob/living/simple_animal/hostile/diyaab/cave
 	name = "cavern diyaab"
@@ -152,15 +154,15 @@
 	icon_state = "diyaab_cavern"
 	icon_living = "diyaab_cavern"
 	icon_dead = "diyaab_cavern_dead"
-	maxHealth = 45
-	health = 45
+	maxHealth = 40
+	health = 40
 	melee_damage_lower = 3
 	melee_damage_upper = 11
 
 /mob/living/simple_animal/hostile/shantak
 	name = "shantak"
 	desc = "A piglike creature with a bright iridiscent mane that sparkles as though lit by an inner light. Don't be fooled by its beauty though."
-	faction = "shantak"
+	faction = FACTION_PREDATOR
 	icon_state = "shantak"
 	icon_living = "shantak"
 	icon_dead = "shantak_dead"
@@ -179,6 +181,7 @@
 	mob_size = 5
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/shantak
 	butchering_products = list(/obj/item/stack/material/animalhide = 2)
+	ignore_factions = list(FACTION_AMBIENT, FACTION_SNOW)
 
 /mob/living/simple_animal/yithian
 	name = "yithian"

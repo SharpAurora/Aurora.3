@@ -340,3 +340,19 @@
 #define SURGERY_SUCCESS 2 // Proceed with surgery
 #define SURGERY_FAIL 1 // Autofail surgery
 #define SURGERY_IGNORE 0 // Ignore surgery completely and just attack
+
+//Simplemob factions
+#define FACTION_CARP "carp"
+#define FACTION_CULT "cult"
+#define FACTION_SPIDER "spiders"
+#define FACTION_DIYAAB "diyaab"
+#define FACTION_AMBIENT "ambient"
+#define FACTION_CREATURE "creature"
+#define FACTION_ALIEN "alien"
+#define FACTION_LIVESTOCK "livestock"
+#define FACTION_WORMS "worms"
+#define FACTION_LIZARD "lizard"
+#define FACTION_HIVEBOT "hivebot"
+#define FACTION_CAVERN "cavern"
+#define FACTION_PREDATOR "predator"
+#define FACTION_SNOW "snow wildlife"

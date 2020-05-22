@@ -25,7 +25,7 @@
 	max_n2 = 0
 	minbodytemp = 0
 	show_stat_health = TRUE
-	faction = "cult"
+	faction = FACTION_CULT
 	supernatural = TRUE
 	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_LEVEL_ONE

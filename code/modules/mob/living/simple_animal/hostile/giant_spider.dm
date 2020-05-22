@@ -29,7 +29,7 @@
 	cold_damage_per_tick = 20
 	var/poison_per_bite = 5
 	var/poison_type = "toxin"
-	faction = "spiders"
+	faction = FACTION_SPIDER
 	var/busy = 0
 	pass_flags = PASSTABLE
 	move_to_delay = 6
@@ -95,7 +95,7 @@
 /mob/living/simple_animal/hostile/giant_spider/think()
 	..()
 	if(!stat)
-		if(stance == HOSTILE_STANCE_IDLE)
+		if(stance == HOSTILE_STANCE_IDLE && !patient)
 			//1% chance to skitter madly away
 			if(!busy && prob(1))
 				/*var/list/move_targets = list()

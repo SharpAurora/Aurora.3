@@ -73,7 +73,7 @@
 			L.visible_message("<span class='danger'>\the [src] scares \the [L]!</span>")
 
 /mob/living/simple_animal/hostile/scarybat/cult
-	faction = "cult"
+	faction = FACTION_CULT
 	supernatural = 1
 	tameable = FALSE
 	appearance_flags = NO_CLIENT_COLOR

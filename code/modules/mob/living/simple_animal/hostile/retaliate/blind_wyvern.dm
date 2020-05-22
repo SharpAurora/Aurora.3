@@ -13,13 +13,14 @@
 	response_harm = "hits"
 	a_intent = I_HURT
 	stop_automated_movement_when_pulled = 0
-	meat_type = /obj/item/reagent_containers/food/snacks/dwellermeat
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/wyvern
+	meat_amount = 4
 	mob_size = 20
 
-	health = 120
-	maxHealth = 120
-	melee_damage_lower = 15
-	melee_damage_upper = 25
+	health = 340
+	maxHealth = 340
+	melee_damage_lower = 24
+	melee_damage_upper = 30
 	attacktext = "chomped"
 	attack_sound = 'sound/weapons/bite.ogg'
 	speed = 4
@@ -40,6 +41,6 @@
 	max_n2 = 0
 	minbodytemp = 0
 
-	faction = "cavern"
+	faction = FACTION_CAVERN
 
 	flying = TRUE

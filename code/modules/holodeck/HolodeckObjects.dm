@@ -436,7 +436,7 @@
 		environment_smash = 0
 		destroy_surroundings = 0
 	else
-		faction = "carp"
+		faction = FACTION_CARP
 		melee_damage_lower = initial(melee_damage_lower)
 		melee_damage_upper = initial(melee_damage_upper)
 		environment_smash = initial(environment_smash)

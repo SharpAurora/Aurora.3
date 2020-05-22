@@ -38,7 +38,7 @@
 
 	break_stuff_probability = 15
 
-	faction = "carp"
+	faction = FACTION_CARP
 	attack_emote = "nashes at"
 
 	flying = TRUE

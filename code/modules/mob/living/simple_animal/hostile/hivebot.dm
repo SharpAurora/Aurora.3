@@ -23,7 +23,7 @@
 	attacktext = "slashed"
 	projectilesound = 'sound/weapons/bladeslice.ogg'
 	projectiletype = /obj/item/projectile/bullet/pistol/hivebotspike
-	faction = "hivebot"
+	faction = FACTION_HIVEBOT
 	min_oxy = 0
 	max_oxy = 0
 	min_tox = 0
@@ -220,7 +220,7 @@
 	wander = 0
 	stop_automated_movement = 1
 	status_flags = 0
-	faction = "hivebot"
+	faction = FACTION_HIVEBOT
 	ranged = 1
 	rapid = 1
 	min_oxy = 0
@@ -502,7 +502,7 @@
 	attacktext = "skewered"
 	projectilesound = 'sound/weapons/lasercannonfire.ogg'
 	projectiletype = /obj/item/projectile/beam/hivebot/incendiary/heavy
-	faction = "hivebot"
+	faction = FACTION_HIVEBOT
 	min_oxy = 0
 	max_oxy = 0
 	min_tox = 0
