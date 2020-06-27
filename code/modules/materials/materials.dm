@@ -983,6 +983,12 @@
 	stack_type = /obj/item/stack/material/animalhide/human
 	icon_colour = "#833C00"
 
+/material/hide/wyvern
+	name = MATERIAL_HIDE_WYVERN
+	stack_type = /obj/item/stack/material/animalhide/wyvern
+	icon_colour = "#881818"
+	protectiveness = 15
+
 /material/bone
 	name = MATERIAL_BONE
 	icon_colour = "#e3dac9"

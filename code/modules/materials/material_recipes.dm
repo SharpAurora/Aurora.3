@@ -226,12 +226,14 @@
 	var/name = "tool crafting item"
 	var/item_material
 	var/obj/item/item_type
+	var/time_divisor = 1 //Time to craft will be divided by this. Used for things that should be quicker, like arrows and torch handles
 
-/datum/crafting_item/New(var/named, var/obj/item/creation, var/material)
+/datum/crafting_item/New(var/named, var/obj/item/creation, var/material, var/speed_divisor = 1)
 	..()
 	name = named
 	item_type = creation
 	item_material = material
+	time_divisor = speed_divisor
 
 /datum/crafting_item/proc/create(mob/user)
 	var/obj/item/O
@@ -272,21 +274,21 @@
 /material/steel/generate_tool_recipes()
 	..()
 	tool_recipes += new /datum/crafting_item("shield fittings", /obj/item/material/shieldbits)
-	tool_recipes += new /datum/crafting_item("bolt", /obj/item/arrow)
+	tool_recipes += new /datum/crafting_item("bolt", /obj/item/arrow, speed_divisor = 2)
 
 /material/wood/generate_tool_recipes()
 	..()
-	tool_recipes += new /datum/crafting_item("torch handle", /obj/item/torch_handle)
-	tool_recipes += new /datum/crafting_item("skewer", /obj/item/reagent_containers/cooking_container/fire/skewer)
+	tool_recipes += new /datum/crafting_item("torch handle", /obj/item/torch_handle, speed_divisor = 3)
+	tool_recipes += new /datum/crafting_item("skewer", /obj/item/reagent_containers/cooking_container/fire/skewer, speed_divisor = 3)
 	tool_recipes += new /datum/crafting_item("wooden sandals", /obj/item/clothing/shoes/sandal)
 	tool_recipes += new /datum/crafting_item("wood circlet", /obj/item/woodcirclet)
 	tool_recipes += new /datum/crafting_item("crossbow frame", /obj/item/crossbowframe)
 	tool_recipes += new /datum/crafting_item("wooden bucket", /obj/item/reagent_containers/glass/bucket/wood)
-	tool_recipes += new /datum/crafting_item("arrow", /obj/item/arrow/wood)
+	tool_recipes += new /datum/crafting_item("arrow", /obj/item/arrow/wood, speed_divisor = 2)
 
 /material/wood/branch/generate_tool_recipes()
-	tool_recipes += new /datum/crafting_item("torch handle", /obj/item/torch_handle)
-	tool_recipes += new /datum/crafting_item("skewer", /obj/item/reagent_containers/cooking_container/fire/skewer)
+	tool_recipes += new /datum/crafting_item("torch handle", /obj/item/torch_handle, speed_divisor = 3)
+	tool_recipes += new /datum/crafting_item("skewer", /obj/item/reagent_containers/cooking_container/fire/skewer, speed_divisor = 3)
 
 /material/leather/generate_tool_recipes()
 	..()
@@ -294,3 +296,13 @@
 	tool_recipes += new /datum/crafting_item("waist holster", /obj/item/clothing/accessory/holster/waist/brown)
 	tool_recipes += new /datum/crafting_item("thigh holster", /obj/item/clothing/accessory/holster/thigh/brown)
 	tool_recipes += new /datum/crafting_item("hip holster", /obj/item/clothing/accessory/holster/hip/brown)
+
+/material/cloth/generate_tool_recipes()
+	..()
+	tool_recipes += new /datum/crafting_item("rag", /obj/item/reagent_containers/glass/rag, speed_divisor = 4)
+	tool_recipes += new /datum/crafting_item("scarf", /obj/item/clothing/accessory/scarf, name)
+
+/material/hide/generate_tool_recipes()
+	..()
+	tool_recipes += new /datum/crafting_item("hide mantle", /obj/item/clothing/suit/unathi/mantle)
+	tool_recipes += new /datum/crafting_item("fur scarf", /obj/item/clothing/accessory/tajaran, name)

@@ -79,6 +79,7 @@
 	user.visible_message(SPAN_NOTICE("\The [user] begins creating something from \the [src]..."),
 					SPAN_NOTICE("You begin creating a [craft]."))
 	var/time_to_craft = precision >= 7 ? 60 : 40
+	time_to_craft /= craft.time_divisor
 	if(do_after(user, time_to_craft * precision))
 		if(!Adjacent(user) || (loc != user && !isturf(loc))) //Gotta still be close
 			return

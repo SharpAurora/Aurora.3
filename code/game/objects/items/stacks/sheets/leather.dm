@@ -53,6 +53,14 @@
 	default_type = "alien hide"
 	icon_has_variants = FALSE
 
+/obj/item/stack/material/animalhide/wyvern
+	name = "wyvern hide"
+	desc = "The scaled hide of a blind wyvern."
+	singular_name = "wyvern hide piece"
+	icon_state = "sheet-wyvern"
+	default_type = "wyvern hide"
+	icon_has_variants = FALSE
+
 //don't see anywhere else to put these, maybe together they could be used to make the xenos suit?
 /obj/item/stack/material/xenochitin
 	name = "alien chitin"
