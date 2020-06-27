@@ -44,3 +44,5 @@
 	faction = FACTION_CAVERN
 
 	flying = TRUE
+
+	butchering_products = list(/obj/item/stack/material/animalhide/wyvern = 4)
